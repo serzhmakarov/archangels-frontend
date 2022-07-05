@@ -1,0 +1,140 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+$black: #000000;
+$red: #B30000;
+
+.home-page {
+  padding-top: 64px;
+  text-align: left;
+
+  .content-wrapper { 
+    padding: 32px 0;
+  }
+
+  &__title-block-left-side {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: left;
+
+    h1, h4, p {
+      margin: 0;
+    }
+
+    h1 {
+      font-weight: 400;
+      font-size: 48px;
+      padding-bottom: 16px;
+      line-height: 48px;
+    }
+
+    h4 {
+      padding: 16px 0;
+      font-weight: 100;
+      line-height: 32px;
+    }
+
+    p {
+      padding-top: 16px;
+      padding-bottom: 60px;
+      font-weight: 100;
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    &-action-buttons {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0px;
+      gap: 24px;
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+
+      button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 16px 24px;
+        gap: 10px;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+      }
+    }
+  }
+
+  &__title-block-right-side {
+    width: 50%;
+    text-align: center;
+  }
+
+  &__responsibility-wrapper {
+    text-align: left;
+  }
+
+  &__title-block-text {
+    margin-bottom: 64px;
+    padding-left: 16px;
+    font-size: 36px;
+    line-height: 40px;
+    border-left: 1px solid #B30000;
+  }
+
+  &__responsibility-cards-wrapper {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__responsibility-card {
+    border: 1px solid #000000;
+    padding: 16px;
+    margin: 0 16px;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    h4 {
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+
+  &__hyperlink {
+    color: $red;
+    text-decoration: none;
+  }
+
+  &__help-content-container {
+    p {
+      line-height: 28px;
+      font-size: 20px;
+    }
+  }
+
+  &__contact-form-wrapper  {
+    input, textarea {
+      resize: none;
+
+      &:focus {
+       border: 1px solid black; 
+       box-shadow: 0 0 0 .25rem rgba(0, 0, 0, .1);
+      }
+    }
+  }
+}
