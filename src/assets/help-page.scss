@@ -1,0 +1,23 @@
+.help-page {
+  padding-top: 64px;
+  text-align: left;
+
+	.currency-accounts-list {
+		border: 1px solid #111;
+		border-radius: 5px;
+		padding: 0;
+
+		.currency-accounts-list-item {
+			border-bottom: 1px solid #111;
+			padding: 8px 12px;
+
+			&:last-of-type {
+				border-bottom: 0;
+			}
+
+			div {
+				padding: 7px 0;
+			}
+		}
+	}
+}

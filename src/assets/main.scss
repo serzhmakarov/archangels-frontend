@@ -1,4 +1,8 @@
 @import './home-page.scss';
+@import './about-page.scss';
+@import './help-page.scss';
+@import './reports-page.scss';
+@import './news-page.scss';
 
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
@@ -28,6 +32,7 @@ body {
   padding: 0 32px;
   height: 120px;
   align-items: center;
+  z-index: 1;
   .logo {
     svg {
       width: 72px;
@@ -104,16 +109,12 @@ body {
   justify-content: space-between;
   width: 100%;
   align-items: baseline;
-
-  h4 {
-    margin-bottom: 10px
-  }
 }  
 
 .footer-social-networks {
   padding: 26px 0;
 
-  svg { 
+  a { 
     margin: 0 18px;
     
     &:first-of-type {
@@ -142,7 +143,16 @@ body {
   border-color: $red;
   color: $red;
 
-  &:hover {
+  &:hover, &:active, &:focus {
+    color: #fff;
     background-color: $red;
   }
+}
+
+.title-block-text {
+  margin-bottom: 64px;
+  padding-left: 16px;
+  font-size: 36px;
+  line-height: 40px;
+  border-left: 1px solid #B30000;
 }

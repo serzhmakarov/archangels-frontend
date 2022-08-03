@@ -3,13 +3,13 @@ $primary-color: #333;
 $black: #000000;
 $red: #B30000;
 
+.content-wrapper { 
+  padding: 32px 0;
+}
+
 .home-page {
   padding-top: 64px;
   text-align: left;
-
-  .content-wrapper { 
-    padding: 32px 0;
-  }
 
   &__title-block-left-side {
     display: flex;
@@ -76,14 +76,6 @@ $red: #B30000;
 
   &__responsibility-wrapper {
     text-align: left;
-  }
-
-  &__title-block-text {
-    margin-bottom: 64px;
-    padding-left: 16px;
-    font-size: 36px;
-    line-height: 40px;
-    border-left: 1px solid #B30000;
   }
 
   &__responsibility-cards-wrapper {

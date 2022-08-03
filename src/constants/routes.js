@@ -3,8 +3,6 @@ import About from '../components/pages/about';
 import HelpUs from '../components/pages/help';
 import News from '../components/pages/news';
 import Reports from '../components/pages/reports';
-import Contacts from '../components/pages/contacts';
-
 
 const routes = [
   {
@@ -22,10 +20,6 @@ const routes = [
   {
     path: '/reports',
     element: Reports,
-  },
-  {
-    path: '/contacts',
-    element: Contacts,
   },
   {
     path: '/',
