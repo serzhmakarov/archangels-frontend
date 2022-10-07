@@ -1,8 +1,10 @@
-@import './home-page.scss';
-@import './about-page.scss';
-@import './help-page.scss';
-@import './reports-page.scss';
-@import './news-page.scss';
+@import './styles/home-page.scss';
+@import './styles/about-page.scss';
+@import './styles/help-page.scss';
+@import './styles/reports-page.scss';
+@import './styles/news-page.scss';
+@import './styles/post-item-page.scss';
+@import './styles/report-item-page.scss';
 
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
@@ -155,4 +157,27 @@ body {
   font-size: 36px;
   line-height: 40px;
   border-left: 1px solid #B30000;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 15px;
+
+  .input-wrapper {
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    p {
+      margin-left: 5px;
+    }
+  }
+
+  input, textarea, button {
+    margin: 0 5px;
+  }
 }

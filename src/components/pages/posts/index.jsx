@@ -2,27 +2,29 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
-import { getReports } from '../../../api';
-import useFetchData from '../../../hooks/useFetchData';
-import ReportsList from './reportsList';
+import { getPosts } from '../../../api';
 
-const Reports = () => {
-  const { data, isLoaded, loading } = useFetchData(getReports);
+import useFetchData from '../../../hooks/useFetchData';
+import PostsList from './posts';
+
+const Posts = () => {
+  const { loading, isLoaded, data } = useFetchData(getPosts);
+
   return (
-    <Container fluuid className="reports-page">
+    <Container fluuid className="news-page">
       <Row className="about-page__title-block">
-        <h1>ЗВІТИ</h1>
+        <h1>НОВИНИ</h1>
       </Row>
     
       <Row className="content-wrapper">
-        <ReportsList 
+        <PostsList 
+          loading={loading}
           isLoaded={isLoaded}
-          loading={loading} 
-          reports={data} 
+          posts={data}
         />
       </Row>
     </Container>
   );
 };
 
-export default Reports;
+export default Posts;

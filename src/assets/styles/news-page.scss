@@ -1,0 +1,42 @@
+.news-page {
+  padding-top: 64px;
+  text-align: left;
+}
+
+.news-list {
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+
+	.row, .card-body {
+		height: 100%;
+	}
+
+	.card-body {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.news-list-item {
+		margin: 8px;
+		width: calc(50% - 32px);
+		border: 1px solid #111;
+		padding: 8px 12px;
+
+		.news-name {
+			font-size: 20px;
+			line-height: 28px;
+			padding: 8px 0 16px 0;
+		}
+
+		.card-info {
+			padding: 16px 0;
+		}
+	}
+
+	img {
+		max-width: 200px;
+		max-height: 100%;
+	}
+}

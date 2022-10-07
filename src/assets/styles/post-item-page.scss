@@ -1,0 +1,25 @@
+.post-item-page {
+  padding-top: 64px;
+  text-align: left;
+
+  &__title-block {
+    h1 {
+      margin-bottom: 32px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 64px;
+    }
+  
+    p {
+      font-size: 20px;
+      line-height: 28px;  
+      margin-bottom: 32px;
+    }
+
+    img {
+      width: 100%;
+      margin: 16px 0;
+    }
+  }
+}

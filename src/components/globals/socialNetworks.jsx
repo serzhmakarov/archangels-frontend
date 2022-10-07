@@ -1,3 +1,4 @@
+import React from 'react';
 import { socialNetworks } from '../../constants';
 
 const SocialNetworks = () => (
