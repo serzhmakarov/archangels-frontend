@@ -18,7 +18,18 @@ const Footer = () => {
             <div className="footer-contacts-content">
               <h4>БФ “АРХАНГЕЛЬЄРИ КИЄВА”</h4>
               <SocialNetworks />
-              <p className="footer-contacts-hint">Тяжкий 2022 рік.</p>
+              <p className="footer-contacts-hint">
+                Тяжкий 2022 рік. 
+                <a 
+                  className="footer-terms-link" 
+                  target="_blank" 
+                  href="/terms"
+                  rel="noopener noreferrer"
+                >
+                  Terms & Conditions
+                </a>
+              </p>
+             
             </div>
             <div className="footer-button-up">
               <Button 

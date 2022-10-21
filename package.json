@@ -1,7 +1,7 @@
 {
   "name": "archangels",
   "homepage": "http://archangels.website",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@babel/eslint-parser": "^7.18.2",

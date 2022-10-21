@@ -181,3 +181,23 @@ body {
     margin: 0 5px;
   }
 }
+
+.terms_page {
+  text-align: left;
+
+  h1, h2, h3 {
+    margin: 2rem 0;
+    font-weight: bold;
+  }
+}
+
+.footer-terms-link {
+  margin-left: 5px;
+  color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
