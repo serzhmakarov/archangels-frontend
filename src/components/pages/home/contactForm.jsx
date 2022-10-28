@@ -5,15 +5,19 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-import { contactFormFields } from '../../../constants';
 import Field from './field';
+import Alert from '../../globals/alert'
+import { contactFormFields } from '../../../constants';
+import usePostData from '../../../hooks/usePostData';
 
 const ContactForm = () => {
+	const { callback, loading, message } = usePostData();
 	const { handleSubmit, control, formState: { errors } } = useForm();
 
 	const onSubmit = data => {
-    console.log(data);
-    console.log(errors);
+		console.log(data);
+		console.log(errors);
+		callback(data);
   };
 
 	return (
@@ -26,6 +30,10 @@ const ContactForm = () => {
 				</Col>
 				<Col sm={8}>
 					<Form onSubmit={handleSubmit(onSubmit)}>
+					<Alert 
+						message={message}
+						color="green"
+					/>
             {contactFormFields.map((field) => (
                <Field
                   control={control}
@@ -35,7 +43,7 @@ const ContactForm = () => {
             ))}
 
 						<Button variant="outline-danger" className="archangels-btn" type="submit">
-							ВІДПРАВИТИ
+							{loading ? 'ВІДПРАВЛЕННЯ...' : 'ВІДПРАВИТИ'}
 						</Button>
 					</Form>
 				</Col>

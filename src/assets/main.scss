@@ -201,3 +201,34 @@ body {
     text-decoration: none;
   }
 }
+
+.alert-message {
+  width: 100%;
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+}
+
+
+.empty-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
+
+  &__image {
+    background: url('../assets/images/glass-icon.png');
+    width: 220px;
+    background-size: cover;
+    height: 220px;
+  }
+
+  p {
+    margin: 16px 0;
+    font-size: 24px;
+    text-align: center;
+    line-height: 1.5;
+    width: 70%;
+  }
+}

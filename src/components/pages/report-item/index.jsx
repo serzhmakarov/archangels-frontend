@@ -7,6 +7,8 @@ import { getReports } from '../../../api';
 import useFetchData from '../../../hooks/useFetchData';
 import Content from './content';
 
+// TODO: Show 404 page if post doesnt exist
+
 const Report = () => {
   const match = useMatch();
 

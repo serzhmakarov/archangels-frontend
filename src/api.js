@@ -3,6 +3,7 @@ const API_URL = 'http://localhost:3000/api/v1';
 const endpoints = {
   posts: '/posts/',
   reports: '/reports/',
+  sendForm: '/messages/',
 }
 
 async function request({ method, endpoint, data }) {
@@ -35,3 +36,5 @@ request.defaultProps = {
 export const getPosts = (id = '') => request({ method: 'get', endpoint: endpoints.posts + id }); 
 
 export const getReports = (id = '') => request({ method: 'get', endpoint: endpoints.reports + id });
+
+export const sendForm = (data) => request({ method: 'post', endpoint: endpoints.sendForm, data });

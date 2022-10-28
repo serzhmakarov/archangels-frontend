@@ -6,6 +6,8 @@ import { getPosts } from '../../../api';
 import useFetchData from '../../../hooks/useFetchData';
 import Content from './content';
 
+// TODO: Show 404 page if post doesnt exist
+
 const Post = () => {
   const { id } = useParams();
 

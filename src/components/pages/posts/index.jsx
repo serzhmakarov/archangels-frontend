@@ -2,13 +2,15 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
-import { getPosts } from '../../../api';
-
-import useFetchData from '../../../hooks/useFetchData';
 import PostsList from './posts';
+import { getPosts } from '../../../api';
+import useFetchData from '../../../hooks/useFetchData';
+import Placeholder from '../../globals/placeholder';
 
 const Posts = () => {
   const { loading, isLoaded, data } = useFetchData(getPosts);
+
+  const isDataEmpty = isLoaded && !data.length
 
   return (
     <Container fluuid className="news-page">
@@ -17,6 +19,10 @@ const Posts = () => {
       </Row>
     
       <Row className="content-wrapper">
+        <Placeholder 
+          show={isDataEmpty}
+          message="Незабаром тут з'являться всі новини нашого фонду від початку повномасштабного вторгнення."
+        />
         <PostsList 
           loading={loading}
           isLoaded={isLoaded}

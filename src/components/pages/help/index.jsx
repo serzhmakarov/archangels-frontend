@@ -36,11 +36,14 @@ const HelpPage = () => {
         <Button 
           variant="outline-danger" 
           className="archangels-btn"
+          as="a"
+          href='https://bit.ly/36MNTm0'
+          target="_blank"
+          rel="noopener noreferrer"
         >
           ПРИЄДНАТИСЯ
         </Button>
       </Row>
-      
     </Container>
   );
 };

@@ -4,7 +4,6 @@ import SvyatPhotoJpg from '../assets/images/svyat_photo.jpg';
 
 import { 
   InstagramIcon,
-  FacebookIcon, 
   TelegramIcon 
 } from '../assets/icons';
 
@@ -72,13 +71,8 @@ const contactFormFields = [
 
 const socialNetworks = [
   {
-    name: 'facebook',
-    link: '#',
-    IconComponent: FacebookIcon,
-  },
-  {
     name: 'instagram',
-    link: '#',
+    link: 'https://www.instagram.com/archangelsofkyiv',
     IconComponent: InstagramIcon,
   },  
   {

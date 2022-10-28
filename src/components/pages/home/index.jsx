@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 
 import ContactForm from './contactForm';
 import MainPageImage from '../../../assets/images/main_page.jpg';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -19,8 +20,24 @@ const Home = () => {
             яке допомагає ефективніше нищити ворога та рятувати життя наших воїнів.
           </p>
           <div className="home-page__title-block-left-side-action-buttons">
-            <Button variant="outline-danger" className="archangels-btn">ДОПОМОГТИ</Button>
-            <Button variant="outline-danger" className="archangels-btn">ПРИЄДНАТИСЯ</Button>
+            <Button 
+              variant="outline-danger" 
+              className="archangels-btn"
+              as={NavLink}
+              to="/help"
+            >
+              ДОПОМОГТИ
+            </Button>
+            <Button 
+              variant="outline-danger" 
+              className="archangels-btn"
+              as="a"
+              href='https://bit.ly/36MNTm0'
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ПРИЄДНАТИСЯ
+            </Button>
           </div>
         </div>
         <div className="home-page__title-block-right-side">
@@ -46,15 +63,13 @@ const Home = () => {
             <div className="home-page__responsibility-card">
               <h4>МЕДИЦИНА</h4>
               <p>
-                 Ми збираємо гроші на круті броніки,
-                 прибори ночного бачення та дрони – лише найкраще, лише найбільш потрібне.
+                 Возимо українським військовим аптечки IFAK на нуль, постійно постачаємо сертифіковані турнікети.
               </p>
             </div>
             <div className="home-page__responsibility-card">
               <h4>ЕВАКУАЦІЯ</h4>
               <p>
-                 Ми збираємо гроші на круті броніки,
-                 прибори ночного бачення та дрони – лише найкраще, лише найбільш потрібне.
+                Вивозимо цивільних осіб з зони бойових дій. Довозимо до місць збору біженців у великих містах.
               </p>
             </div>
           </div>
