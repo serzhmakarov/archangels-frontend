@@ -26,7 +26,7 @@ const Footer = () => {
                   href="/terms"
                   rel="noopener noreferrer"
                 >
-                  Terms & Conditions
+                  Загальні положення та умови
                 </a>
               </p>
              

@@ -6,7 +6,7 @@ import Reports from '../components/pages/reports';
 import Admin from '../components/pages/admin';
 import PostItem from '../components/pages/post-item';
 import ReportItem from '../components/pages/report-item';
-import Terms from '../components/pages/terms';
+import Terms from '../components/pages/terms/ua';
 
 const routes = [
   {
