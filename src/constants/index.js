@@ -1,3 +1,4 @@
+import PhoneInputMask from '../components/pages/home/phoneInput';
 import SergeyPhotoJpg from '../assets/images/sergey_photo_2.jpg';
 import KyrylPhotoJpg from '../assets/images/kyryl_photo_2.jpg';
 import SvyatPhotoJpg from '../assets/images/svyat_photo.jpg';
@@ -8,6 +9,10 @@ import {
 } from '../assets/icons';
 
 const navLinks = [
+  {
+    link: '/',
+    label: 'Головна',
+  },
   {
     link: '/about',
     label: 'Про нас',
@@ -43,7 +48,7 @@ const contactFormFields = [
     name: 'phone',
     type: 'text',
     required: true,
-    as: 'input',
+    as: PhoneInputMask,
     hint: '',
     placeholder: '+380660097041',
   },
@@ -59,13 +64,14 @@ const contactFormFields = [
   },
   {
     label: 'Ваше звернення',
-    key: 'reason',
-    name: 'reason',
+    key: 'message',
+    name: 'message',
     type: 'text',
     required: true,
     as: 'textarea',
     hint: '',
     placeholder: 'Як ми можемо вам допомогти?',
+    maxLength: 255
   },
 ];
 
@@ -133,73 +139,6 @@ const currencyAccounts = [
   },
 ];
 
-const reportsList = [
-  {
-    name: 'Травень 2022',
-    link: '#',
-  },
-  {
-    name: 'Травень 2022',
-    link: '#',
-  },
-  {
-    name: 'Травень 2022',
-    link: '#',
-  },
-  {
-    name: 'Травень 2022',
-    link: '#',
-  },
-  {
-    name: 'Травень 2022',
-    link: '#',
-  },
-  {
-    name: 'Травень 2022',
-    link: '#',
-  },
-];
-
-const newsList = [
-  {
-    name: 'ПРЕЗИДЕНТ СКАЗАВ, ЩО НАШ ФОНД НАЙРАЩИЙ',
-    date: '05:00 24/02/2022',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    link: '',
-  },
-  {
-    name: 'ПРЕЗИДЕНТ СКАЗАВ, ЩО НАШ ФОНД НАЙРАЩИЙ',
-    date: '05:00 24/02/2022',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    link: '',
-  },
-  {
-    name: 'ПРЕЗИДЕНТ СКАЗАВ, ЩО НАШ ФОНД НАЙРАЩИЙ',
-    date: '05:00 24/02/2022',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    link: '',
-  },
-  {
-    name: 'ПРЕЗИДЕНТ СКАЗАВ, ЩО НАШ ФОНД НАЙРАЩИЙ',
-    date: '05:00 24/02/2022',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    link: '',
-  },
-  {
-    name: 'ПРЕЗИДЕНТ СКАЗАВ, ЩО НАШ ФОНД НАЙРАЩИЙ',
-    date: '05:00 24/02/2022',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    link: '',
-  },
-  {
-    name: 'ПРЕЗИДЕНТ СКАЗАВ, ЩО НАШ ФОНД НАЙРАЩИЙ',
-    date: '05:00 24/02/2022',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    link: '',
-  },
-  
-];
-
 export {
   contactFormFields,
   navLinks,
@@ -207,6 +146,4 @@ export {
   founders,
   teamList,
   currencyAccounts,
-  reportsList,
-  newsList
 }

@@ -12,6 +12,8 @@ const Field = ({
   placeholder, 
   required,
   name,
+  minLength,
+  maxLength,
 }) => {
   return (
     <Form.Group 
@@ -28,6 +30,8 @@ const Field = ({
             {...field}
             as={as}
             type={type} 
+            minLength={minLength}
+            maxLength={maxLength}
             placeholder={placeholder}
             required={required}
           />
@@ -35,14 +39,23 @@ const Field = ({
       />
       {hint && (
         <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
+          Ми ніколи не передамо вашу електронну пошту нікому іншому.
         </Form.Text>
       )}
-      <Form.Control.Feedback type="invalid">
-        Please choose a username.
-      </Form.Control.Feedback>
     </Form.Group>
   );
+};
+
+Field.defaultProps = {
+  minLength: 5,
+  maxLength: 70,
+  required: true,
+  as: 'input',
+  hint: '',
+  placeholder: '',
+  label: '',
+  name: '',
+  type: '',
 };
 
 export default Field;

@@ -7,16 +7,14 @@ import Button from 'react-bootstrap/Button';
 
 import Field from './field';
 import Alert from '../../globals/alert'
+import useSendForm from '../../../hooks/useSendForm';
 import { contactFormFields } from '../../../constants';
-import usePostData from '../../../hooks/usePostData';
 
 const ContactForm = () => {
-	const { callback, loading, message } = usePostData();
-	const { handleSubmit, control, formState: { errors } } = useForm();
+	const { callback, loading, message } = useSendForm();
+	const { handleSubmit, control } = useForm();
 
 	const onSubmit = data => {
-		console.log(data);
-		console.log(errors);
 		callback(data);
   };
 
@@ -27,9 +25,23 @@ const ContactForm = () => {
 						ЗВ’ЯЗАТИСЯ <br /> 
 						З НАМИ
 					</h1>
+					<div className="contacts-info">
+						<h3>Наші контакти:</h3>
+						<div className="contacts-info__block">
+							<div className="">
+								Email: <a href="mailto:archangelsofkyiv@gmail.com">archangelsofkyiv@gmail.com</a>
+							</div>
+							<div>
+								Telegram: <a href="https://t.me/Solomka_Help">t.me/Solomka_Help</a>
+							</div>
+						</div>
+					</div>
 				</Col>
 				<Col sm={8}>
-					<Form onSubmit={handleSubmit(onSubmit)}>
+					<Form 
+						id="contact_form"
+						onSubmit={handleSubmit(onSubmit)}
+					>
 					<Alert 
 						message={message}
 						color="green"

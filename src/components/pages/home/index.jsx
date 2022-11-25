@@ -3,10 +3,10 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { NavLink } from 'react-router-dom';
 
 import ContactForm from './contactForm';
 import MainPageImage from '../../../assets/images/main_page.jpg';
-import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -85,7 +85,7 @@ const Home = () => {
        <Col xs={8}>
         <div>
             <p>Задонать нам! Це найпростіший та найефективніший спосіб допомогти діяльності фонду. </p>
-            <p>Щомісяця ми публікуємо <a href="#hyperlink" className="home-page__hyperlink">фінансові звіти</a>. Все прозоро, всі гроші йдуть на допомогу армії.</p>
+            <p>Щомісяця ми публікуємо <NavLink to="/reports" className="home-page__hyperlink">фінансові звіти</NavLink>. Все прозоро, всі гроші йдуть на допомогу армії.</p>
             <p>Або приєднуйся до нашої команди. Для цього достатньо просто написати нам.</p>
           </div>
        </Col>

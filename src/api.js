@@ -3,7 +3,7 @@ const API_URL = 'http://localhost:3000/api/v1';
 const endpoints = {
   posts: '/posts/',
   reports: '/reports/',
-  sendForm: '/messages/',
+  sendForm: '/contacts/',
 }
 
 async function request({ method, endpoint, data }) {

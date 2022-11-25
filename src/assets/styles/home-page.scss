@@ -110,6 +110,11 @@ $red: #B30000;
   &__hyperlink {
     color: $red;
     text-decoration: none;
+
+    &:hover {
+      color: $red;
+      opacity: .7;
+    }
   }
 
   &__help-content-container {
@@ -120,6 +125,17 @@ $red: #B30000;
   }
 
   &__contact-form-wrapper  {
+    .react-tel-input {
+      &.form-control {
+        border: 0;
+        padding: 0;
+      }
+      input {
+        width: 100%;
+        height: 38px;
+      }
+    }
+
     input, textarea {
       resize: none;
 
@@ -128,5 +144,27 @@ $red: #B30000;
        box-shadow: 0 0 0 .25rem rgba(0, 0, 0, .1);
       }
     }
+  }
+}
+
+.contacts-info {
+  font-size: 16px;
+  line-height: 28px;
+
+  .contacts-info__block div {
+    display: flex;
+    a {
+      text-decoration: none;
+      margin-left: 5px;
+      color: $red;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+  h3 {
+    font-size: 16px;
+    margin-bottom: 28px;
   }
 }

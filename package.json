@@ -1,6 +1,6 @@
 {
   "name": "archangels",
-  "homepage": "http://archangels.website",
+  "homepage": "https://archangels.website",
   "version": "0.1.1",
   "private": true,
   "dependencies": {
@@ -16,6 +16,7 @@
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.33.1",
     "react-icons": "^4.3.1",
+    "react-phone-input-2": "^2.15.1",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-router-hash-link": "^2.4.3",
