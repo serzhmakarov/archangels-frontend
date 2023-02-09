@@ -6,7 +6,6 @@ import Col from 'react-bootstrap/Col';
 import { NavLink } from 'react-router-dom';
 
 import ContactForm from './contactForm';
-import MainPageImage from '../../../assets/images/main_page.jpg';
 
 const Home = () => {
   return (
@@ -39,9 +38,10 @@ const Home = () => {
               ПРИЄДНАТИСЯ
             </Button>
           </div>
+          <div className="home-page__title-block-image-mobile" />
         </div>
         <div className="home-page__title-block-right-side">
-          <img className="home-page__title-block-image" src={MainPageImage} alt="main_page_img" />
+          <div className="home-page__title-block-image" />
         </div>
       </Row>
       <Row className="home-page__responsibility-wrapper content-wrapper">

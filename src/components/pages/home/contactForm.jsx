@@ -37,6 +37,10 @@ const ContactForm = () => {
 						</div>
 					</div>
 				</Col>
+				<Col sm={12} className="form-hint-text">
+					Вам потрібна допомога? Хочете приєднатися до команди? <br /> 
+					Напишіть нам!
+				</Col>
 				<Col sm={8}>
 					<Form 
 						id="contact_form"
@@ -58,6 +62,17 @@ const ContactForm = () => {
 							{loading ? 'ВІДПРАВЛЕННЯ...' : 'ВІДПРАВИТИ'}
 						</Button>
 					</Form>
+					<div className="contacts-info-mobile">
+						<h3>Наші контакти:</h3>
+						<div className="contacts-info__block">
+							<div className="">
+								Email: <a href="mailto:archangelsofkyiv@gmail.com">archangelsofkyiv@gmail.com</a>
+							</div>
+							<div>
+								Telegram: <a href="https://t.me/Solomka_Help">t.me/Solomka_Help</a>
+							</div>
+						</div>
+					</div>
 				</Col>
 			</Row>
 		);

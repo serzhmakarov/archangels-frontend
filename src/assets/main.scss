@@ -157,6 +157,10 @@ body {
   font-size: 36px;
   line-height: 40px;
   border-left: 1px solid #B30000;
+
+  @media screen and (max-width: 991px) {
+    margin-bottom: 32px;
+  }
 }
 
 .admin-form {
