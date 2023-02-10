@@ -21,46 +21,6 @@ body {
   color: $primary-color;
 }
 
-.main {
-  padding-top: 120px;
-
-  @media screen and (max-width: 991px) {
-    padding-top: 0;
-  }
-}
-
-.header {
-  position: fixed;
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0 32px;
-  height: 120px;
-  align-items: center;
-  z-index: 1;
-
-  @media screen and (max-width: 991px) {
-    display: none;  
-  }
-
-  .logo {
-    svg {
-      width: 72px;
-      height: 72px;
-      fill: $red;
-    }
-  }
-
-  .nav-link {
-    font-size: 18px;
-    text-transform: uppercase;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    color: $red !important;
-  }
-}
-
 .contacts-page {
   width: 100%;
   height: 100%;

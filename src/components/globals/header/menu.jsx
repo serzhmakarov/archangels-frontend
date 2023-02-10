@@ -1,24 +1,30 @@
 import React from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
-import useScrollDirection from '../../../hooks/useScrollDirection';
-import { HeaderMobileContainer } from '../styles';
-import Logo from '../logo';
+import { navLinks } from '../../../constants';
+import { StyledMenu } from '../styles';
 
 const Menu = () => {
-  const scrollDirection = useScrollDirection();
-
   return (
-    <HeaderMobileContainer scrollDirection={scrollDirection}>
-      <div className="header-mobile__wrapper">
-        <Logo />
-        <div className="hamburger">
-          <div className="burger" />
-          <div className="burger" />
-          <div className="burger" />
-        </div>
-      </div>
-    </HeaderMobileContainer>
-  );
-};
-
+    <StyledMenu>
+      <Navbar>
+        <Nav>
+          {navLinks.map(({ link, label }) => (
+            <Nav.Link
+              key={link}
+              to={link}
+              as={Link}
+            >
+              {label}
+            </Nav.Link>  
+          ))}
+          <Nav.Link smooth as={HashLink} to="/#contacts">Контакти</Nav.Link>
+        </Nav>
+      </Navbar>
+    </StyledMenu>
+  )
+}
 export default Menu;

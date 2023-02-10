@@ -6,10 +6,14 @@ import { HashLink } from 'react-router-hash-link';
 
 import Logo from '../logo';
 import { navLinks } from '../../../constants';
+import useScrollDirection from '../../../hooks/useScrollDirection';
+import { HeaderDesktopContainer } from '../styles';
 
-const MainHeader = () => {
+const DesktopHeader = () => {
+  const scrollDirection = useScrollDirection();
+  
 	return (
-    <div className="header">
+    <HeaderDesktopContainer className="header" scrollDirection={scrollDirection}>
      <Logo />
      <Navbar>
        <Nav>
@@ -25,8 +29,8 @@ const MainHeader = () => {
           <Nav.Link smooth as={HashLink} to="/#contacts">Контакти</Nav.Link>
         </Nav>
       </Navbar>
-    </div>
+    </HeaderDesktopContainer>
 	);
 };
 
-export default MainHeader;
+export default DesktopHeader;

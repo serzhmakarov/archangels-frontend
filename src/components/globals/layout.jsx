@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from './header/main';
+import DesktopHeader from './header/desktopHeader';
 import Footer from './footer';
-import Menu from './header/menu';
+import MobileHeader from './header/mobileHeader';
 
 const Layout = ({ children }) => {
   return (
 		<div className="layout">
-			<Header />
-			<Menu />
+			<DesktopHeader />
+			<MobileHeader />
 			<div className="main">
 				{children}
 			</div>
