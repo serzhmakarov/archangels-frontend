@@ -34,8 +34,8 @@ $red: #B30000;
 
     h4 {
       padding: 16px 0;
-      font-weight: 100;
       line-height: 32px;
+      font-weight: 500;
     }
 
     p {
@@ -44,12 +44,6 @@ $red: #B30000;
       font-weight: 100;
       font-size: 20px;
       line-height: 28px;
-      order: 3;
-
-      @media screen and (max-width: 991px) {
-        padding-bottom: 0;
-        font-size: 18px;
-      }
     }
 
     &-action-buttons {
@@ -76,8 +70,27 @@ $red: #B30000;
         align-self: stretch;
         flex-grow: 0;
       }
+    }
 
-      @media screen and (max-width: 991px) {
+    @media screen and (max-width: 991px) {
+      padding-top: 0;
+
+      p {
+        padding-bottom: 0;
+        font-size: 18px;
+        order: 3;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      br {
+        display: none;
+      }
+
+      &-action-buttons {
+        order: 1;
         width: 100%;
         justify-content: center;
         flex-direction: row;

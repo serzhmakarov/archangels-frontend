@@ -23,6 +23,10 @@ body {
 
 .main {
   padding-top: 120px;
+
+  @media screen and (max-width: 991px) {
+    padding-top: 0;
+  }
 }
 
 .header {
@@ -35,6 +39,11 @@ body {
   height: 120px;
   align-items: center;
   z-index: 1;
+
+  @media screen and (max-width: 991px) {
+    display: none;  
+  }
+
   .logo {
     svg {
       width: 72px;
