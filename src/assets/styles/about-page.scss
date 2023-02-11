@@ -6,12 +6,25 @@
     width: inherit;
   }
 
+  .founders-block {
+    @media screen and (max-width: 991px) {
+      padding: 64px 16px 16px 16px;
+      .founder-card {
+        width: 100%;
+        margin: 16px 0;
+      }
+    }
+  }
+
   .founder-card {
     padding: 16px;
     margin: 0 8px;
+    width: 18rem;
+    z-index: -1;
 
     @media screen and (max-width: 991px) {
       width: 100%;
+      margin: 16px 0;
     }
   }
 
