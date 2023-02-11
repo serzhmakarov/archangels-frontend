@@ -1,30 +1,32 @@
-import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
 import { navLinks } from '../../../constants';
 import { StyledMenu } from '../styles';
 
-const Menu = () => {
-  return (
-    <StyledMenu>
-      <Navbar>
-        <Nav>
-          {navLinks.map(({ link, label }) => (
-            <Nav.Link
-              key={link}
-              to={link}
-              as={Link}
-            >
-              {label}
-            </Nav.Link>  
-          ))}
-          <Nav.Link smooth as={HashLink} to="/#contacts">Контакти</Nav.Link>
-        </Nav>
-      </Navbar>
-    </StyledMenu>
-  )
-}
+const Menu = ({ isMenuOpen, onCloseMenu }) => (
+  <StyledMenu isMenuOpen={isMenuOpen}>
+    <div>
+      {navLinks.map(({ link, label }) => (
+        <NavLink
+          onClick={onCloseMenu}
+          key={link}
+          to={link}
+        >
+          {label}
+        </NavLink>  
+      ))}
+      <NavLink 
+        smooth 
+        onClick={onCloseMenu}
+        as={HashLink} 
+        to="/#contacts"
+      >
+        Контакти
+      </NavLink>
+    </div>
+  </StyledMenu>
+);
+
 export default Menu;

@@ -80,6 +80,26 @@ body {
   justify-content: space-between;
   width: 100%;
   align-items: baseline;
+
+  @media screen and (max-width: 991px) {
+    display: flex;
+    flex-direction: column;
+
+    .footer-contacts-content {
+      order: 2;
+      margin-top: 32px;
+      text-align: left;
+    }
+
+    .footer-button-up {
+      order: 1;
+      width: 100%;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
 }  
 
 .footer-social-networks {

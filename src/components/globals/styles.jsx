@@ -1,6 +1,12 @@
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
 
+function setTopPosition({ scrollDirection, isMenuOpen }) {
+  if (isMenuOpen) return 0;
+
+  return scrollDirection === 'down' ? '-6rem' : 0;
+}
+
 export const HeaderMobileContainer = styled(Container)`
   display: none !important;
 
@@ -10,34 +16,16 @@ export const HeaderMobileContainer = styled(Container)`
     position: sticky;
     height: 6rem;
     background: #fff;
-    top: ${props => props.scrollDirection === 'down' ? '-6rem' : 0};
+    top: ${setTopPosition};
     transition: top .2s;
   }
 
   .header-mobile__wrapper {
+    z-index: 2;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-
-  .hamburger {
-    cursor: pointer;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    justify-content: space-around;
-    flex-flow: column nowrap;
-    z-index: 10;
-  }
-
-  .burger {
-    width: 2rem;
-    height: 0.1rem;
-    border-radius: 10px;
-    background-color: #B30000;
-    transform-origin: 1px;
-    transition: all .3s linear;
   }
 `;
 
@@ -83,8 +71,15 @@ export const StyledMenu = styled.nav`
   padding: 2rem;
   position: absolute;
   top: 0;
-  left: 0;
-  transition: transform 0.3s ease-in-out;
+  left: ${props => props.isMenuOpen ? 0 : '-100%'};
+  width: 100%;
+  transition: left .3s;
+  z-index: 1;
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
   
   @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 100%;
@@ -94,18 +89,38 @@ export const StyledMenu = styled.nav`
     font-size: 2rem;
     text-transform: uppercase;
     padding: 2rem 0;
-    font-weight: bold;
     letter-spacing: 0.5rem;
     text-decoration: none;
+    color: #B30000;
     transition: color 0.3s linear;
+    text-underline-offset: 4px;
+
+    &:hover {
+      text-decoration: underline;
+    }
     
     @media screen and (max-width: 991px) {
       font-size: 1.5rem;
       text-align: center;
     }
+  }
+`;
 
-    /* &:hover {
-      color: ${({ theme }) => theme.primaryHover};
-    } */
+export const StyledHamburger = styled.div`
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+  z-index: 10;
+
+  .burger {
+    width: 2rem;
+    height: 0.1rem;
+    border-radius: 10px;
+    background-color: #B30000;
+    transform-origin: 1px;
+    transition: all .3s linear;
   }
 `;
