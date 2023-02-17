@@ -6,43 +6,63 @@ import Reports from '../components/pages/reports';
 import Admin from '../components/pages/admin';
 import PostItem from '../components/pages/post-item';
 import ReportItem from '../components/pages/report-item';
+import AdminPost from '../components/pages/admin/pages/createPost';
 import Terms from '../components/pages/terms/ua';
+
+import { routesPath } from '../constants';
 
 const routes = [
   {
-    path: '/admin',
+    path: routesPath.adminCreatePost,
+    element: AdminPost,
+  },
+  {
+    path: routesPath.adminCreateReport,
+    element: AdminPost,
+  },
+  {
+    path: routesPath.adminUpdatePost,
+    element: AdminPost,
+  },
+  {
+    path: routesPath.adminUpdateReport,
+    element: AdminPost,
+  },
+
+  {
+    path: routesPath.admin,
     element: Admin,
   },
   {
-    path: '/about',
+    path: routesPath.about,
     element: About,
   },
   {
-    path: '/help',
+    path: routesPath.help,
     element: HelpUs
   },
+  {
+    path: routesPath.news,
+    element: Posts
+  },
   { 
-    path: '/news/:id',
+    path: routesPath.new,
     element: PostItem,
   },
   {
-    path: '/news',
-    element: Posts
-  },
-  {
-    path: '/reports',
+    path: routesPath.reports,
     element: Reports,
   },
   { 
-    path: '/reports/:id',
+    path: routesPath.report,
     element: ReportItem,
   },
   {
-    path: '/terms',
+    path: routesPath.terms,
     element: Terms,
   },
   {
-    path: '/',
+    path: routesPath.root,
     element: Home,
   },
 ];

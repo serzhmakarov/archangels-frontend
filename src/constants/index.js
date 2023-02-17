@@ -139,6 +139,49 @@ const currencyAccounts = [
   },
 ];
 
+const adminTableFields = [
+  {
+    name: 'id',
+    label: 'ID',
+  },
+  {
+    key: 'name',
+    label: 'Name',
+  },
+  {
+    key: 'description',
+    label: 'Description',
+  },
+  {
+    key: 'created_at',
+    label: 'Created Date',
+  },
+  {
+    key: 'edit',
+    label: '',
+  },
+  {
+    key: 'delete',
+    label: ''
+  },
+];
+
+const routesPath = {
+  root: '/',
+  admin:'/admin',
+  about:'/about',
+  help:'/help',
+  new:'/news/:id',
+  news: '/news',
+  reports:'/reports',
+  report:'/reports/:id',
+  terms:'/terms',
+  adminCreatePost: '/admin/posts',
+  adminCreateReport: '/admin/reports',
+  adminUpdatePost: '/admin/posts/:id',
+  adminUpdateReport: '/admin/reports/:id',
+}
+
 export {
   contactFormFields,
   navLinks,
@@ -146,4 +189,6 @@ export {
   founders,
   teamList,
   currencyAccounts,
+  adminTableFields,
+  routesPath
 }

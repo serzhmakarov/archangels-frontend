@@ -5,6 +5,7 @@
 @import './styles/news-page.scss';
 @import './styles/post-item-page.scss';
 @import './styles/report-item-page.scss';
+@import './styles/admin.scss';
 
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
@@ -19,6 +20,10 @@ body {
 
   font: 100% $font-stack;
   color: $primary-color;
+}
+
+#root, body, .layout {
+  height: 100vh;
 }
 
 .contacts-page {

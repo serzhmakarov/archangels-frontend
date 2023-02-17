@@ -41,6 +41,7 @@ export const HeaderDesktopContainer = styled.div`
   z-index: 10;
   top: ${props => props.scrollDirection === 'down' ? '-6rem' : 0};
   transition: top .2s;
+  border: 1px solid #e8e8e8;
 
   @media screen and (max-width: 991px) {
     display: none;  
