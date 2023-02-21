@@ -37,14 +37,22 @@ request.defaultProps = {
   endpoint: '/'
 }
 
+// SEND FORM TO SEND EMAIL 
+export const sendForm = (data) => request({ method: 'post', endpoint: endpoints.sendForm, data });
+
+// GET, CREATE, UPDATE, DELETE requests for Reports and Posts
 export const getPosts = (id = '') => request({ method: 'get', endpoint: endpoints.posts + id }); 
 
 export const getReports = (id = '') => request({ method: 'get', endpoint: endpoints.reports + id });
-
-export const sendForm = (data) => request({ method: 'post', endpoint: endpoints.sendForm, data });
 
 export const createPost = (data) => request({ method: 'post', endpoint: endpoints.posts, data });
 
 export const createReport = (data) => request({ method: 'post', endpoint: endpoints.reports, data });
 
+export const updatePost = ({ id, data }) => request({ method: 'put', endpoint: endpoints.posts + id, data });
+
+export const updateReport = ({ id, data }) => request({ method: 'put', endpoint: endpoints.reports + id, data });
+
 export const deletePost = (id) => request({ method: 'delete', endpoint: endpoints.posts + id })
+
+export const deleteReport = (id) => request({ method: 'delete', endpoint: endpoints.reports + id })

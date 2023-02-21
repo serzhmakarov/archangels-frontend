@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { Tabs, Tab, Container, Row, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,8 +6,11 @@ import AdminTable from './nested/AdminTable';
 import useFetchAdminData from './helpers/useFetchAdminData';
 import withCredentials from './helpers/useCredentials';
 import ConfirmationModal from './nested/ConfirmationModal';
+import ModalCreateItem from './pages/modalCreatePost';
 import { routesPath } from '../../../constants';
-import { deletePost } from '../../../api';
+
+import { reducer, initialState } from './helpers/reducer';
+import useApi from './helpers/useApi';
 
 const tabs = {
   posts: 'Posts',
@@ -17,7 +20,7 @@ const tabs = {
 
 const AdminPageComponent = () => {
   const navigate = useNavigate();
-  const { data, isLoaded } = useFetchAdminData();
+  const [adminState, dispatch] = useReducer(reducer, initialState);
   
   const [activeTab, setActiveTab] = useState(tabs.posts);
   const [rowDeleteId, setRowDeleteId] = useState(null);
@@ -25,13 +28,29 @@ const AdminPageComponent = () => {
 
   const [renderedData, setRenderedData] = useState([]);
 
+  useFetchAdminData({ dispatch });
+
+  const {
+    deletePostRequest, 
+    deleteReportRequest,
+    createPostRequest,
+    createReportRequest
+  } = useApi({ dispatch });
+
+  const { 
+    error, 
+    loading,
+    posts,
+    reports,
+    isCreationModalOpen,
+    isConfirmationModalOpen,
+   } = adminState;
+
   useEffect(() => {
-    if (isLoaded) {
-      setRenderedData([
-        ...data[activeTab.toLocaleLowerCase()]
-      ]);
+    if (posts.isLoaded || reports.isLoaded) {
+      setRenderedData(adminState[activeTab.toLocaleLowerCase()]?.data);
     }
-  }, [isLoaded, activeTab]);
+  }, [adminState.posts, adminState.reports.isLoaded, activeTab]);
 
   const handleShowModal = (id) => {
     setShowModal(true);
@@ -44,25 +63,32 @@ const AdminPageComponent = () => {
   };
 
   const handleDelete = () => {
-    deletePost(rowDeleteId)
-      .then(() => {
-        setRenderedData(renderedData.filter(({ id }) => id !== rowDeleteId));
-      })
+    if (activeTab === tabs.posts) {
+      deletePostRequest(rowDeleteId)
+        .then(() => setShowModal(false));
 
-    setShowModal(false);
+    } else if (activeTab === tabs.reports) {
+      deleteReportRequest(rowDeleteId)
+        .then(() => setShowModal(false));
+    }
   };
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
 
-  const handleAddClick = () => {
-    navigate(routesPath.adminCreatePost);
+  const handleCreateClick = (formData) => {
+    if (activeTab === tabs.posts) {
+      return createPostRequest(formData);
+    }
+
+    else return createReportRequest(formData);
   };
   
   return (
     <Container className="admin-page">
       <ConfirmationModal 
+        loading={loading}
         showModal={showModal}
         handleDelete={handleDelete}
         handleCloseModal={handleCloseModal}
@@ -77,12 +103,15 @@ const AdminPageComponent = () => {
             <Tab eventKey="Posts" title="Posts" />
             <Tab eventKey="Reports" title="Reports" />
           </Tabs>
-          <Button 
-            variant="outline-success" 
-            onClick={handleAddClick}
-          >
-            + Add
-          </Button>
+          
+          <ModalCreateItem 
+            activeTab={activeTab}
+            isModalShow={isCreationModalOpen}
+            handleCreateClick={handleCreateClick}
+            dispatch={dispatch}
+            loading={loading}
+          />
+
         </Col>
       </Row>
       <Row>

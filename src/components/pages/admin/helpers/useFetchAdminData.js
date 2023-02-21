@@ -1,34 +1,29 @@
 
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
+
 import { getPosts, getReports } from '../../../../api';
+import { actionTypes } from '../../../../constants/actionTypes';
 
-export default function useFetchAdminData() {
-	const [error, setError] = useState(null);
-	const [loading, setLoading] = useState(false);
-	const [isLoaded, setIsLoaded] = useState(false);
-  const [data, setData] = useState({ 
-    posts: [],
-    reports: [],
-   })
-	
-
+export default function useFetchAdminData({ dispatch }) {
   useEffect(() => {
-		setLoading(true);
-		setError(null);
+		dispatch({ type: actionTypes.getPostsRequest });
+		dispatch({ type: actionTypes.getReportsRequest });
 
     Promise.all([getPosts(), getReports()])
 			.then(([posts, reports]) => {
-				setData({ posts, reports })
-				setLoading(false);
-				setIsLoaded(true);
+				dispatch({ type: actionTypes.getPostsSuccess, payload: posts });
+				dispatch({ type: actionTypes.getReportsSuccess, payload: reports });
+
+				return Promise.resolve([posts, reports]);
 			})
 			.catch((error) => {
-				setError(error);
-				setLoading(false);
-				setIsLoaded(true);
+				dispatch({ type: actionTypes.getPostsFailure, payload: error });
+				dispatch({ type: actionTypes.getReportsFailure, payload: error });
+
+				return Promise.reject(error);
 			})
   }, []);
 
-	return { data, error, isLoaded, loading };
+	return null;
 }

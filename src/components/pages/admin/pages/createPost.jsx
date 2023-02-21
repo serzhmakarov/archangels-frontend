@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 
 import { adminTableFields } from '../constants';
-import usePostRequest from '../helpers/usePostRequest';
+import useApi from '../helpers/useApi';
 
-const CreatePost = () => {
-  const { loading, isSuccess, callback } = usePostRequest();
+const CreatePost = ({ loading, isSuccess, dispatch}) => {
+  const { createPostRequest } = useApi({ dispatch });
 
-  const [data, setData] = useState({
+  const [formData, setFormData] = useState({
     name: '',
     description: '',
     date: '',
@@ -19,22 +19,21 @@ const CreatePost = () => {
     const name = target.name;
     const value = target.type === 'file' ? target.files[0] : target.value;
     
-    setData(prevData => ({
+    setFormData(prevData => ({
       ...prevData,
       [name]: value
     }));
   }
   
-
   function handleSubmit(event) {
     event.preventDefault();
-    callback(data);
+    createPostRequest(formData);
   }
 
   return (
     <Container className="admin-create-form-page">
       <h1>#Create Post</h1>
-      {isSuccess && (
+      {isSuccess && (     
         <p className="success-message">The post was successfully created and added to the pages.</p>
       )}
       <Form onSubmit={handleSubmit}>
@@ -49,7 +48,7 @@ const CreatePost = () => {
               type={type}
               name={key}
               rows={rows}
-              value={type !== 'file' ? data[key] : null}
+              value={type !== 'file' ? formData[key] : null}
               onChange={handleChange}
             />
         </Form.Group>

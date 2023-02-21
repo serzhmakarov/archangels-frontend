@@ -1,6 +1,6 @@
 import { Button, Modal } from 'react-bootstrap';
 
-const ConfirmationModal = ({ showModal, handleDelete, handleCloseModal }) => (
+const ConfirmationModal = ({ showModal, handleDelete, handleCloseModal, loading }) => (
   <Modal show={showModal} onHide={handleCloseModal}>
     <Modal.Header closeButton>
       <Modal.Title>Confirm Deletion</Modal.Title>
@@ -11,7 +11,7 @@ const ConfirmationModal = ({ showModal, handleDelete, handleCloseModal }) => (
         Cancel
       </Button>
       <Button variant="danger" onClick={handleDelete}>
-        Delete
+        {loading ? 'Loading...' : 'Delete'}
       </Button>
     </Modal.Footer>
   </Modal>
