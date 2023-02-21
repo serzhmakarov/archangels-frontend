@@ -4,7 +4,7 @@ import TableRow from './TableRow';
 
 import { adminTableFields } from '../../../../constants';
 
-const AdminTable = ({ activeTab, data, handleShowModal }) => {  
+const AdminTable = ({ activeTab, data, handleShowModal, onUpdateButtonClick }) => {  
   return (
     <Table striped bordered hover>
       <thead>
@@ -22,6 +22,7 @@ const AdminTable = ({ activeTab, data, handleShowModal }) => {
             index={index}
             handleShowModal={handleShowModal}
             activeTab={activeTab}
+            onUpdateButtonClick={onUpdateButtonClick}
           />
         ))}
       </tbody>

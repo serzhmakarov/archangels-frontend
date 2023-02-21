@@ -1,16 +1,15 @@
 import React, { useEffect, useReducer, useState } from 'react';
-import { Tabs, Tab, Container, Row, Col, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Tabs, Tab, Container, Row, Col } from 'react-bootstrap';
 
 import AdminTable from './nested/AdminTable';
 import useFetchAdminData from './helpers/useFetchAdminData';
 import withCredentials from './helpers/useCredentials';
 import ConfirmationModal from './nested/ConfirmationModal';
-import ModalCreateItem from './pages/modalCreatePost';
-import { routesPath } from '../../../constants';
+import ModalCreateItem from './nested/modalCreateItem';
 
 import { reducer, initialState } from './helpers/reducer';
 import useApi from './helpers/useApi';
+import { actionTypes } from '../../../constants/actionTypes';
 
 const tabs = {
   posts: 'Posts',
@@ -19,13 +18,10 @@ const tabs = {
 }
 
 const AdminPageComponent = () => {
-  const navigate = useNavigate();
   const [adminState, dispatch] = useReducer(reducer, initialState);
-  
+
   const [activeTab, setActiveTab] = useState(tabs.posts);
   const [rowDeleteId, setRowDeleteId] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-
   const [renderedData, setRenderedData] = useState([]);
 
   useFetchAdminData({ dispatch });
@@ -34,7 +30,9 @@ const AdminPageComponent = () => {
     deletePostRequest, 
     deleteReportRequest,
     createPostRequest,
-    createReportRequest
+    createReportRequest,
+    updatePostRequest,
+    updateReportRequest,
   } = useApi({ dispatch });
 
   const { 
@@ -44,32 +42,39 @@ const AdminPageComponent = () => {
     reports,
     isCreationModalOpen,
     isConfirmationModalOpen,
+    itemForUpdate,
    } = adminState;
 
   useEffect(() => {
     if (posts.isLoaded || reports.isLoaded) {
       setRenderedData(adminState[activeTab.toLocaleLowerCase()]?.data);
     }
-  }, [adminState.posts, adminState.reports.isLoaded, activeTab]);
+  }, [adminState.posts, adminState.reports, activeTab]);
+
+  const onUpdateButtonClick = (id) => {
+    dispatch({ 
+      type: actionTypes.onUpdateButtonClick,
+      payload: { id, targetName: activeTab.toLowerCase() },
+    })
+  };
 
   const handleShowModal = (id) => {
-    setShowModal(true);
+    dispatch({ type: actionTypes.openConfirmationModal });
     setRowDeleteId(id);
   };
 
   const handleCloseModal = () => {
-    setShowModal(false);
     setRowDeleteId(null);
   };
 
   const handleDelete = () => {
     if (activeTab === tabs.posts) {
       deletePostRequest(rowDeleteId)
-        .then(() => setShowModal(false));
+        .then(() => dispatch({ type: actionTypes.closeConfirmationModal }));
 
-    } else if (activeTab === tabs.reports) {
+    } else {
       deleteReportRequest(rowDeleteId)
-        .then(() => setShowModal(false));
+      .then(() => dispatch({ type: actionTypes.closeConfirmationModal }))
     }
   };
 
@@ -79,17 +84,21 @@ const AdminPageComponent = () => {
 
   const handleCreateClick = (formData) => {
     if (activeTab === tabs.posts) {
-      return createPostRequest(formData);
-    }
+      const callback = itemForUpdate ? updatePostRequest : createPostRequest;
+      
+      return callback(formData, itemForUpdate?.id)
+    } else {
+      const callback = itemForUpdate ? updateReportRequest : createReportRequest;
 
-    else return createReportRequest(formData);
+      return callback(formData, itemForUpdate?.id);
+    }
   };
   
   return (
     <Container className="admin-page">
       <ConfirmationModal 
         loading={loading}
-        showModal={showModal}
+        showModal={isConfirmationModalOpen}
         handleDelete={handleDelete}
         handleCloseModal={handleCloseModal}
       />
@@ -105,18 +114,19 @@ const AdminPageComponent = () => {
           </Tabs>
           
           <ModalCreateItem 
+            itemForUpdate={itemForUpdate}
             activeTab={activeTab}
             isModalShow={isCreationModalOpen}
             handleCreateClick={handleCreateClick}
             dispatch={dispatch}
             loading={loading}
           />
-
         </Col>
       </Row>
       <Row>
         <Col xs={12}>
           <AdminTable
+            onUpdateButtonClick={onUpdateButtonClick}
             activeTab={activeTab}
             handleShowModal={handleShowModal}
             data={renderedData}
@@ -128,4 +138,3 @@ const AdminPageComponent = () => {
 };
 
 export default withCredentials(AdminPageComponent);
-// export default AdminPageComponent;

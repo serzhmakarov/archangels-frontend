@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { actionTypes } from '../../../../constants/actionTypes';
 import { adminTableFields } from '../constants';
@@ -16,8 +16,13 @@ const ModalCreateItem = ({
   handleCreateClick, 
   loading,
   dispatch,
+  itemForUpdate,
  }) => {
   const [formData, setFormData] = useState(initialFormData);
+
+  useEffect(() => {
+    if (itemForUpdate) setFormData(itemForUpdate);
+  }, [itemForUpdate]);
 
   function handleChange(event) {
     const target = event.target;
@@ -41,11 +46,14 @@ const ModalCreateItem = ({
 
   function handleSubmit(event) {
     event.preventDefault();
+
     handleCreateClick(formData)
       .then(() => handleClose());
   }
 
   const targetName = activeTab.toLowerCase().slice(0, activeTab.length - 1);
+  
+  const actionTitleName = itemForUpdate ? 'Update' : 'Create';
 
   return (
     <>
@@ -57,7 +65,7 @@ const ModalCreateItem = ({
       </Button>
       <Modal show={isModalShow} onHide={handleClose}>
         <Form onSubmit={handleSubmit} className="admin-create-form-page__form-wrapper">
-          <h1>Create new {targetName}</h1>
+          <h1>{actionTitleName} {targetName}</h1>
           {adminTableFields.map(({ key, label, type, rows = 1 }) => (
             <Form.Group 
               controlId="formName"

@@ -26,7 +26,7 @@ const DesktopHeader = () => {
               {label}
             </Nav.Link>  
           ))}
-          <Nav.Link smooth as={HashLink} to="/#contacts">Контакти</Nav.Link>
+          <Nav.Link as={HashLink} to="/#contacts">Контакти</Nav.Link>
         </Nav>
       </Navbar>
     </HeaderDesktopContainer>

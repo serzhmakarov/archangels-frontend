@@ -38,6 +38,8 @@ const actionTypes = {
 
   openConfirmationModal: 'OPEN_CONFIRAMTION_MODAL',
   openCreationModal: 'OPEN_CREATION_MODAL',
+
+  onUpdateButtonClick: 'ON_UPDATE_BUTTON_CLICK',
 };
 
 export { actionTypes }

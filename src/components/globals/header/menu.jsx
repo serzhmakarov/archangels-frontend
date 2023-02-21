@@ -18,7 +18,6 @@ const Menu = ({ isMenuOpen, onCloseMenu }) => (
         </NavLink>  
       ))}
       <NavLink 
-        smooth 
         onClick={onCloseMenu}
         as={HashLink} 
         to="/#contacts"

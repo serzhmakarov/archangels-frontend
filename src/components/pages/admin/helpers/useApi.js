@@ -1,13 +1,18 @@
 import { actionTypes } from '../../../../constants/actionTypes';
 import { 
-  createPost, createReport, deletePost, deleteReport 
+  createPost, 
+  createReport, 
+  deletePost, 
+  deleteReport,
+  updatePost, 
+  updateReport,
 } from '../../../../api';
 
-const generateFormData = (data) => {
+const generateFormData = (data, objectKey) => {
   const formData = new FormData();
 
   Object.keys(data).forEach((key) => {
-    formData.append(`post[${key}]`, data[key]);
+    formData.append(`${objectKey}[${key}]`, data[key]);
   });
 
   return formData;
@@ -16,7 +21,7 @@ const generateFormData = (data) => {
 
 export default function useApi({ dispatch }) {
   const createPostRequest = async (data) => {
-    const formData = generateFormData(data);
+    const formData = generateFormData(data, 'post');
 
     dispatch({ type: actionTypes.createPostRequest });
 
@@ -31,9 +36,9 @@ export default function useApi({ dispatch }) {
   };
 
   const createReportRequest = async (data) => {
-    dispatch({ type: actionTypes.createReportRequest });
+    const formData = generateFormData(data, 'report');
 
-    const formData = generateFormData(data);
+    dispatch({ type: actionTypes.createReportRequest });
 
     try {
       const response = await createReport(formData);
@@ -41,6 +46,44 @@ export default function useApi({ dispatch }) {
       return await Promise.resolve(response);
     } catch (error) {
       dispatch({ type: actionTypes.createReportFailure, payload: error });
+      return await Promise.reject(error);
+    }
+  };
+
+  const updatePostRequest = async (formData, id) => {
+    const data = generateFormData(formData, 'post');
+
+    if (typeof data.photo === 'string') {
+      data.delete('post[photo]');
+    }
+
+    dispatch({ type: actionTypes.updatePostRequest });
+
+    try {
+      const response = await updatePost({ id, data });
+      dispatch({ type: actionTypes.updatePostSuccess, payload: response });
+      return await Promise.resolve(response);
+    } catch (error) {
+      dispatch({ type: actionTypes.updatePostFailure, payload: error });
+      return await Promise.reject(error);
+    }
+  };
+
+  const updateReportRequest = async (formData, id) => {
+    const data = generateFormData(formData, 'report');
+
+    if (typeof data.photo === 'string') {
+      data.delete('report[photo]');
+    }
+
+    dispatch({ type: actionTypes.updateReportRequest });
+
+    try {
+      const response = await updateReport({ id, data });
+      dispatch({ type: actionTypes.updateReportSuccess, payload: response });
+      return await Promise.resolve(response);
+    } catch (error) {
+      dispatch({ type: actionTypes.updateReportFailure, payload: error });
       return await Promise.reject(error);
     }
   };
@@ -76,6 +119,8 @@ export default function useApi({ dispatch }) {
     createReportRequest,
     deletePostRequest,
     deleteReportRequest,
+    updatePostRequest,
+    updateReportRequest,
   };
 };
 

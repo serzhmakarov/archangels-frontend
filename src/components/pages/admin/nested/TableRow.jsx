@@ -1,28 +1,41 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
+import { truncate } from 'lodash-es';
 
-// import { routesPath } from '../../../../constants';
+function truncateString(str, maxLength) {
+  return truncate(str, {
+    length: maxLength,
+    omission: '...'
+  });
+};
 
-const TableRow = ({ id, index, name, description, created_at, handleShowModal }) => {
-  const navigate = useNavigate();
-
+const TableRow = ({ 
+  id, 
+  index, 
+  name, 
+  description, 
+  created_at, 
+  photo_url,
+  handleShowModal, 
+  onUpdateButtonClick 
+}) => {
   const handleUpdateClick = () => {
-    navigate('/admin');
-    // navigate(routesPath[activeTab]);
-    console.log('edit click');
+    onUpdateButtonClick(id);
   };
 
   const handleDeleteClick = () => {
     handleShowModal(id);
-  }
+  };
 
   return (
     <tr key={id}>
       <td>{index + 1}</td>
-      <td>{name}</td>
-      <td>{description}</td>
+      <td>
+        <img className="admin-page__row-item-image" src={photo_url} alt="" />
+      </td>
+      <td title={name}>{truncateString(name, 50)}</td>
+      <td title={description}>{truncateString(description, 50)}</td>
       <td>{moment(created_at).format('YYYY-MM-DD / hh:ss')}</td>
       <td>
         <Button variant="outline-secondary" onClick={handleUpdateClick}>Edit</Button>

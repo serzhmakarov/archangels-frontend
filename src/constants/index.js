@@ -145,6 +145,10 @@ const adminTableFields = [
     label: 'ID',
   },
   {
+    name: 'photo_url',
+    label: 'Photo',
+  },
+  {
     key: 'name',
     label: 'Name',
   },
@@ -176,10 +180,6 @@ const routesPath = {
   reports:'/reports',
   report:'/reports/:id',
   terms:'/terms',
-  adminCreatePost: '/admin/posts',
-  adminCreateReport: '/admin/reports',
-  adminUpdatePost: '/admin/posts/:id',
-  adminUpdateReport: '/admin/reports/:id',
 }
 
 export {
