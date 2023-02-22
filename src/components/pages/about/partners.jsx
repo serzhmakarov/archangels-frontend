@@ -2,7 +2,6 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 
 import { partnersList } from '../../../constants';
 

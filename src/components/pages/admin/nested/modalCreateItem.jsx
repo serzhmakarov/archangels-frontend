@@ -42,10 +42,6 @@ const ModalCreateItem = ({
     setFormData(initialFormData);
   };
 
-  const handleOpen = () => {
-    dispatch({ type: actionTypes.openCreationModal });
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
 

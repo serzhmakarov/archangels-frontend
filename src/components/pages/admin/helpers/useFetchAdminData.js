@@ -1,6 +1,6 @@
 
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { getPosts, getReports } from '../../../../api';
 import { actionTypes } from '../../../../constants/actionTypes';

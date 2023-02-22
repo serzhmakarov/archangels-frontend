@@ -36,7 +36,6 @@ const AdminPageComponent = () => {
   } = useApi({ dispatch });
 
   const { 
-    error, 
     loading,
     posts,
     reports,
@@ -49,6 +48,7 @@ const AdminPageComponent = () => {
     if (posts.isLoaded || reports.isLoaded) {
       setRenderedData(adminState[activeTab.toLocaleLowerCase()]?.data);
     }
+  /* eslint-disable react-hooks/exhaustive-deps */
   }, [adminState.posts, adminState.reports, activeTab]);
 
   const onUpdateButtonClick = (id) => {
