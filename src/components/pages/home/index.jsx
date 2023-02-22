@@ -62,7 +62,7 @@ const Home = () => {
             <div className="home-page__responsibility-card">
               <h4>МЕДИЦИНА</h4>
               <p>
-                Вивозимо цивільних осіб з зони бойових дій. Допомагаємо їжею, одягом, ліками, гігієною
+                Привозимо найнеобхідніші ліки у гарячі точки, збираємо круті аптечки за прикладом НАТО
               </p>
             </div>
             <div className="home-page__responsibility-card">

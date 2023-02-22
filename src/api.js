@@ -1,5 +1,5 @@
-// const API_URL = `${process.env.REACT_APP_BASE_API_URL}/api/v1`
-const API_URL = 'http://localhost:3000/api/v1'
+// const API_URL = 'http://localhost:3000/api/v1';
+const API_URL = `${process.env.REACT_APP_BASE_API_URL}/api/v1`;
 
 const endpoints = {
   posts: '/posts/',
@@ -18,6 +18,7 @@ async function request({ method, endpoint, data }) {
 
   const options = {
     method,
+    mode: 'cors',
     headers,
     body: isStringify ? JSON.stringify(data) : data,
     redirect: 'follow',

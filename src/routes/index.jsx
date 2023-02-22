@@ -7,8 +7,9 @@ export default function RenderRoutes() {
   return (
     <Layout>
       <Routes>
-        {routes.map(({ path, element: Element }) => (
+        {routes.map(({ exact = false, path, element: Element }) => (
           <Route 
+            exact={exact}
             key={path} 
             path={path} 
             element={<Element />} 

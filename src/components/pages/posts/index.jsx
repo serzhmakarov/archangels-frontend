@@ -15,7 +15,7 @@ const Posts = () => {
   return (
     <Container fluuid className="news-page">
       <Row className="about-page__title-block">
-        <h1>НОВИНИ</h1>
+        <h1>Новини</h1>
       </Row>
     
       <Row className="content-wrapper">
