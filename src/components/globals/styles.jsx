@@ -9,6 +9,7 @@ function setTopPosition({ scrollDirection, isMenuOpen }) {
 
 export const HeaderMobileContainer = styled(Container)`
   display: none !important;
+  z-index: 1;
 
   @media screen and (max-width: 991px) {
     display: flex !important;
