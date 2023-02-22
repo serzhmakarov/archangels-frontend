@@ -4,8 +4,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import Founders from './founders';
-import { teamList } from '../../../constants';
+import { teamList, founders } from '../../../constants';
+import TeamMemberCards from './team';
+import PartnersList from './partners';
 
 const About = () => {
   return (
@@ -26,16 +27,17 @@ const About = () => {
           </Button>
         </Col>
       </Row>
-      <Founders />
-    
-      <Row className="content-wrapper">
-        <h1 className="title-block-text">Команда</h1>
-        <ul className="about-page__team-list">
-          {teamList.map((member) => (
-            <li key={member}>{member}</li>
-          ))}
-        </ul>
-      </Row>
+      <TeamMemberCards 
+        list={founders}
+        text="Засновники"
+      />
+
+      <TeamMemberCards 
+        list={teamList}
+        text="Команда"
+      />
+
+      <PartnersList />
     </Container>
   );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
 
 import normalizeDate from '../../../_helpers/normalizeDate';
 import withLoading from '../../../hooks/useLoading';
@@ -8,18 +9,30 @@ import DefaultPostImage from '../../../assets/images/post-default-image.jpg';
 const Content = ({ data, photo }) => {
   const {
     name,
-    description,
+    short_description,
+    long_description,
+    photo_url,
     date,
+    feedback,
   } = data;
 
   return (
-    <Row className="post-item-page__title-block">
-      <h1>{name}</h1>
-      <p>{normalizeDate(date)}</p>
-      <p>{description}</p>
-      <img src={photo} alt="post_img" />
-      <p>{description}</p>
-    </Row>
+    <Container>
+      <Row className="post-item-page__title-block">
+        <h1 className="post-name">{name}</h1>
+        <p className="post-date">{normalizeDate(date)}</p>
+        <p className="post-description">{short_description}</p>
+
+        <div>
+          <img src={photo_url || DefaultPostImage} alt="post_img" />
+          <div className="post-feedback">
+          <p className="feedback-text">{feedback}</p>
+          <span className="feedback-title">Відгук</span>
+        </div>
+        </div>
+        <p className="post-description">{long_description}</p>
+      </Row>
+    </Container>
   );
 };
 

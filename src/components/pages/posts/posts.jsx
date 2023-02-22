@@ -6,12 +6,12 @@ import withLoading from '../../../hooks/useLoading';
 function PostsList({ posts }) {
   return (
     <div className="news-list">
-      {posts.map(({ id, name, date, description, photo_url }) => (
+      {posts.map(({ id, name, date, short_description, photo_url }) => (
         <PostCard 
           id={id}
           name={name} 
           date={date} 
-          description={description} 
+          short_description={short_description} 
           photo={photo_url} 
         />
       ))}

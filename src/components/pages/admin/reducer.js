@@ -1,5 +1,5 @@
 import { find } from 'lodash-es';
-import { actionTypes } from '../../../../constants/actionTypes';
+import { actionTypes } from '../../../constants/actionTypes';
 
 const initialState = {
   error: null,

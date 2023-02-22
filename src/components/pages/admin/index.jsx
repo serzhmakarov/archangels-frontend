@@ -7,20 +7,20 @@ import withCredentials from './helpers/useCredentials';
 import ConfirmationModal from './nested/ConfirmationModal';
 import ModalCreateItem from './nested/modalCreateItem';
 
-import { reducer, initialState } from './helpers/reducer';
+import { reducer, initialState } from './reducer';
 import useApi from './helpers/useApi';
 import { actionTypes } from '../../../constants/actionTypes';
 
 const tabs = {
-  posts: 'Posts',
-  reports: 'Reports',
-  requests: 'Requests',
+  posts: { key: 'posts', label: 'Новини'},
+  reports: { key: 'reports', label: 'Звіти' },
+  requests: { key: 'requests', label: 'Запити' },
 }
 
 const AdminPageComponent = () => {
   const [adminState, dispatch] = useReducer(reducer, initialState);
 
-  const [activeTab, setActiveTab] = useState(tabs.posts);
+  const [activeTab, setActiveTab] = useState(tabs.posts.key);
   const [rowDeleteId, setRowDeleteId] = useState(null);
   const [renderedData, setRenderedData] = useState([]);
 
@@ -54,7 +54,7 @@ const AdminPageComponent = () => {
   const onUpdateButtonClick = (id) => {
     dispatch({ 
       type: actionTypes.onUpdateButtonClick,
-      payload: { id, targetName: activeTab.toLowerCase() },
+      payload: { id, targetName: activeTab },
     })
   };
 
@@ -68,7 +68,7 @@ const AdminPageComponent = () => {
   };
 
   const handleDelete = () => {
-    if (activeTab === tabs.posts) {
+    if (activeTab === tabs.posts.key) {
       deletePostRequest(rowDeleteId)
         .then(() => dispatch({ type: actionTypes.closeConfirmationModal }));
 
@@ -83,7 +83,7 @@ const AdminPageComponent = () => {
   };
 
   const handleCreateClick = (formData) => {
-    if (activeTab === tabs.posts) {
+    if (activeTab === tabs.posts.key) {
       const callback = itemForUpdate ? updatePostRequest : createPostRequest;
       
       return callback(formData, itemForUpdate?.id)
@@ -105,17 +105,16 @@ const AdminPageComponent = () => {
       <Row>
         <Col xs={12} className="admin-page__tabs-wrapper">
           <Tabs 
-            defaultActiveKey="Posts" 
+            defaultActiveKey="posts" 
             id="tabs" 
             onSelect={handleTabChange}
           >
-            <Tab eventKey="Posts" title="Posts" />
-            <Tab eventKey="Reports" title="Reports" />
+            <Tab eventKey="posts" title="Новини" />
+            <Tab eventKey="reports" title="Звіти" />
           </Tabs>
           
           <ModalCreateItem 
             itemForUpdate={itemForUpdate}
-            activeTab={activeTab}
             isModalShow={isCreationModalOpen}
             handleCreateClick={handleCreateClick}
             dispatch={dispatch}
@@ -126,6 +125,7 @@ const AdminPageComponent = () => {
       <Row>
         <Col xs={12}>
           <AdminTable
+            dispatch={dispatch}
             onUpdateButtonClick={onUpdateButtonClick}
             activeTab={activeTab}
             handleShowModal={handleShowModal}

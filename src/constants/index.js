@@ -1,7 +1,12 @@
 import PhoneInputMask from '../components/pages/home/phoneInput';
-import SergeyPhotoJpg from '../assets/images/sergey_photo_2.jpg';
-import KyrylPhotoJpg from '../assets/images/kyryl_photo_2.jpg';
-import SvyatPhotoJpg from '../assets/images/svyat_photo.jpg';
+import SergeyPhotoJpg from '../assets/images/team/serhii.jpg';
+import KyrylPhotoJpg from '../assets/images/team/kyrylo.jpg';
+import AndrewlPhotoJpg from '../assets/images/team/andrew.jpg';
+import LanaPhotoJpg from '../assets/images/team/lana.jpg';
+import MarinaPhotoJpg from '../assets/images/team/marina.jpg';
+
+import AllaFondJpg from '../assets/images/team/partner_alla.jpg';
+import DreamFondJpg from '../assets/images/team/partner_dream.jpg';
 
 import { 
   InstagramIcon,
@@ -101,23 +106,38 @@ const founders = [
     image: KyrylPhotoJpg,
     onHoverImage: '',
   },
+];
+
+const teamList = [
   {
-    name: 'Святослав Ляшенко',
-    text: 'Креативний мозок, співзасновник українського бренду одягу StiLove',
-    image: SvyatPhotoJpg,
+    name: 'Руслана',
+    text: 'Руслана - член команди закупівельників, яка збирає військове спорядження та займається соціальною роботою.',
+    image: LanaPhotoJpg,
+    onHoverImage: '',
+  },
+  {
+    name: 'Андрій',
+    text: 'Андрій відданий своїй справі і надає пріоритет обробці заявок та організації роботи складу.',
+    image: AndrewlPhotoJpg,
+    onHoverImage: '',
+  },
+  {
+    name: 'Марина',
+    text: 'Марина - член команди закупівельників, яка збирає військове спорядження та займається соціальною роботою.',
+    image: MarinaPhotoJpg,
     onHoverImage: '',
   },
 ];
 
-const teamList = [
-  'Сергій Макаров',
-  'Кирило Курінов',
-  'Святослав Ляшенко',
-  'Катерина Ключ',
-  'Олександр Кравчук',
-  'Павло Гоувар',
-  'Фонд Dream Ukraine',
-  'Фонд Джмiль'
+const partnersList = [
+  {
+    image: AllaFondJpg,
+    link: 'https://www.maibutnie.org/',
+  },
+  {
+    image: DreamFondJpg,
+    link: 'https://www.dreamua.win/',
+  },
 ];
 
 const currencyAccounts = [
@@ -146,28 +166,28 @@ const adminTableFields = [
   },
   {
     name: 'photo_url',
-    label: 'Photo',
+    label: 'Фото',
   },
   {
     key: 'name',
-    label: 'Name',
+    label: 'Назва',
   },
   {
-    key: 'description',
-    label: 'Description',
+    key: 'short_description',
+    label: 'Короткий опис',
+  },
+  {
+    key: 'long_description',
+    label: 'Довгий опис',
+  },
+  {
+    key: 'feeback',
+    label: 'Відгук',
   },
   {
     key: 'created_at',
-    label: 'Created Date',
-  },
-  {
-    key: 'edit',
-    label: '',
-  },
-  {
-    key: 'delete',
-    label: ''
-  },
+    label: 'Створено',
+  }
 ];
 
 const routesPath = {
@@ -188,7 +208,8 @@ export {
   socialNetworks,
   founders,
   teamList,
+  partnersList,
   currencyAccounts,
   adminTableFields,
-  routesPath
+  routesPath,
 }

@@ -72,9 +72,10 @@ export const StyledMenu = styled.nav`
   padding: 2rem;
   position: absolute;
   top: 0;
-  left: ${props => props.isMenuOpen ? 0 : '-100%'};
-  width: 100%;
-  transition: left .3s;
+  left: ${props => props.isMenuOpen ? '50%' : '-150vh'};
+  transform: translateX(${props => props.isMenuOpen ? '-50%' : '0'});
+  width: 100vh;
+  transition: .3s;
   z-index: 1;
 
   div {

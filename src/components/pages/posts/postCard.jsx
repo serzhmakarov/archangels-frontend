@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import normalizeDate from '../../../_helpers/normalizeDate';
 import DefaultPostImage from '../../../assets/images/post_image_default.jpg'
 
-const PostCard = ({ id, date, description, photo, name }) => (
+const PostCard = ({ id, date, short_description, photo, name }) => (
   <Card className="news-list-item">
     <Row>
       <Col xs={4}>
@@ -20,7 +20,7 @@ const PostCard = ({ id, date, description, photo, name }) => (
           <div className="card-info">
             <Card.Title>{name}</Card.Title>
             <p className="date">{normalizeDate(date)}</p>
-            <Card.Text>{description}</Card.Text>
+            <Card.Text>{short_description}</Card.Text>
           </div>
           <Button 
             variant="outline-danger" 

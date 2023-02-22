@@ -29,7 +29,7 @@ const ContactForm = () => {
 						<h3>Наші контакти:</h3>
 						<div className="contacts-info__block">
 							<div className="">
-								Email: <a href="mailto:archangelsofkyiv@gmail.com">archangelsofkyiv@gmail.com</a>
+								Email: <a href="mailto:admin@archangels.in.ua">admin@archangels.in.ua</a>
 							</div>
 							<div>
 								Telegram: <a href="https://t.me/Solomka_Help">t.me/Solomka_Help</a>
@@ -66,7 +66,7 @@ const ContactForm = () => {
 						<h3>Наші контакти:</h3>
 						<div className="contacts-info__block">
 							<div className="">
-								Email: <a href="mailto:archangelsofkyiv@gmail.com">archangelsofkyiv@gmail.com</a>
+								Email: <a href="mailto:admin@archangels.in.ua">admin@archangels.in.ua</a>
 							</div>
 							<div>
 								Telegram: <a href="https://t.me/Solomka_Help">t.me/Solomka_Help</a>

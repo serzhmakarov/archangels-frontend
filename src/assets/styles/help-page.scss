@@ -2,6 +2,10 @@
   padding-top: 64px;
   text-align: left;
 
+	@media screen and (max-width: 580px) {
+		padding: 64px 24px;
+	}
+
 	.currency-accounts-list {
 		border: 1px solid #111;
 		border-radius: 5px;

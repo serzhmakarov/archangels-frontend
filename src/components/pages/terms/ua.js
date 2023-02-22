@@ -40,7 +40,7 @@ const Terms = () => (
         <p><strong>Сторонній сервіс соціальних мереж</strong> означає будь-які послуги або контент (включаючи дані, інформацію, продукти або послуги), що надаються третьою стороною, які можуть відображатися, включатися або ставати доступними за допомогою Сервісу.</p>
       </li>
       <li>
-        <p><strong>Веб-сайт</strong> - веб-сайт Архангельєри Києва, доступний за адресою <a href="https://archangels.website" rel="external nofollow noopener noreferrer" target="_blank">https://archangels.website</a></p>
+        <p><strong>Веб-сайт</strong> - веб-сайт Архангельєри Києва, доступний за адресою <a href="https://www.archangels.in.ua" rel="external nofollow noopener noreferrer" target="_blank">https://www.archangels.in.ua</a></p>
       </li>
       <li>
         <p><strong>Ви</strong> - фізична особа, яка отримує доступ до Сервісу або користується ним, або компанія, або інша юридична особа, від імені якої така особа отримує доступ до Сервісу або користується ним, залежно від обставин.</p>
@@ -90,7 +90,7 @@ const Terms = () => (
       <h1>Зв'язок з нами</h1>
       <p>Якщо у Вас виникли будь-які питання щодо цих Умов, Ви можете зв'язатися з нами:</p>
       <ul>
-        <li>Електронною поштою: archangelsofkyiv@gmail.com</li>
+        <li>Електронною поштою: <a href="mailto:admin@archangels.in.ua">admin@archangels.in.ua</a></li>
       </ul>
   </div>
 </Container>

@@ -42,7 +42,7 @@ const Terms = () => (
         <p><strong>Third-party Social Media Service</strong> means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.</p>
       </li>
       <li>
-        <p><strong>Website</strong> refers to Archangels of Kyiv, accessible from <a href="https://archangels.website" rel="external nofollow noopener noreferrer" target="_blank">https://archangels.website</a></p>
+        <p><strong>Website</strong> refers to Archangels of Kyiv, accessible from <a href="https://www.archangels.in.ua" rel="external nofollow noopener noreferrer" target="_blank">https://www.archangels.in.ua</a></p>
       </li>
       <li>
         <p><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</p>
@@ -91,7 +91,7 @@ const Terms = () => (
       <h1>Contact Us</h1>
       <p>If you have any questions about these Terms and Conditions, You can contact us:</p>
       <ul>
-        <li>By email: archangelsofkyiv@gmail.com</li>
+        <li>By email: <a href="mailto:admin@archangels.in.ua">admin@archangels.in.ua</a></li>
       </ul>
   </div>
 </Container>

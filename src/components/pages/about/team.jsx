@@ -2,14 +2,14 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 
 import FounderCard from './card';
-import { founders } from '../../../constants';
 
-const Founders = () => {
+const TeamMemberCards = ({ list, text }) => {
   return (
     <Row className="content-wrapper founders-block">
-      <h1 className="title-block-text">Засновники</h1>
-      {founders.map(({ name, text, image }) => (
+      <h1 className="title-block-text">{text}</h1>
+      {list.map(({ name, text, image, link }) => (
         <FounderCard 
+          link={link}
           key={name}
           name={name}
           text={text}
@@ -20,4 +20,4 @@ const Founders = () => {
   );
 };
 
-export default Founders;
+export default TeamMemberCards;

@@ -1,5 +1,4 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
 import { useParams } from 'react-router-dom';
 
 import { getPosts } from '../../../api';
@@ -14,13 +13,13 @@ const Post = () => {
   const { loading, isLoaded, data } = useFetchData(getPosts, id);
 
   return (
-    <Container fluuid className="post-item-page">
+    <div fluuid className="post-item-page">
       <Content 
         loading={loading} 
         isLoaded={isLoaded} 
         data={data} 
       />
-    </Container>
+    </div>
   );
 };
 

@@ -12,6 +12,10 @@
 		height: 100%;
 	}
 
+	.card-text {
+		padding-top: 16px;
+	}
+
 	.card-body {
 		display: flex;
 		flex-direction: column;
@@ -23,9 +27,30 @@
 		width: calc(50% - 32px);
 		border: 1px solid #111;
 		padding: 8px 12px;
+		box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.45);
+		transition: .3s;
+
+		&:hover {
+			box-shadow: 0px 3px 19px 0px rgba(0,0,0,0.85);
+		}
 
 		@media screen and (max-width: 991px) {
 			width: 100%;
+		}
+
+		@media screen and (max-width: 768px) {
+			.row {
+				display: flex;
+				flex-direction: column;
+
+				.col-4, .col-8 {
+					width: 100%;
+				}
+			}
+
+			img {
+				max-width: inherit;
+			}
 		}
 
 		.news-name {
