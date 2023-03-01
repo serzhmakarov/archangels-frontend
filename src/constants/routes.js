@@ -25,7 +25,8 @@ const routes = [
   },
   {
     path: routesPath.news,
-    element: Posts
+    element: Posts,
+    exact: true,
   },
   { 
     path: routesPath.new,
