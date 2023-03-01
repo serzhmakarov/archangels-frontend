@@ -1,6 +1,6 @@
 {
   "name": "archangels",
-  "homepage": ".",
+  "homepage": "https://archangels.herokuapp.com/",
   "version": "0.1.1",
   "private": true,
   "dependencies": {
