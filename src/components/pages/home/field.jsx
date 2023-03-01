@@ -14,6 +14,7 @@ const Field = ({
   name,
   minLength,
   maxLength,
+  t
 }) => {
   return (
     <Form.Group 
@@ -21,7 +22,7 @@ const Field = ({
       controlId={key}
       className="mb-3" 
     >
-      <Form.Label>{label}</Form.Label>
+      <Form.Label>{t(label)}</Form.Label>
       <Controller
         name={name}
         control={control}
@@ -32,14 +33,14 @@ const Field = ({
             type={type} 
             minLength={minLength}
             maxLength={maxLength}
-            placeholder={placeholder}
+            placeholder={t(placeholder)}
             required={required}
           />
         )}
       />
       {hint && (
         <Form.Text className="text-muted">
-          Ми ніколи не передамо вашу електронну пошту нікому іншому.
+          {t(hint)}
         </Form.Text>
       )}
     </Form.Group>

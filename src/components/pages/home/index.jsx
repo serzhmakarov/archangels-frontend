@@ -4,20 +4,20 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import ContactForm from './contactForm';
 
 const Home = () => {
+  const { t } = useTranslation();
+
   return (
     <Container fluuid className="home-page">
       <Row className="home-page__title-block content-wrapper">
         <div className="home-page__title-block-left-side">
-          <h1>АРХАНГЕЛЬЄРИ <br/> КИЄВА</h1>
-          <h4>БЛАГОДІЙНИЙ ФОНД. <br/> МИ ТАМ, ДЕ МИ ПОТРІБНІ</h4>
-          <p>
-            Дбаємо про наших хлопчиків та дівчаток на передовій, 
-            допомагаємо діткам, літнім, лікарням та дитячим будинкам
-          </p>
+          <h1>{t('home.head.archangels')} <br/> {t('home.head.kyiv')}</h1>
+          <h4>{t('home.head.charity')} <br/> {t('home.head.charity_text')}</h4>
+          <p>{t('home.head.work_text')}</p>
           <div className="home-page__title-block-left-side-action-buttons">
             <Button 
               variant="outline-danger" 
@@ -25,7 +25,7 @@ const Home = () => {
               as={NavLink}
               to="/help"
             >
-              ДОПОМОГТИ
+              {t('home.head.help_button')}
             </Button>
             <Button 
               variant="outline-danger" 
@@ -35,7 +35,7 @@ const Home = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              ПРИЄДНАТИСЯ
+              {t('home.head.join_button')}
             </Button>
           </div>
           <div className="home-page__title-block-image-mobile" />
@@ -48,28 +48,22 @@ const Home = () => {
         <div className="home-page__responsibility">
 
           <h1 className="title-block-text">
-            НАША <br /> 
-            СПЕЦІАЛІЗАЦІЯ
+            {t('home.specialization.title.our')} <br /> 
+            {t('home.specialization.title.specialization')}
           </h1>
 
           <div className="home-page__responsibility-cards-wrapper">
             <div className="home-page__responsibility-card">
-              <h4>СПОРЯДЖЕННЯ</h4>
-              <p>
-                Ми збираємо гроші на круті броніки, прибори нічного бачення та дрони – лише найкраще, лише найбільш потрібне
-              </p>
+              <h4>{t('home.specialization.equipment.title')}</h4>
+              <p>{t('home.specialization.equipment.text')}</p>
             </div>
             <div className="home-page__responsibility-card">
-              <h4>МЕДИЦИНА</h4>
-              <p>
-                Привозимо найнеобхідніші ліки у гарячі точки, збираємо круті аптечки за прикладом НАТО
-              </p>
+              <h4>{t('home.specialization.medicine.title')}</h4>
+              <p>{t('home.specialization.medicine.text')}</p>
             </div>
             <div className="home-page__responsibility-card">
-              <h4>ЦИВІЛЬНІ</h4>
-              <p>
-                Вивозимо цивільних осіб з зони бойових дій. Довозимо до місць збору біженців у великих містах.
-              </p>
+              <h4>{t('home.specialization.civilians.title')}</h4>
+              <p>{t('home.specialization.civilians.text')}</p>
             </div>
           </div>
         </div>
@@ -77,15 +71,21 @@ const Home = () => {
       <Row className="home-page__help-content-container content-wrapper">
         <Col xs={4}>
           <h1 className="title-block-text">
-            ЯК ТИ МОЖЕШ <br /> 
-            ДОПОМОГТИ 
+            {t('home.help.title.first_part')} <br /> 
+            {t('home.help.title.second_part')}
           </h1>
         </Col>
        <Col xs={8}>
         <div>
-            <p>Задонать нам! Це найпростіший та найефективніший спосіб допомогти діяльності фонду. </p>
-            <p>Щомісяця ми публікуємо <NavLink to="/reports" className="home-page__hyperlink">фінансові звіти</NavLink>. Все прозоро, всі гроші йдуть на допомогу армії.</p>
-            <p>Або приєднуйся до нашої команди. Для цього достатньо просто написати нам.</p>
+            <p>{t('home.help.donate_text')}</p>
+            <p>
+              {t('home.help.report_text_first')}
+              <NavLink to="/reports" className="home-page__hyperlink"> 
+                {t('home.reports')}
+              </NavLink>
+              {t('home.help.report_text_second')}
+            </p>
+            <p>{t('home.help.join_text')}</p>
           </div>
        </Col>
       </Row>

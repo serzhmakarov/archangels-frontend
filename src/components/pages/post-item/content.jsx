@@ -4,9 +4,8 @@ import Container from 'react-bootstrap/Container';
 
 import normalizeDate from '../../../_helpers/normalizeDate';
 import withLoading from '../../../hooks/useLoading';
-import DefaultPostImage from '../../../assets/images/post-default-image.jpg';
 
-const Content = ({ data, photo }) => {
+const Content = ({ data }) => {
   const {
     name,
     short_description,
@@ -24,7 +23,7 @@ const Content = ({ data, photo }) => {
         <p className="post-description">{short_description}</p>
 
         <div>
-          <img src={photo_url || DefaultPostImage} alt="post_img" />
+          <img src={photo_url} alt="post_img" />
           <div className="post-feedback">
           <p className="feedback-text">{feedback}</p>
           <span className="feedback-title">Відгук</span>
@@ -37,13 +36,8 @@ const Content = ({ data, photo }) => {
 };
 
 Content.defaultProps = {
-  data: {
-    name: '',
-    description: '',
-    date: new Date(),
-  },
-  photo: DefaultPostImage
-}
+  data: {},
+};
 
 const ContentWithLoading = withLoading(Content);
 

@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { useTranslation } from 'react-i18next';
 
 import Field from './field';
 import Alert from '../../globals/alert'
@@ -11,7 +12,8 @@ import useSendForm from '../../../hooks/useSendForm';
 import { contactFormFields } from '../../../constants';
 
 const ContactForm = () => {
-	const { callback, loading, message } = useSendForm();
+	const { t } = useTranslation();
+	const { callback, loading, message, error } = useSendForm();
 	const { handleSubmit, control } = useForm();
 
 	const onSubmit = data => {
@@ -22,11 +24,11 @@ const ContactForm = () => {
 			<Row className="home-page__contact-form-wrapper content-wrapper">
 				<Col sm={4} id="contacts">
 					<h1 className="title-block-text">
-						ЗВ’ЯЗАТИСЯ <br /> 
-						З НАМИ
+						{t('home.contacts.title.first_part')} <br /> 
+						{t('home.contacts.title.second_part')}
 					</h1>
 					<div className="contacts-info">
-						<h3>Наші контакти:</h3>
+						<h3>{t('home.contacts.our_contacts')}</h3>
 						<div className="contacts-info__block">
 							<div className="">
 								Email: <a href="mailto:admin@archangels.in.ua">admin@archangels.in.ua</a>
@@ -38,8 +40,8 @@ const ContactForm = () => {
 					</div>
 				</Col>
 				<Col sm={12} className="form-hint-text">
-					Вам потрібна допомога? Хочете приєднатися до команди? <br /> 
-					Напишіть нам!
+					{t('home.contacts.form.need_help')} <br /> 
+					{t('home.contacts.form.contact_us')}
 				</Col>
 				<Col sm={8}>
 					<Form 
@@ -48,22 +50,23 @@ const ContactForm = () => {
 					>
 					<Alert 
 						message={message}
-						color="green"
+						color={error ? "red" : "green"}
 					/>
             {contactFormFields.map((field) => (
                <Field
                   control={control}
                   key={field.key}
+									t={t}
                   {...field}
                />
             ))}
 
 						<Button variant="outline-danger" className="archangels-btn" type="submit">
-							{loading ? 'ВІДПРАВЛЕННЯ...' : 'ВІДПРАВИТИ'}
+							{loading ? t('home.contacts.form.send_button_loading') : t('home.contacts.form.send_button')}
 						</Button>
 					</Form>
 					<div className="contacts-info-mobile">
-						<h3>Наші контакти:</h3>
+						<h3>{t('home.contacts.our_contacts')}</h3>
 						<div className="contacts-info__block">
 							<div className="">
 								Email: <a href="mailto:admin@archangels.in.ua">admin@archangels.in.ua</a>

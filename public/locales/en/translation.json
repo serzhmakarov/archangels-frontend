@@ -1,0 +1,80 @@
+{
+  "home": {
+    "charitable_name": "CHARITABLE FOUNDATION \"ARCHANGELS OF KYIV\"",
+    "reports": "financial reports",
+    "header": {
+      "main": "Home",
+      "about": "About",
+      "help": "Support us",
+      "news": "News",
+      "reports": "Reports",
+      "contacts": "Contacts"
+    },
+    "head": {
+      "archangels": "Archangels",
+      "kyiv": "of kyiv",
+      "charity": "Charity foundation.",
+      "charity_text": "We are where we are needed",
+      "work_text": "We take care of our boys and girls on the front line, help children, the elderly, hospitals and orphanages",
+      "help_button": "Support us",
+      "join_button": "Join to the team"
+    },
+    "specialization": {
+      "title": {
+        "our": "Our",
+        "specialization": "speciality"
+      },   
+      "equipment": {
+        "title": "Equipment",
+        "text": "We are raising money for cool armor, night vision devices and drones - only the best, only the most needed."
+      },   
+      "civilians": {
+        "title": "Civilians",
+        "text": "We evacuate civilians from the war zone. We help with food, clothing, medicines, and hygiene."
+      },
+      "medicine": {
+        "title": "Medicine",
+        "text": "We bring the most necessary medicines to hot spots and assemble cool first aid kits following NATO's example"
+      }
+    },
+    "help": {
+      "title": {
+        "first_part": "How you can",
+        "second_part": "support us"
+      },
+      "donate_text": "Donate to us! This is the easiest and most effective way to support the Foundation's activities.",
+      "report_text_first": "We publish",
+      "report_text_second": "every month. Everything is transparent, all the money goes to help the army.",
+      "join_text": "Or join our team. To do so, just write to us."
+    },
+    "contacts": {
+      "our_contacts": "Contacts:",
+      "title": {
+        "first_part": "Contact us",
+        "second_part": ""
+      },
+      "form": {
+        "need_help": "Do you need help? Want to join the team?",
+        "contact_us": "Contact us!",
+        "name": "Name",
+        "phone": "Phone",
+        "message": "Message",
+        "email": "E-Mail",
+        "send_button": "Send",
+        "send_button_loading": "Sending...",
+        "hint_success": "Your request has been successfully sent! We will review it as soon as possible and send our response to your E-Mail",
+        "hint_error": "Oops! Unable to process request. Try again later.",
+        "hint_email_security": "We'll never share your email with anyone else.",
+        "phone_placeholder": "+380660097041",
+        "email_placeholder": "stepan@bandera.ua",
+        "name_placeholder": "Stepan Bandera",
+        "message_placeholder": "How can we help you?"
+      }
+    },
+    "footer": {
+      "terms": "Terms and conditions",
+      "copyright": "A difficult 2022.",
+      "up_button": "UP"
+    }
+  }
+}

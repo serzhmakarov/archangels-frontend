@@ -8,8 +8,10 @@ import Logo from '../logo';
 import { navLinks } from '../../../constants';
 import useScrollDirection from '../../../hooks/useScrollDirection';
 import { HeaderDesktopContainer } from '../styles';
+import { useTranslation } from 'react-i18next';
 
 const DesktopHeader = () => {
+  const { t } = useTranslation();
   const scrollDirection = useScrollDirection();
   
 	return (
@@ -23,10 +25,10 @@ const DesktopHeader = () => {
               to={link}
               as={Link}
             >
-              {label}
+              {t(label)}
             </Nav.Link>  
           ))}
-          <Nav.Link as={HashLink} to="/#contacts">Контакти</Nav.Link>
+          <Nav.Link as={HashLink} to="/#contacts">{t('home.header.contacts')}</Nav.Link>
         </Nav>
       </Navbar>
     </HeaderDesktopContainer>

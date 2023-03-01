@@ -11,8 +11,12 @@ $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
 $red: #B30000;
 
+@font-face {
+  font-family: 'KyivTitle';
+  src: url('./fonts/KyivType-VariableGX/KyivTypeTitling-VarGX.ttf');
+}
+
 body {
-  font-family: 'KyivType Sans';
   font-size: 18px;
   line-height: 28px;
   letter-spacing: 0em;
@@ -146,6 +150,7 @@ body {
 }
 
 .title-block-text {
+  text-transform: uppercase;
   margin-bottom: 64px;
   padding-left: 16px;
   font-size: 36px;

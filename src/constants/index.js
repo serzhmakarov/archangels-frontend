@@ -3,7 +3,8 @@ import SergeyPhotoJpg from '../assets/images/team/serhii.jpg';
 import KyrylPhotoJpg from '../assets/images/team/kyrylo.jpg';
 import AndrewlPhotoJpg from '../assets/images/team/andrew.jpg';
 import LanaPhotoJpg from '../assets/images/team/lana.jpg';
-import MarinaPhotoJpg from '../assets/images/team/marina.jpg';
+import MarynaPhotoJpg from '../assets/images/team/maryna.jpg';
+import VadymPhotoJpg from '../assets/images/team/vadym.jpg';
 
 import AllaFondJpg from '../assets/images/team/partner_alla.jpg';
 import DreamFondJpg from '../assets/images/team/partner_dream.jpg';
@@ -16,66 +17,66 @@ import {
 const navLinks = [
   {
     link: '/',
-    label: 'Головна',
+    label: 'home.header.main',
   },
   {
     link: '/about',
-    label: 'Про нас',
+    label: 'home.header.about',
   },
   {
     link: '/help',
-    label: 'Допомогти',
+    label: 'home.header.help',
   },
   {
     link: '/news',
-    label: 'Новини',
+    label: 'home.header.news',
   },
   {
     link: '/reports',
-    label: 'Звіти',
+    label: 'home.header.reports',
   }
 ];
 
 const contactFormFields = [
   {
-    label: 'ПІБ',
+    label: 'home.contacts.form.name',
     key: 'name',
     name: 'name',
     type: 'text',
     required: true,
     as: 'input',
     hint: '',
-    placeholder: 'Степан Бандера',
+    placeholder: 'home.contacts.form.name_placeholder',
   },
   {
-    label: 'Телефон',
+    label: 'home.contacts.form.phone',
     key: 'phone',
     name: 'phone',
     type: 'text',
     required: true,
     as: PhoneInputMask,
     hint: '',
-    placeholder: '+380660097041',
+    placeholder: 'home.contacts.form.phone_placeholder',
   },
   {
-    label: 'E-mail',
+    label: 'home.contacts.form.email',
     key: 'email',
     name: 'email',
     type: 'email',
     required: true,
     as: 'input',
-    hint: 'We\'ll never share your email with anyone else.',
-    placeholder: 'stepan@bandera.ua',
+    hint: 'home.contacts.form.hint_email_security',
+    placeholder: 'home.contacts.form.email_placeholder',
   },
   {
-    label: 'Ваше звернення',
+    label: 'home.contacts.form.message',
     key: 'message',
     name: 'message',
     type: 'text',
     required: true,
     as: 'textarea',
     hint: '',
-    placeholder: 'Як ми можемо вам допомогти?',
+    placeholder: 'home.contacts.form.message_placeholder',
     maxLength: 255
   },
 ];
@@ -117,14 +118,20 @@ const teamList = [
   },
   {
     name: 'Андрій',
-    text: 'Андрій відданий своїй справі і надає пріоритет обробці заявок та організації роботи складу.',
+    text: 'Андрій - відданий своїй справі і надає пріоритет обробці заявок та організації роботи складу.',
     image: AndrewlPhotoJpg,
     onHoverImage: '',
   },
   {
     name: 'Марина',
     text: 'Марина - член команди закупівельників, яка збирає військове спорядження та займається соціальною роботою.',
-    image: MarinaPhotoJpg,
+    image: MarynaPhotoJpg,
+    onHoverImage: '',
+  },
+  {
+    name: 'Вадим',
+    text: 'Вадим -  Професійний комірник з 25-річним досвідом роботи. Наймудріший з Архангельєрів😉 Самі він відповідає за роботу складу.',
+    image: VadymPhotoJpg,
     onHoverImage: '',
   },
 ];

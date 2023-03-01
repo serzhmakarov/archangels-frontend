@@ -6,7 +6,7 @@ import 'react-phone-input-2/lib/style.css'
 
 import './index.css';
 import './assets/main.scss';
-
+import './i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);

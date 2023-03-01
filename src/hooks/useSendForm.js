@@ -1,10 +1,10 @@
 
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { sendForm } from '../api';
 
-const defaultResponseMessage = 'Ваше звернення успішно відправлено! Ми розглянемо його найближчим часом і надішлемо свою відповідь на ваш E-Mail';
-
 export default function useSendForm() {
+  const { t } = useTranslation();
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
@@ -17,11 +17,12 @@ export default function useSendForm() {
     sendForm(data)
       .then((res) => {
         setLoading(false);
-        setMessage(defaultResponseMessage);
+        setMessage(t('home.contacts.form.hint_success'));
       })
       .catch((err) => {
+        setError(error);
         setLoading(false);
-        setMessage(defaultResponseMessage);
+        setMessage(t('home.contacts.form.hint_error'));
       });
   };
 

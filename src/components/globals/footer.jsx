@@ -3,8 +3,10 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 
 import SocialNetworks from './socialNetworks';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
 
   const onMoveTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -16,17 +18,17 @@ const Footer = () => {
         <Container>
           <div className="footer-content">
             <div className="footer-contacts-content">
-              <h4>БФ “АРХАНГЕЛЬЄРИ КИЄВА”</h4>
+              <h4>{t('home.charitable_name')}</h4>
               <SocialNetworks />
               <p className="footer-contacts-hint">
-                Тяжкий 2022 рік. 
+                {t('home.footer.copyright')} 
                 <a 
                   className="footer-terms-link" 
                   target="_blank" 
                   href="/terms"
                   rel="noopener noreferrer"
                 >
-                  Загальні положення та умови
+                  {t('home.footer.terms')}
                 </a>
               </p>
              
@@ -37,7 +39,7 @@ const Footer = () => {
                 className="button-up"
                 onClick={onMoveTop}
               >
-               &#x2191; ВГОРУ
+               &#x2191; {t('home.footer.up_button')}
               </Button>
             </div>
           </div>
