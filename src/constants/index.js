@@ -199,14 +199,16 @@ const adminTableFields = [
 
 const routesPath = {
   root: '/',
-  admin:'/admin',
-  about:'/about',
-  help:'/help',
-  new:'/news/:id',
+  admin: '/admin',
+  about: '/about',
+  help: '/help',
+  new: '/news/:id',
   news: '/news',
-  reports:'/reports',
-  report:'/reports/:id',
-  terms:'/terms',
+  reports: '/reports',
+  report: '/reports/:id',
+  terms: '/terms',
+  policy: '/policy',
+  refund: '/refund-policy',
 }
 
 export {

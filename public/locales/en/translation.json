@@ -72,8 +72,10 @@
       }
     },
     "footer": {
+      "policy": "Policy and privacy",
+      "refund": "Refund policy",
       "terms": "Terms and conditions",
-      "copyright": "A difficult 2022.",
+      "copyright": "CO \"Charitable Foundation \"Archangels of Kyiv\". All rights reserved.",
       "up_button": "UP"
     }
   }

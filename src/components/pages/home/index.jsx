@@ -81,7 +81,7 @@ const Home = () => {
             <p>
               {t('home.help.report_text_first')}
               <NavLink to="/reports" className="home-page__hyperlink"> 
-                {t('home.reports')}
+                {t('home.reports')}.
               </NavLink>
               {t('home.help.report_text_second')}
             </p>

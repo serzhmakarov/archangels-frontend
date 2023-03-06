@@ -194,14 +194,25 @@ body {
   }
 }
 
-.footer-terms-link {
-  margin-left: 5px;
-  color: #fff;
-  cursor: pointer;
+.policy-information {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 
-  &:hover {
+  a {
+    margin: 8px 0;
     color: #fff;
-    text-decoration: none;
+    cursor: pointer;
+    text-underline-offset: 4px;
+
+    &:last-of-type {
+      margin-bottom: 16px;
+    }
+
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+    }
   }
 }
 
@@ -244,5 +255,41 @@ body {
   height: 50vh;
   img {
     width: 200px;
+  }
+}
+
+.privacy-and-policy, .refund-policy {
+  text-align: left;
+  line-height: 2;
+
+  p {
+    &:last-of-type {
+      margin-bottom: 50px;
+    }
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 24px;
+    margin: 32px 0;
+    font-weight: bold;
+  }
+
+  .contact {
+    margin-top: 60px;
+    line-height: 1;
+  }
+}
+
+.refund-policy {
+  h1, h2 {
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 24px;
   }
 }

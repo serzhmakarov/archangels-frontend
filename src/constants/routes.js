@@ -7,6 +7,8 @@ import Admin from '../components/pages/admin';
 import PostItem from '../components/pages/post-item';
 import ReportItem from '../components/pages/report-item';
 import Terms from '../components/pages/terms/ua';
+import Policy from '../components/pages/policy/ua';
+import RefundPolicy from '../components/pages/refund/ua';
 
 import { routesPath } from '../constants';
 
@@ -43,6 +45,14 @@ const routes = [
   {
     path: routesPath.terms,
     element: Terms,
+  },
+  {
+    path: routesPath.policy,
+    element: Policy,
+  },
+  {
+    path: routesPath.refund,
+    element: RefundPolicy,
   },
   {
     path: routesPath.root,

@@ -20,18 +20,33 @@ const Footer = () => {
             <div className="footer-contacts-content">
               <h4>{t('home.charitable_name')}</h4>
               <SocialNetworks />
-              <p className="footer-contacts-hint">
-                {t('home.footer.copyright')} 
+              <div className="policy-information">
                 <a 
-                  className="footer-terms-link" 
                   target="_blank" 
                   href="/terms"
                   rel="noopener noreferrer"
                 >
                   {t('home.footer.terms')}
                 </a>
+                <a 
+                  target="_blank" 
+                  href="/policy"
+                  rel="noopener noreferrer"
+                >
+                  {t('home.footer.policy')}
+                </a>
+                <a 
+                  target="_blank" 
+                  href="/refund-policy"
+                  rel="noopener noreferrer"
+                >
+                  {t('home.footer.refund')}
+                </a>
+              </div>
+              
+              <p className="footer-contacts-hint">
+                &copy; 2023 {t('home.footer.copyright')}
               </p>
-             
             </div>
             <div className="footer-button-up">
               <Button 
