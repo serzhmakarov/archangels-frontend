@@ -12,7 +12,7 @@ const Reports = () => {
   const isDataEmpty = isLoaded && !data.length;
 
   return (
-    <Container fluuid className="reports-page">
+    <Container className="reports-page">
       <Row className="about-page__title-block">
         <h1>ЗВІТИ</h1>
       </Row>

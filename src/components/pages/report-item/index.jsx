@@ -15,7 +15,7 @@ const Report = () => {
   const { loading, isLoaded, data } = useFetchData(getReports, match.params.id);
 
   return (
-    <Container fluuid className="report-page">
+    <Container className="report-page">
       <Content 
         data={data}
         loading={loading}

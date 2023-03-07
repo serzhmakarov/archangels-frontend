@@ -13,7 +13,7 @@ const Posts = () => {
   const isDataEmpty = isLoaded && !data.length
 
   return (
-    <Container fluuid className="news-page">
+    <Container className="news-page">
       <Row className="about-page__title-block">
         <h1>Новини</h1>
       </Row>

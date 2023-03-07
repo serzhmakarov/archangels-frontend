@@ -30,6 +30,11 @@ body {
   height: 100vh;
 }
 
+.error-text {
+  text-align: center;
+  color: $red;
+}
+
 .contacts-page {
   width: 100%;
   height: 100%;
@@ -291,5 +296,19 @@ body {
 
   h2 {
     font-size: 24px;
+  }
+}
+
+.authorization-modal {
+  .modal-body {
+    text-align: left;
+  }
+
+  &__form-group {
+    margin: 16px 0;
+  }
+
+  &__form-submit-btn {
+    width: 100%;
   }
 }

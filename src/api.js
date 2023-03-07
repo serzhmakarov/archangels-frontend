@@ -1,9 +1,12 @@
-const API_URL = `${process.env.REACT_APP_BASE_API_URL}/api/v1`;
+// const API_URL = `${process.env.REACT_APP_BASE_API_URL}/api/v1`;
+const API_URL = 'http://localhost:3000/api/v1';
 
 const endpoints = {
   posts: '/posts/',
   reports: '/reports/',
   sendForm: '/contacts/',
+  login: '/login/',
+  register: '/register/',
 }
 
 async function request({ method, endpoint, data }) {
@@ -23,12 +26,29 @@ async function request({ method, endpoint, data }) {
     redirect: 'follow',
   }
 
-  try {
-    const response = await fetch(API_URL + endpoint, options);
-    return await response.json();
-  } catch (error) {
-    return await Promise.reject(error);
-  }
+  return fetch(API_URL + endpoint, options)
+    .then((response) => {
+      const authToken = response.headers.get('Authorization');
+
+      if (authToken) {
+        sessionStorage.setItem('authToken', authToken);
+      }
+
+      if (!response.ok) {
+        return Promise.reject(response);
+      }
+
+      return response.json();
+    })
+    .catch(async (error) => {
+      try {
+        const { message } = await error.json();
+        return Promise.reject(new Error(message));
+
+      } catch {
+        return Promise.reject(error);
+      }
+    });
 }
 
 request.defaultProps = {
@@ -36,6 +56,11 @@ request.defaultProps = {
   method: 'get',
   endpoint: '/'
 }
+
+// AUTH
+export const login = (data) => request({ method: 'post', endpoint: endpoints.login, data });
+
+export const register = (data) => request({ method: 'post', endpoint: endpoints.register, data });
 
 // SEND FORM TO SEND EMAIL 
 export const sendForm = (data) => request({ method: 'post', endpoint: endpoints.sendForm, data });
@@ -53,6 +78,6 @@ export const updatePost = ({ id, data }) => request({ method: 'put', endpoint: e
 
 export const updateReport = ({ id, data }) => request({ method: 'put', endpoint: endpoints.reports + id, data });
 
-export const deletePost = (id) => request({ method: 'delete', endpoint: endpoints.posts + id })
+export const deletePost = (id) => request({ method: 'delete', endpoint: endpoints.posts + id });
 
-export const deleteReport = (id) => request({ method: 'delete', endpoint: endpoints.reports + id })
+export const deleteReport = (id) => request({ method: 'delete', endpoint: endpoints.reports + id });

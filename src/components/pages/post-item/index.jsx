@@ -11,7 +11,7 @@ const Post = () => {
   const { loading, isLoaded, data } = useFetchData(getPosts, id);
 
   return (
-    <div fluuid className="post-item-page">
+    <div className="post-item-page">
       <Content 
         loading={loading} 
         isLoaded={isLoaded} 

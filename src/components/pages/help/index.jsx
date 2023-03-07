@@ -8,7 +8,7 @@ import { currencyAccounts } from '../../../constants';
 
 const HelpPage = () => {
   return (
-    <Container fluuid className="help-page">
+    <Container className="help-page">
       <Row className="about-page__title-block">
         <Col xl={6}>
           <h1>ДОПОМОГТИ</h1>

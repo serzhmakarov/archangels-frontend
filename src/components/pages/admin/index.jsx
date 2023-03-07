@@ -3,13 +3,13 @@ import { Tabs, Tab, Container, Row, Col } from 'react-bootstrap';
 
 import AdminTable from './nested/AdminTable';
 import useFetchAdminData from './helpers/useFetchAdminData';
-import withCredentials from './helpers/useCredentials';
 import ConfirmationModal from './nested/ConfirmationModal';
 import ModalCreateItem from './nested/modalCreateItem';
-
-import { reducer, initialState } from './reducer';
 import useApi from './helpers/useApi';
+import withAuthorization from '../../../HOC/withAuthorization';
+import Layout from '../../globals/layout';
 import { actionTypes } from '../../../constants/actionTypes';
+import { reducer, initialState } from './reducer';
 
 const tabs = {
   posts: { key: 'posts', label: 'Новини'},
@@ -95,46 +95,48 @@ const AdminPageComponent = () => {
   };
   
   return (
-    <Container className="admin-page">
-      <ConfirmationModal 
-        loading={loading}
-        showModal={isConfirmationModalOpen}
-        handleDelete={handleDelete}
-        handleCloseModal={handleCloseModal}
-      />
-      <Row>
-        <Col xs={12} className="admin-page__tabs-wrapper">
-          <Tabs 
-            defaultActiveKey="posts" 
-            id="tabs" 
-            onSelect={handleTabChange}
-          >
-            <Tab eventKey="posts" title="Новини" />
-            <Tab eventKey="reports" title="Звіти" />
-          </Tabs>
-          
-          <ModalCreateItem 
-            itemForUpdate={itemForUpdate}
-            isModalShow={isCreationModalOpen}
-            handleCreateClick={handleCreateClick}
-            dispatch={dispatch}
-            loading={loading}
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12}>
-          <AdminTable
-            dispatch={dispatch}
-            onUpdateButtonClick={onUpdateButtonClick}
-            activeTab={activeTab}
-            handleShowModal={handleShowModal}
-            data={renderedData}
-          />
-        </Col>
-      </Row>
-    </Container>
+    <Layout>
+      <Container className="admin-page">
+        <ConfirmationModal 
+          loading={loading}
+          showModal={isConfirmationModalOpen}
+          handleDelete={handleDelete}
+          handleCloseModal={handleCloseModal}
+        />
+        <Row>
+          <Col xs={12} className="admin-page__tabs-wrapper">
+            <Tabs 
+              defaultActiveKey="posts" 
+              id="tabs" 
+              onSelect={handleTabChange}
+            >
+              <Tab eventKey="posts" title="Новини" />
+              <Tab eventKey="reports" title="Звіти" />
+            </Tabs>
+            
+            <ModalCreateItem 
+              itemForUpdate={itemForUpdate}
+              isModalShow={isCreationModalOpen}
+              handleCreateClick={handleCreateClick}
+              dispatch={dispatch}
+              loading={loading}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <AdminTable
+              dispatch={dispatch}
+              onUpdateButtonClick={onUpdateButtonClick}
+              activeTab={activeTab}
+              handleShowModal={handleShowModal}
+              data={renderedData}
+            />
+          </Col>
+        </Row>
+      </Container>
+    </Layout>
   );
 };
 
-export default withCredentials(AdminPageComponent);
+export default withAuthorization(AdminPageComponent);

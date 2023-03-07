@@ -10,7 +10,7 @@ import PartnersList from './partners';
 
 const About = () => {
   return (
-    <Container fluuid className="about-page">
+    <Container className="about-page">
       <Row className="about-page__title-block">
         <Col xl={6}>
           <h1>ПРО НАС</h1>

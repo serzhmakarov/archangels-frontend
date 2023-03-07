@@ -9,6 +9,7 @@ import ReportItem from '../components/pages/report-item';
 import Terms from '../components/pages/terms/ua';
 import Policy from '../components/pages/policy/ua';
 import RefundPolicy from '../components/pages/refund/ua';
+import withLayout from '../HOC/withLayout';
 
 import { routesPath } from '../constants';
 
@@ -19,44 +20,44 @@ const routes = [
   },
   {
     path: routesPath.about,
-    element: About,
+    element: withLayout(About),
   },
   {
     path: routesPath.help,
-    element: HelpUs
+    element: withLayout(HelpUs),
   },
   {
     path: routesPath.news,
-    element: Posts,
+    element: withLayout(Posts),
     exact: true,
   },
   { 
     path: routesPath.new,
-    element: PostItem,
+    element: withLayout(PostItem),
   },
   {
     path: routesPath.reports,
-    element: Reports,
+    element: withLayout(Reports),
   },
   { 
     path: routesPath.report,
-    element: ReportItem,
+    element: withLayout(ReportItem),
   },
   {
     path: routesPath.terms,
-    element: Terms,
+    element: withLayout(Terms),
   },
   {
     path: routesPath.policy,
-    element: Policy,
+    element: withLayout(Policy),
   },
   {
     path: routesPath.refund,
-    element: RefundPolicy,
+    element: withLayout(RefundPolicy),
   },
   {
     path: routesPath.root,
-    element: Home,
+    element: withLayout(Home),
   },
 ];
 

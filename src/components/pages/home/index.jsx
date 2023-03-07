@@ -12,7 +12,7 @@ const Home = () => {
   const { t } = useTranslation();
 
   return (
-    <Container fluuid className="home-page">
+    <Container className="home-page">
       <Row className="home-page__title-block content-wrapper">
         <div className="home-page__title-block-left-side">
           <h1>{t('home.head.archangels')} <br/> {t('home.head.kyiv')}</h1>
