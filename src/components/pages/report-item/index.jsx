@@ -1,27 +1,23 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import { useMatch } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { getReports } from '../../../api';
-
 import useFetchData from '../../../hooks/useFetchData';
 import Content from './content';
 
-// TODO: Show 404 page if post doesnt exist
-
 const Report = () => {
-  const match = useMatch();
+  const { id } = useParams();
 
-  const { loading, isLoaded, data } = useFetchData(getReports, match.params.id);
+  const { loading, isLoaded, data } = useFetchData(getReports, { id });
 
   return (
-    <Container className="report-page">
+    <div className="post-item-page">
       <Content 
-        data={data}
-        loading={loading}
-        isLoaded={isLoaded}
+        loading={loading} 
+        isLoaded={isLoaded} 
+        data={data} 
       />
-    </Container>
+    </div>
   );
 };
 

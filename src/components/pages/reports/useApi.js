@@ -1,7 +1,7 @@
 
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState } from 'react';
-import { getPosts } from '../../../api';
+import { getReports } from '../../../api';
 
 export default function useApi() {
   const initialLimit = 15;
@@ -10,7 +10,7 @@ export default function useApi() {
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [isLoaded, setIsLoaded] = useState(false);
-	const [posts, setPosts] = useState({
+	const [reports, setReports] = useState({
     data: [],
     meta: {},
   });
@@ -19,9 +19,9 @@ export default function useApi() {
     setLoading(true);
 		setError(null);
 
-		getPosts({ query: `?per_page=${limit}` })
-			.then((posts) => {
-				setPosts(posts)
+		getReports({ query: `?per_page=${limit}` })
+			.then((reports) => {
+				setReports(reports)
         setLimit(limit + initialLimit);
 				setLoading(false);
 				setIsLoaded(true);
@@ -33,5 +33,5 @@ export default function useApi() {
 			})
   };
 
-	return { limit, fetchItems, posts, error, isLoaded, loading };
+	return { limit, fetchItems, reports, error, isLoaded, loading };
 }

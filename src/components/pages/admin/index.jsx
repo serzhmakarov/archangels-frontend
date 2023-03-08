@@ -13,27 +13,27 @@ import { reducer, initialState } from './reducer';
 import PaginationComponent from './nested/Pagination';
 
 const tabs = {
-  posts: { key: 'posts', label: 'Новини'},
+  reports: { key: 'reports', label: 'Звіти'},
 }
 
 const AdminPageComponent = () => {
   const tableRef = useRef();
   const [adminState, dispatch] = useReducer(reducer, initialState);
-  const [activeTab, setActiveTab] = useState(tabs.posts.key);
+  const [activeTab, setActiveTab] = useState(tabs.reports.key);
   const [rowDeleteId, setRowDeleteId] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
   useFetchAdminData({ dispatch, currentPage })
 
   const {
-    deletePostRequest, 
-    createPostRequest,
-    updatePostRequest,
+    deleteReportRequest, 
+    createReportRequest,
+    updateReportRequest,
   } = useApi({ dispatch });
 
   const { 
     loading,
-    posts,
+    reports,
     isCreationModalOpen,
     isConfirmationModalOpen,
     itemForUpdate,
@@ -60,7 +60,7 @@ const AdminPageComponent = () => {
   };
 
   const handleDelete = () => {
-    deletePostRequest(rowDeleteId)
+    deleteReportRequest(rowDeleteId)
       .then(() => dispatch({ type: actionTypes.closeConfirmationModal }));
   };
 
@@ -69,7 +69,7 @@ const AdminPageComponent = () => {
   };
 
   const handleCreateClick = (formData) => {
-    const callback = itemForUpdate ? updatePostRequest : createPostRequest;
+    const callback = itemForUpdate ? updateReportRequest : createReportRequest;
     
     return callback(formData, itemForUpdate?.id)
   };
@@ -88,11 +88,11 @@ const AdminPageComponent = () => {
         <Row>
           <Col xs={12} className="admin-page__tabs-wrapper">
             <Tabs 
-              defaultActiveKey="posts" 
+              defaultActiveKey="reports" 
               id="tabs" 
               onSelect={handleTabChange}
             >
-              <Tab eventKey="posts" title="Новини" />
+              <Tab eventKey="reports" title="Звіти" />
             </Tabs>
             
             <ModalCreateItem 
@@ -111,14 +111,14 @@ const AdminPageComponent = () => {
               onUpdateButtonClick={onUpdateButtonClick}
               activeTab={activeTab}
               handleShowModal={handleShowModal}
-              data={posts.data}
+              data={reports.data}
             />
           </Col>
           <Col xs={12} className="admin-page__pagination">
             <PaginationComponent 
               currentPage={currentPage}
               handlePageChange={handlePageChange}
-              totalPages={posts.meta?.total_pages}
+              totalPages={reports.meta?.total_pages}
             />
           </Col>
         </Row>

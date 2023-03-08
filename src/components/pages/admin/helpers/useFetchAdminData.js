@@ -2,21 +2,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 
-import { getPosts } from '../../../../api';
+import { getReports } from '../../../../api';
 import { actionTypes } from '../../../../constants/actionTypes';
 
 export default function useFetchAdminData({ dispatch, currentPage }) {
   useEffect(() => {
-		dispatch({ type: actionTypes.getPostsRequest });
+		dispatch({ type: actionTypes.getReportsRequest });
 
-    getPosts({ query: `?page=${currentPage}` })
-			.then((posts) => {
-				dispatch({ type: actionTypes.getPostsSuccess, payload: posts });
+    getReports({ query: `?page=${currentPage}` })
+			.then((reports) => {
+				dispatch({ type: actionTypes.getReportsSuccess, payload: reports });
 
-				return Promise.resolve(posts);
+				return Promise.resolve(reports);
 			})
 			.catch((error) => {
-				dispatch({ type: actionTypes.getPostsFailure, payload: error });
+				dispatch({ type: actionTypes.getReportsFailure, payload: error });
 
 				return Promise.reject(error);
 			})

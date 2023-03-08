@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import normalizeDate from '../../../_helpers/normalizeDate';
 import DefaultPostImage from '../../../assets/images/post_image_default.jpg'
 
-const PostCard = ({ id, date, short_description, photo, name }) => (
+const ReportCard = ({ id, date, short_description, photo, name }) => (
   <Card className="news-list-item">
     <Row>
       <Col xs={4}>
@@ -26,7 +26,7 @@ const PostCard = ({ id, date, short_description, photo, name }) => (
             variant="outline-danger" 
             className="archangels-btn"
             as="a"
-            href={`/news/${id}`}
+            href={`/reports/${id}`}
           >
             Читати
           </Button>
@@ -36,12 +36,12 @@ const PostCard = ({ id, date, short_description, photo, name }) => (
   </Card>
 );
 
-PostCard.propTypes = {
+ReportCard.propTypes = {
   id: PropTypes.number.isRequired,
-  description: PropTypes.string.isRequired,
-  photo: PropTypes.string.isRequired,
+  short_description: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
+  photo: PropTypes.string,
 };
 
-export default PostCard;
+export default ReportCard;

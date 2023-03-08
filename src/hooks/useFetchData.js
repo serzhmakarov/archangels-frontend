@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 
-export default function useFetchData(callback, params = '') {
+export default function useFetchData(callback, params = {}) {
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [isLoaded, setIsLoaded] = useState(false);
@@ -13,8 +13,8 @@ export default function useFetchData(callback, params = '') {
 		setError(null);
 
 		callback(params)
-			.then((posts) => {
-				setData(posts)
+			.then((reports) => {
+				setData(reports)
 				setLoading(false);
 				setIsLoaded(true);
 			})

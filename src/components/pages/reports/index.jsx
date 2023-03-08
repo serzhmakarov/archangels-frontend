@@ -1,32 +1,65 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import Container from 'react-bootstrap/Container';
+import Spinner from 'react-bootstrap/Spinner';
 import Row from 'react-bootstrap/Row';
 
-import ReportsList from './reportsList';
+import ReportsList from './reports';
+import useApi from './useApi';
 import Placeholder from '../../globals/placeholder';
-import { getReports } from '../../../api';
-import useFetchData from '../../../hooks/useFetchData';
 
 const Reports = () => {
-  const { data, isLoaded, loading } = useFetchData(getReports);
-  const isDataEmpty = isLoaded && !data.length;
+  const { 
+    fetchItems,
+    loading, 
+    isLoaded, 
+    reports: {
+      data,
+      meta
+    },
+  } = useApi();
+
+  useEffect(() => {
+    fetchItems();
+  }, []); /* eslint-disable-line react-hooks/exhaustive-deps */
+
+  const handleScroll = useCallback((event) => {
+    const elementRef = event.target.documentElement;
+    const disabled = loading || meta.total_count === data.length;
+    const shouldLoadData = elementRef.scrollTop + elementRef.clientHeight > elementRef.scrollHeight - 300
+
+    if (shouldLoadData && !disabled) {
+      fetchItems();
+    }
+  }, [loading, fetchItems, data.length, meta.total_count]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    }
+  }, [handleScroll]);
+
+  const isDataEmpty = isLoaded && !data.length
 
   return (
-    <Container className="reports-page">
+    <Container className="news-page">
       <Row className="about-page__title-block">
-        <h1>ЗВІТИ</h1>
+        <h1>Звіти</h1>
       </Row>
-      <Placeholder 
-        show={isDataEmpty}
-        message="Незабаром тут з'являться всі звіти нашого фонду від початку повномасштабного вторгнення."
-      />
+    
       <Row className="content-wrapper">
+        <Placeholder 
+          show={isDataEmpty}
+          message="Незабаром тут з'являться всі новини нашого фонду від початку повномасштабного вторгнення."
+        />
         <ReportsList 
+          loading={loading}
           isLoaded={isLoaded}
-          loading={loading} 
-          reports={data} 
+          reports={data}
         />
       </Row>
+      {loading && (<Spinner animation="border" />)}
     </Container>
   );
 };

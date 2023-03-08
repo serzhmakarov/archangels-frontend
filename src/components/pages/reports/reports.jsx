@@ -1,13 +1,14 @@
 import React from 'react';
 
-import PostCard from './postCard';
+import ReportCard from './reportCard';
 import withLoading from '../../../hooks/useLoading';
 
-function PostsList({ posts }) {
+function ReportsList({ reports }) {
   return (
     <div className="news-list">
-      {posts.map(({ id, name, date, short_description, photo_url }) => (
-        <PostCard 
+      {reports.map(({ id, name, date, short_description, photo_url }) => (
+        <ReportCard 
+          key={id}
           id={id}
           name={name} 
           date={date} 
@@ -19,6 +20,6 @@ function PostsList({ posts }) {
   );
 }
 
-const PostsListWithLoading = withLoading(PostsList);
+const ReportsListWithLoading = withLoading(ReportsList);
 
-export default PostsListWithLoading;
+export default ReportsListWithLoading;

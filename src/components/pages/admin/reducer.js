@@ -8,7 +8,7 @@ const initialState = {
   isCreationModalOpen: false,
   successMessage: '',
   itemForUpdate: null,
-  posts: {
+  reports: {
     isLoaded: false,
     data: [],
   },
@@ -36,79 +36,79 @@ function reducer(state, action) {
     case actionTypes.updateState:
       return { ...state, ...payload };
 
-    case actionTypes.getPostsRequest:
+    case actionTypes.getReportsRequest:
       return { ...state, loading: true };
 
-    case actionTypes.getPostsSuccess:
+    case actionTypes.getReportsSuccess:
       return { 
         ...state,
         loading: false,
-        posts:  {
+        reports:  {
           ...payload, 
           isLoaded: true,
         }
       };
-    case actionTypes.getPostsFailure:
+    case actionTypes.getReportsFailure:
       return { ...state, loading: false, error: payload };
 
     // DELETE ACTIONS
-    case actionTypes.deletePostRequest:
+    case actionTypes.deleteReportRequest:
       return { ...state, loading: true, error: null };
 
-    case actionTypes.deletePostSuccess:
+    case actionTypes.deleteReportSuccess:
       return { 
         ...state, 
         loading: false,
-        posts: { 
-          ...state.posts,
-          data: remove(state.posts.data, payload),
+        reports: { 
+          ...state.reports,
+          data: remove(state.reports.data, payload),
          }
       };
     
-    case actionTypes.deletePostFailure:
+    case actionTypes.deleteReportFailure:
       return { ...state, loading: false, error: action.payload };
 
     // CREATE ACTIONS
 
-    case actionTypes.createPostRequest:
+    case actionTypes.createReportRequest:
       return { ...state, loading: true, error: null };
 
-    case actionTypes.createPostSuccess:
+    case actionTypes.createReportSuccess:
       return { 
         ...state, 
         loading: false,
-        posts: {
+        reports: {
           isLoaded: true,
-          data: [action.payload, ...state.posts.data],
+          data: [action.payload, ...state.reports.data],
         },
       };
 
-    case actionTypes.createPostFailure:
+    case actionTypes.createReportFailure:
       return { ...state, loading: false, error: action.payload };
 
     // UPDATE ACTIONS
 
-    case actionTypes.onUpdateButtonClick:
+    case actionTypes.onUpdateButtonClick: 
       return {
         ...state,
         isCreationModalOpen: true,
-        itemForUpdate: find(state.posts.data, ['id', action.payload.id]) 
+        itemForUpdate: find(state.reports.data, ['id', action.payload.id]) 
       }
     
-    case actionTypes.updatePostRequest:
+    case actionTypes.updateReportRequest:
       return { ...state, loading: true, error: null };
 
-    case actionTypes.updatePostSuccess:
+    case actionTypes.updateReportSuccess:
       return { 
         ...state, 
         loading: false,
-        posts: {
+        reports: {
           isLoaded: true,
-          data: replaceObjectInArray(state.posts.data, action.payload),
+          data: replaceObjectInArray(state.reports.data, action.payload),
         },
       };
 
-    case actionTypes.updatePostFailure:
+    case actionTypes.updateReportFailure:
       return { ...state, loading: false, error: action.payload };
 
     // MODAL ACTIONS

@@ -28,13 +28,13 @@ const navLinks = [
     label: 'home.header.help',
   },
   {
-    link: '/news',
-    label: 'home.header.news',
-  },
-  {
     link: '/reports',
     label: 'home.header.reports',
-  }
+  },
+  {
+    link: '/documents',
+    label: 'home.header.documents',
+  },
 ];
 
 const contactFormFields = [
@@ -202,14 +202,34 @@ const routesPath = {
   admin: '/admin',
   about: '/about',
   help: '/help',
-  new: '/news/:id',
-  news: '/news',
   reports: '/reports',
   report: '/reports/:id',
+  documents: '/documents',
   terms: '/terms',
   policy: '/policy',
   refund: '/refund-policy',
-}
+};
+
+const contacts = [
+  {
+    key: 'email',
+    label: 'home.contacts.form.email',
+    value: 'admin@archangels.in.ua',
+    link: 'mailto:admin@archangels.in.ua',
+  },
+  {
+    key: 'telegram',
+    label: 'home.contacts.form.telegram',
+    value: 't.me/Solomka_Help',
+    link: 'https://t.me/Solomka_Help',
+  },
+  {
+    key: 'phone',
+    label: 'home.contacts.form.phone',
+    value: '+380 (97) 815 0273',
+    link: 'tel:+380978150273',
+  },
+]
 
 export {
   contactFormFields,
@@ -221,4 +241,5 @@ export {
   currencyAccounts,
   adminTableFields,
   routesPath,
+  contacts
 }

@@ -6,7 +6,7 @@
       "main": "Home",
       "about": "About",
       "help": "Support us",
-      "news": "News",
+      "documents": "Documents",
       "reports": "Reports",
       "contacts": "Contacts"
     },
@@ -59,7 +59,8 @@
         "name": "Name",
         "phone": "Phone",
         "message": "Message",
-        "email": "E-Mail",
+        "email": "Email",
+        "telegram": "Telegram",
         "send_button": "Send",
         "send_button_loading": "Sending...",
         "hint_success": "Your request has been successfully sent! We will review it as soon as possible and send our response to your E-Mail",

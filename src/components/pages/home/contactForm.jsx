@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import { useTranslation } from 'react-i18next';
 
 import Field from './field';
+import ContactsBlock from './contactsBlock';
 import Alert from '../../globals/alert'
 import useSendForm from '../../../hooks/useSendForm';
 import { contactFormFields } from '../../../constants';
@@ -29,14 +30,7 @@ const ContactForm = () => {
 					</h1>
 					<div className="contacts-info">
 						<h3>{t('home.contacts.our_contacts')}</h3>
-						<div className="contacts-info__block">
-							<div className="">
-								Email: <a href="mailto:admin@archangels.in.ua">admin@archangels.in.ua</a>
-							</div>
-							<div>
-								Telegram: <a href="https://t.me/Solomka_Help">t.me/Solomka_Help</a>
-							</div>
-						</div>
+						<ContactsBlock />
 					</div>
 				</Col>
 				<Col sm={12} className="form-hint-text">
@@ -67,14 +61,7 @@ const ContactForm = () => {
 					</Form>
 					<div className="contacts-info-mobile">
 						<h3>{t('home.contacts.our_contacts')}</h3>
-						<div className="contacts-info__block">
-							<div className="">
-								Email: <a href="mailto:admin@archangels.in.ua">admin@archangels.in.ua</a>
-							</div>
-							<div>
-								Telegram: <a href="https://t.me/Solomka_Help">t.me/Solomka_Help</a>
-							</div>
-						</div>
+						<ContactsBlock />
 					</div>
 				</Col>
 			</Row>
