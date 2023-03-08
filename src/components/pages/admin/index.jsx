@@ -75,6 +75,8 @@ const AdminPageComponent = () => {
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
+
+  console.log('adminState', adminState);
   
   return (
     <Layout>

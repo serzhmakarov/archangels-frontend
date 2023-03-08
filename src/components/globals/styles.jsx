@@ -60,6 +60,13 @@ export const HeaderDesktopContainer = styled.div`
     padding-left: 1rem !important;
     padding-right: 1rem !important;
     color: #B30000 !important;
+    transition: border .3s;
+
+    &:hover {
+      margin-bottom: -30px;
+      opacity: .8;
+      border-bottom: 2px solid #B30000;
+    }
   }
 `;
 

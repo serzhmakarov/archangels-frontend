@@ -1,11 +1,17 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import styled from 'styled-components';
+import useImageLoad from '../../../hooks/useImageLoad';
 
 const FounderCard = ({ name, text, image, link }) => {
+  const { loaded, handleImageLoaded, PlaceholderImage } = useImageLoad();
   return (
     <StyledCard className="founder-card" link={link}>
-      <Card.Img variant="top" src={image} />
+      <Card.Img 
+        variant="top" 
+        src={loaded ? image : PlaceholderImage} 
+        onLoad={handleImageLoaded}
+      />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         {text && (<Card.Text>{text}</Card.Text>)}

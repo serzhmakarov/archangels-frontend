@@ -78,6 +78,7 @@ function reducer(state, action) {
         ...state, 
         loading: false,
         reports: {
+          ...state.reports,
           isLoaded: true,
           data: [action.payload, ...state.reports.data],
         },
@@ -103,6 +104,7 @@ function reducer(state, action) {
         ...state, 
         loading: false,
         reports: {
+          ...state.reports,
           isLoaded: true,
           data: replaceObjectInArray(state.reports.data, action.payload),
         },

@@ -12,8 +12,8 @@ $primary-color: #333;
 $red: #B30000;
 
 @font-face {
-  font-family: 'KyivTitle';
-  src: url('./fonts/KyivType-VariableGX/KyivTypeTitling-VarGX.ttf');
+  font-family: 'KharkivTone';
+  src: url('./fonts/Kharkiv_Tone.ttf');
 }
 
 body {
@@ -155,10 +155,11 @@ body {
 }
 
 .title-block-text {
+  font-family: "KharkivTone";
   text-transform: uppercase;
   margin-bottom: 64px;
   padding-left: 16px;
-  font-size: 36px;
+  font-size: 32px;
   line-height: 40px;
   border-left: 1px solid #B30000;
 
