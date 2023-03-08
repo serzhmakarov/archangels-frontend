@@ -12,7 +12,7 @@ const PostCard = ({ id, date, short_description, photo, name }) => (
   <Card className="news-list-item">
     <Row>
       <Col xs={4}>
-        <Card.Img variant="top" src={photo} />
+        <Card.Img variant="top" src={photo || DefaultPostImage} />
       </Col>
 
       <Col xs={8}>
@@ -35,10 +35,6 @@ const PostCard = ({ id, date, short_description, photo, name }) => (
     </Row>
   </Card>
 );
-PostCard.defaultProps = {
-  photo: DefaultPostImage
-};
-
 
 PostCard.propTypes = {
   id: PropTypes.number.isRequired,

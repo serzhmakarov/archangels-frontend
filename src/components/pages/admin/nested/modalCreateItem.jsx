@@ -87,7 +87,7 @@ const ModalCreateItem = ({
             className="submit-button"
             onClick={handleClose}
           >
-            Cancel
+            Скасувати
           </Button>
           <Button 
             variant="primary" 
@@ -95,7 +95,7 @@ const ModalCreateItem = ({
             className="submit-button"
             disabled={loading}
           >
-            {loading ? 'Loading...' : 'Submit'}
+            {loading ? 'Загрузка...' : 'Відправити'}
           </Button>
         </div>
       </Form>

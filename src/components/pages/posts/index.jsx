@@ -1,14 +1,46 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import Container from 'react-bootstrap/Container';
+import Spinner from 'react-bootstrap/Spinner';
 import Row from 'react-bootstrap/Row';
 
 import PostsList from './posts';
-import { getPosts } from '../../../api';
-import useFetchData from '../../../hooks/useFetchData';
+import useApi from './useApi';
 import Placeholder from '../../globals/placeholder';
 
 const Posts = () => {
-  const { loading, isLoaded, data } = useFetchData(getPosts);
+  const { 
+    fetchItems,
+    loading, 
+    isLoaded, 
+    posts: {
+      data,
+      meta
+    },
+  } = useApi();
+
+  const handleScroll = useCallback((event) => {
+    const elementRef = event.target.documentElement;
+
+    const disabled = loading || meta.total_count === data.length;
+
+    const shouldLoadData = elementRef.scrollTop + elementRef.clientHeight > elementRef.scrollHeight - 300
+
+    if (shouldLoadData && !disabled) {
+      fetchItems();
+    }
+  }, [loading, fetchItems]);
+
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    }
+  }, [handleScroll]);
 
   const isDataEmpty = isLoaded && !data.length
 
@@ -29,6 +61,7 @@ const Posts = () => {
           posts={data}
         />
       </Row>
+      {loading && (<Spinner animation="border" />)}
     </Container>
   );
 };

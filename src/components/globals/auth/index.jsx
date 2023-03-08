@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
 import useApi from './useApi';
 
-const Auth = ({ open = false }) => {
+const Auth = ({ open = false, setIsLoggedIn }) => {
   const { loading, error, onLogin } = useApi();
 
   const [showModal, setShowModal] = useState(open);
@@ -18,8 +18,11 @@ const Auth = ({ open = false }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    onLogin({ user: { email, password } });
+    onLogin({ user: { email, password } })
+      .then(() => setIsLoggedIn(true));
   };
+
+  console.log(error);
 
   return (
     <Modal 

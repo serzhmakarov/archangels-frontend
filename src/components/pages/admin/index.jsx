@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useReducer, useState, useRef, useEffect } from 'react';
 import { Tabs, Tab, Container, Row, Col } from 'react-bootstrap';
 
 import AdminTable from './nested/AdminTable';
@@ -10,46 +10,38 @@ import withAuthorization from '../../../HOC/withAuthorization';
 import Layout from '../../globals/layout';
 import { actionTypes } from '../../../constants/actionTypes';
 import { reducer, initialState } from './reducer';
+import PaginationComponent from './nested/Pagination';
 
 const tabs = {
   posts: { key: 'posts', label: 'Новини'},
-  reports: { key: 'reports', label: 'Звіти' },
-  requests: { key: 'requests', label: 'Запити' },
 }
 
 const AdminPageComponent = () => {
+  const tableRef = useRef();
   const [adminState, dispatch] = useReducer(reducer, initialState);
-
   const [activeTab, setActiveTab] = useState(tabs.posts.key);
   const [rowDeleteId, setRowDeleteId] = useState(null);
-  const [renderedData, setRenderedData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  useFetchAdminData({ dispatch });
+  useFetchAdminData({ dispatch, currentPage })
 
   const {
     deletePostRequest, 
-    deleteReportRequest,
     createPostRequest,
-    createReportRequest,
     updatePostRequest,
-    updateReportRequest,
   } = useApi({ dispatch });
 
   const { 
     loading,
     posts,
-    reports,
     isCreationModalOpen,
     isConfirmationModalOpen,
     itemForUpdate,
    } = adminState;
 
   useEffect(() => {
-    if (posts.isLoaded || reports.isLoaded) {
-      setRenderedData(adminState[activeTab.toLocaleLowerCase()]?.data);
-    }
-  /* eslint-disable react-hooks/exhaustive-deps */
-  }, [adminState.posts, adminState.reports, activeTab]);
+    tableRef.current.style.opacity = loading ? 0.6 : 1
+  }, [loading]);
 
   const onUpdateButtonClick = (id) => {
     dispatch({ 
@@ -68,14 +60,8 @@ const AdminPageComponent = () => {
   };
 
   const handleDelete = () => {
-    if (activeTab === tabs.posts.key) {
-      deletePostRequest(rowDeleteId)
-        .then(() => dispatch({ type: actionTypes.closeConfirmationModal }));
-
-    } else {
-      deleteReportRequest(rowDeleteId)
-      .then(() => dispatch({ type: actionTypes.closeConfirmationModal }))
-    }
+    deletePostRequest(rowDeleteId)
+      .then(() => dispatch({ type: actionTypes.closeConfirmationModal }));
   };
 
   const handleTabChange = (tab) => {
@@ -83,16 +69,12 @@ const AdminPageComponent = () => {
   };
 
   const handleCreateClick = (formData) => {
-    if (activeTab === tabs.posts.key) {
-      const callback = itemForUpdate ? updatePostRequest : createPostRequest;
-      
-      return callback(formData, itemForUpdate?.id)
-    } else {
-      const callback = itemForUpdate ? updateReportRequest : createReportRequest;
-
-      return callback(formData, itemForUpdate?.id);
-    }
+    const callback = itemForUpdate ? updatePostRequest : createPostRequest;
+    
+    return callback(formData, itemForUpdate?.id)
   };
+
+  const handlePageChange = (page) => setCurrentPage(page);
   
   return (
     <Layout>
@@ -111,7 +93,6 @@ const AdminPageComponent = () => {
               onSelect={handleTabChange}
             >
               <Tab eventKey="posts" title="Новини" />
-              <Tab eventKey="reports" title="Звіти" />
             </Tabs>
             
             <ModalCreateItem 
@@ -124,13 +105,20 @@ const AdminPageComponent = () => {
           </Col>
         </Row>
         <Row>
-          <Col xs={12}>
+          <Col xs={12} ref={tableRef}>
             <AdminTable
               dispatch={dispatch}
               onUpdateButtonClick={onUpdateButtonClick}
               activeTab={activeTab}
               handleShowModal={handleShowModal}
-              data={renderedData}
+              data={posts.data}
+            />
+          </Col>
+          <Col xs={12} className="admin-page__pagination">
+            <PaginationComponent 
+              currentPage={currentPage}
+              handlePageChange={handlePageChange}
+              totalPages={posts.meta?.total_pages}
             />
           </Col>
         </Row>

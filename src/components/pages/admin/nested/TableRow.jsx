@@ -4,6 +4,7 @@ import moment from 'moment';
 import { truncate } from 'lodash-es';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
+import PlaceholderImage from '../../../../assets/images/post_image_default.jpg';
 
 function truncateString(str, maxLength) {
   return truncate(str, {
@@ -36,7 +37,7 @@ const TableRow = ({
     <tr key={id}>
       <td>{index + 1}</td>
       <td>
-        <img className="admin-page__row-item-image" src={photo_url} alt="" />
+        <img className="admin-page__row-item-image" src={photo_url || PlaceholderImage} alt="" />
       </td>
       <td title={name}>{truncateString(name, 50)}</td>
       <td title={short_description}>{truncateString(short_description, 50)}</td>

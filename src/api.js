@@ -6,16 +6,20 @@ const endpoints = {
   reports: '/reports/',
   sendForm: '/contacts/',
   login: '/login/',
-  register: '/register/',
 }
 
 async function request({ method, endpoint, data }) {
+  const authToken = sessionStorage.getItem('authToken');
   const isStringify = !(data instanceof FormData);
 
   const headers = {};
 
   if (isStringify) {
     headers['Content-Type'] = 'application/json';
+  }
+
+  if (sessionStorage.getItem('authToken')) {
+    headers['Authorization'] = authToken;
   }
 
   const options = {
@@ -41,6 +45,10 @@ async function request({ method, endpoint, data }) {
       return response.json();
     })
     .catch(async (error) => {
+      if (error.status === 401) {
+        sessionStorage.removeItem('authToken');
+      }
+
       try {
         const { message } = await error.json();
         return Promise.reject(new Error(message));
@@ -60,13 +68,11 @@ request.defaultProps = {
 // AUTH
 export const login = (data) => request({ method: 'post', endpoint: endpoints.login, data });
 
-export const register = (data) => request({ method: 'post', endpoint: endpoints.register, data });
-
 // SEND FORM TO SEND EMAIL 
 export const sendForm = (data) => request({ method: 'post', endpoint: endpoints.sendForm, data });
 
 // GET, CREATE, UPDATE, DELETE requests for Reports and Posts
-export const getPosts = (id = '') => request({ method: 'get', endpoint: endpoints.posts + id }); 
+export const getPosts = ({ id = '', query = '/' }) => request({ method: 'get', endpoint: endpoints.posts + id + query }); 
 
 export const getReports = (id = '') => request({ method: 'get', endpoint: endpoints.reports + id });
 

@@ -1,5 +1,6 @@
 .admin-page {
   padding-top: 64px;
+  padding-bottom: 64px;
   min-height: 65vh;
 
   .admin-page__empty-data {
@@ -25,6 +26,11 @@
   .edit-button, .delete-button {
     text-align: center;
     font-size: 20px;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: flex-end;
   }
 
   &__row-item-image {
