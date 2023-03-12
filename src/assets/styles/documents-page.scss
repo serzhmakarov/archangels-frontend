@@ -1,0 +1,116 @@
+.pdf-page {
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .spinner-border {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+  &__documents-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @media screen and (max-width: 1399px) {
+      justify-content: center;
+    }
+  }
+
+  &__document-wrapper {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    border: 1px solid #000;
+    width: 48%;
+    margin: 16px 8px;
+
+    @media screen and (max-width: 1399px) {
+      width: 70%;
+    }
+
+    @media screen and (max-width: 991px) {
+      width: 100%;
+      height: fit-content;
+    }
+    
+    &:hover {
+      .pdf-viewer__styled-navigation {
+        opacity: 1;
+      }  
+    }
+    
+    .pdf-viewer__styled-navigation {
+      position: absolute;
+      background: #fff;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      box-shadow: 0 30px 40px 0 rgba(16, 36, 94, .2);
+      transition: opacity .3s;
+
+      @media screen and (max-width: 991px) {
+        position: relative;
+        opacity: 1;
+        bottom: unset;
+        transform: none;
+        left: unset;
+        box-shadow: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      
+      span {
+        font-size: 1em;
+        padding: 0 0.5em;
+      }
+    
+      button {
+        border: none;
+        outline: none;
+        width: 44px;
+        height: 44px;
+        background: white;
+        border: 0;
+        border-radius: 4px;
+        font-size: 1.5em;
+    
+        &:hover {
+          background-color: #e6e6e6;
+        }
+      }
+    }
+  }
+}
+
+.acknowledgments-page {
+  padding-top: 64px;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  img {
+    box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.45);
+		transition: .3s;
+    width: 30%;
+    margin: 16px;
+
+    &:hover {
+			box-shadow: 0px 3px 19px 0px rgba(0,0,0,0.85);
+		}
+
+    @media screen and (max-width: 1399px) {
+      width: 45%;
+    }
+
+    @media screen and (max-width: 991px) {
+      width: 90%;
+    }
+  }
+}

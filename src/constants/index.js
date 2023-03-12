@@ -14,6 +14,16 @@ import {
   TelegramIcon 
 } from '../assets/icons';
 
+const achieves = [
+  { url: require('../assets/images/achieves/5_a.jpg') },
+  { url: require('../assets/images/achieves/6_a.jpg') },
+  { url: require('../assets/images/achieves/2_a.jpg') },
+  { url: require('../assets/images/achieves/3_a.jpg') },
+  { url: require('../assets/images/achieves/1_a.jpg') },
+  { url: require('../assets/images/achieves/8_a.jpg') },
+  { url: require('../assets/images/achieves/4_a.jpg') },
+]
+
 const navLinks = [
   {
     link: '/',
@@ -241,5 +251,6 @@ export {
   currencyAccounts,
   adminTableFields,
   routesPath,
-  contacts
+  contacts,
+  achieves
 }
