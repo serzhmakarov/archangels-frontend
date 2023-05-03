@@ -1,11 +1,12 @@
 import React from 'react';
-import LoadingGif from '../assets/images/loading.gif';
+import Spinner from 'react-bootstrap/Spinner';
+// import LoadingGif from '../assets/images/loading.gif';
 
 const withLoading = Component => (props) => {
 	if (!props.isLoaded) {
 		return (
 			<div className="loader-spinner">
-				<img src={LoadingGif} alt="Loading..." />
+				<Spinner animation="border" className="spinner" />
 			</div>
 		);
 	}

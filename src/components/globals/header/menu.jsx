@@ -17,6 +17,9 @@ const Menu = ({ isMenuOpen, onCloseMenu }) => {
             onClick={onCloseMenu}
             key={link}
             to={link}
+            className={({ isActive, isPending }) =>
+             isPending ? "pending" : isActive ? "active" : ""
+            }
           >
             {t(label)}
           </NavLink>  
@@ -25,6 +28,9 @@ const Menu = ({ isMenuOpen, onCloseMenu }) => {
           onClick={onCloseMenu}
           as={HashLink} 
           to="/#contacts"
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active" : ""
+         }
         >
           {t('home.header.contacts')}
         </NavLink>

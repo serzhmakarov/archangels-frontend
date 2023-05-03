@@ -62,10 +62,13 @@ export const HeaderDesktopContainer = styled.div`
     color: #B30000 !important;
     transition: border .3s;
 
-    &:hover {
-      margin-bottom: -30px;
-      opacity: .8;
+    &.active {
       border-bottom: 2px solid #B30000;
+      margin-bottom: -30px;
+    }
+
+    &:hover {
+      opacity: .8;
     }
   }
 `;

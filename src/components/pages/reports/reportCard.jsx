@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
+import { t } from 'i18next';
 
 import normalizeDate from '../../../_helpers/normalizeDate';
 import DefaultPostImage from '../../../assets/images/post_image_default.jpg'
@@ -19,7 +20,7 @@ const ReportCard = ({ id, date, short_description, photo, name }) => (
         <Card.Body>
           <div className="card-info">
             <Card.Title>{name}</Card.Title>
-            <p className="date">{normalizeDate(date)}</p>
+            <p className="date">{t('home.date')}: {normalizeDate(date)}</p>
             <Card.Text>{short_description}</Card.Text>
           </div>
           <Button 

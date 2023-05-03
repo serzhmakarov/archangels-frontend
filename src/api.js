@@ -5,6 +5,7 @@ const endpoints = {
   reports: '/posts/',
   sendForm: '/contacts/',
   login: '/login/',
+  payment: '/payments/create_checkout_url'
 }
 
 async function request({ method, endpoint, data }) {
@@ -63,6 +64,10 @@ request.defaultProps = {
   method: 'get',
   endpoint: '/'
 }
+
+// FONDY REQUEST
+ 
+export const getFondyCheckoutURL = () => request({ method: 'get', endpoint: endpoints.payment });
 
 // AUTH
 export const login = (data) => request({ method: 'post', endpoint: endpoints.login, data });

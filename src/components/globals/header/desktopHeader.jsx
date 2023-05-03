@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { HashLink } from 'react-router-hash-link';
@@ -23,7 +23,7 @@ const DesktopHeader = () => {
             <Nav.Link
               key={link}
               to={link}
-              as={Link}
+              as={NavLink}
             >
               {t(label)}
             </Nav.Link>  

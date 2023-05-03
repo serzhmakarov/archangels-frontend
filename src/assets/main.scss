@@ -155,6 +155,11 @@ body {
   }
 }
 
+.payment-btn {
+  height: 58px;
+  min-width: 250px;
+}
+
 .title-block-text {
   font-family: "KharkivTone";
   text-transform: uppercase;
@@ -255,13 +260,16 @@ body {
 }
 
 .loader-spinner {
+  color: $red;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 50vh;
-  img {
-    width: 200px;
+
+  .spinner {
+    width: 50px;
+    height: 50px;
   }
 }
 

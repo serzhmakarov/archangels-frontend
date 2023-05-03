@@ -1,6 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
 import Container from 'react-bootstrap/Container';
-import Spinner from 'react-bootstrap/Spinner';
 import Row from 'react-bootstrap/Row';
 
 import ReportsList from './reports';
@@ -59,7 +58,6 @@ const Reports = () => {
           reports={data}
         />
       </Row>
-      {loading && (<Spinner animation="border" />)}
     </Container>
   );
 };

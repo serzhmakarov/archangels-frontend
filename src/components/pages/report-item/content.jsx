@@ -1,6 +1,7 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import { t } from 'i18next';
 
 import normalizeDate from '../../../_helpers/normalizeDate';
 import withLoading from '../../../hooks/useLoading';
@@ -19,7 +20,7 @@ const Content = ({ data }) => {
     <Container>
       <Row className="post-item-page__title-block">
         <h1 className="post-name">{name}</h1>
-        <p className="post-date">{normalizeDate(date)}</p>
+        <p className="post-date">{t('home.date')}: {normalizeDate(date)}</p>
         <p className="post-description">{short_description}</p>
 
         <div>
