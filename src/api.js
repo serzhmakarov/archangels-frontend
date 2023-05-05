@@ -67,7 +67,11 @@ request.defaultProps = {
 
 // FONDY REQUEST
  
-export const getFondyCheckoutURL = () => request({ method: 'get', endpoint: endpoints.payment });
+export const getFondyCheckoutURL = ({ amount, currency }) => 
+request({ 
+  method: 'get', 
+  endpoint: endpoints.payment + `?amount=${amount}&currency=${currency}` 
+});
 
 // AUTH
 export const login = (data) => request({ method: 'post', endpoint: endpoints.login, data });
