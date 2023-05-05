@@ -5,6 +5,7 @@ import AndrewlPhotoJpg from '../assets/images/team/andrew.jpg';
 import LanaPhotoJpg from '../assets/images/team/lana.jpg';
 import MarynaPhotoJpg from '../assets/images/team/maryna.jpg';
 import VadymPhotoJpg from '../assets/images/team/vadym.jpg';
+import YanaPhotoJpg from '../assets/images/team/yana.jpg';
 
 import AllaFondJpg from '../assets/images/team/partner_alla.jpg';
 import DreamFondJpg from '../assets/images/team/partner_dream.jpg';
@@ -121,6 +122,18 @@ const founders = [
 
 const teamList = [
   {
+    name: 'Яна',
+    text: 'Яна - найкрутіший куратор проектів. Піклується про операційну работу фонду. Чудова мама, дружина та волонтер',
+    image: YanaPhotoJpg,
+    onHoverImage: '',
+  },
+  {
+    name: 'Вадим',
+    text: 'Вадим -  Професійний комірник з 25-річним досвідом роботи. Наймудріший з Архангельєрів😉 Самі він відповідає за роботу складу.',
+    image: VadymPhotoJpg,
+    onHoverImage: '',
+  },
+  {
     name: 'Руслана',
     text: 'Руслана - член команди закупівельників, яка збирає військове спорядження та займається соціальною роботою.',
     image: LanaPhotoJpg,
@@ -136,12 +149,6 @@ const teamList = [
     name: 'Марина',
     text: 'Марина - член команди закупівельників, яка збирає військове спорядження та займається соціальною роботою.',
     image: MarynaPhotoJpg,
-    onHoverImage: '',
-  },
-  {
-    name: 'Вадим',
-    text: 'Вадим -  Професійний комірник з 25-річним досвідом роботи. Наймудріший з Архангельєрів😉 Самі він відповідає за роботу складу.',
-    image: VadymPhotoJpg,
     onHoverImage: '',
   },
 ];
