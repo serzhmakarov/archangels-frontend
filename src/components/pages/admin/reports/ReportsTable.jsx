@@ -5,12 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { isEmpty } from 'lodash-es';
 
-import TableRow from './TableRow';
+import TableRow from '../nested/TableRow';
 import { actionTypes } from '../../../../constants/actionTypes';
 import { adminTableFields } from '../../../../constants';
 
-
-const AdminTable = ({ activeTab, data, handleShowModal, onUpdateButtonClick, dispatch }) => {  
+const ReportsTable = ({ activeTab, data, handleShowModal, onUpdateButtonClick, dispatch }) => {  
   const handleOpenRecordCreation = () => {
     dispatch({ type: actionTypes.openCreationModal });
   };
@@ -55,4 +54,4 @@ const AdminTable = ({ activeTab, data, handleShowModal, onUpdateButtonClick, dis
   );
 };
 
-export default AdminTable;
+export default ReportsTable;

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { achieves } from '../../../../constants';
-import useImageLoad from '../../../../hooks/useImageLoad';
+import { achieves } from '../../../constants';
+import useImageLoad from '../../../hooks/useImageLoad';
 
 const Acknowledgments = ({ t }) => {
   const { loaded, handleImageLoaded, PlaceholderImage } = useImageLoad();

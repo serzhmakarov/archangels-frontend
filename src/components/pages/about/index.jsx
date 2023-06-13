@@ -3,10 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Acknowledgments from './acknowledgments';
+import { t } from 'i18next';
 
-import { teamList, founders } from '../../../constants';
+import { teamList } from '../../../constants';
 import TeamMemberCards from './team';
-import PartnersList from './partners';
 
 const About = () => {
   return (
@@ -15,7 +16,7 @@ const About = () => {
         <Col xl={6}>
           <h1>ПРО НАС</h1>
           <p>Привіт! Давай трохи розповимо про нашу не велику, але результативну команду</p>
-          <Button 
+          <Button    
             variant="outline-danger" 
             className="archangels-btn"
             as="a"
@@ -27,17 +28,13 @@ const About = () => {
           </Button>
         </Col>
       </Row>
-      <TeamMemberCards 
-        list={founders}
-        text="Засновники"
-      />
 
       <TeamMemberCards 
         list={teamList}
         text="Команда"
       />
 
-      <PartnersList />
+      <Acknowledgments t={t} />
     </Container>
   );
 };

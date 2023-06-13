@@ -1,7 +1,7 @@
 import React from 'react';
-import DesktopHeader from './header/desktopHeader';
+import DesktopHeader from './header/desktop';
 import Footer from './footer';
-import MobileHeader from './header/mobileHeader';
+import MobileHeader from './header/mobile';
 
 const Layout = ({ children }) => {
   return (

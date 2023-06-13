@@ -3,14 +3,17 @@ import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
-import { navLinks } from '../../../constants';
-import { StyledMenu } from '../styles';
+import { navLinks } from '../../../../constants';
+import { StyledMenu } from '../../styles';
 
 const Menu = ({ isMenuOpen, onCloseMenu }) => {
   const { t } = useTranslation();
 
   return (
-    <StyledMenu isMenuOpen={isMenuOpen}>
+    <StyledMenu 
+      className="toggle-menu"
+      isMenuOpen={isMenuOpen}
+    >
       <div>
         {navLinks.map(({ link, label }) => (
           <NavLink

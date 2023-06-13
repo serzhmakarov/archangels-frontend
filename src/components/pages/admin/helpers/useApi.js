@@ -1,8 +1,14 @@
 import { actionTypes } from '../../../../constants/actionTypes';
 import { 
   createReport, 
-  deleteReport,
+  createPartner,
+  createProject,
   updateReport,
+  updatePartner,
+  updateProject,
+  deleteReport,
+  deletePartner,
+  deleteProject
 } from '../../../../api';
 
 const generateFormData = (data, objectKey) => {
@@ -17,6 +23,7 @@ const generateFormData = (data, objectKey) => {
 
 
 export default function useApi({ dispatch }) {
+  // CREATE, PUT, DELETE * Reports
   const createReportRequest = async (data) => {
     const formData = generateFormData(data, 'post');
 
@@ -50,6 +57,7 @@ export default function useApi({ dispatch }) {
       return await Promise.reject(error);
     }
   };
+
   const deleteReportRequest = async (id) => {
     dispatch({ type: actionTypes.deleteReportRequest });
 
@@ -63,10 +71,114 @@ export default function useApi({ dispatch }) {
     }
   };
 
+    // CREATE, PUT, DELETE * Partners
+
+    const createPartnerRequest = async (data) => {
+      const formData = generateFormData(data, 'partner');
+  
+      dispatch({ type: actionTypes.createReportRequest });
+  
+      try {
+        const response = await createPartner(formData);
+        dispatch({ type: actionTypes.createPartnerSuccess, payload: response });
+        return await Promise.resolve(response);
+      } catch (error) {
+        dispatch({ type: actionTypes.createPartnerFailure, payload: error });
+        return await Promise.reject(error);
+      }
+    };
+  
+    const updatePartnerRequest = async (formData, id) => {
+      const data = generateFormData(formData, 'partner');
+  
+      if (typeof data.photo === 'string') {
+        data.delete('partner[photo]');
+      }
+  
+      dispatch({ type: actionTypes.updatePartnerRequest });
+  
+      try {
+        const response = await updatePartner({ id, data });
+        dispatch({ type: actionTypes.updatePartnerSuccess, payload: response });
+        return await Promise.resolve(response);
+      } catch (error) {
+        dispatch({ type: actionTypes.updatePartnerFailure, payload: error });
+        return await Promise.reject(error);
+      }
+    };
+    
+    const deletePartnerRequest = async (id) => {
+      dispatch({ type: actionTypes.deletePartnerRequest });
+  
+      try {
+        const response = await deletePartner(id);
+        dispatch({ type: actionTypes.deletePartnerSuccess, payload: id });
+        return await Promise.resolve(response);
+      } catch (error) {
+        dispatch({ type: actionTypes.deletePartnerFailure, payload: error });
+        return await Promise.reject(error);
+      }
+    };
+
+    // CREATE, PUT, DELETE * Projects
+
+    const createProjectRequest = async (data) => {
+      const formData = generateFormData(data, 'project');
+  
+      dispatch({ type: actionTypes.createProjectRequest });
+  
+      try {
+        const response = await createProject(formData);
+        dispatch({ type: actionTypes.createProjectSuccess, payload: response });
+        return await Promise.resolve(response);
+      } catch (error) {
+        dispatch({ type: actionTypes.createProjectFailure, payload: error });
+        return await Promise.reject(error);
+      }
+    };
+  
+    const updateProjectRequest = async (formData, id) => {
+      const data = generateFormData(formData, 'project');
+  
+      if (typeof data.photo === 'string') {
+        data.delete('project[photo]');
+      }
+  
+      dispatch({ type: actionTypes.updateProjectRequest });
+  
+      try {
+        const response = await updateProject({ id, data });
+        dispatch({ type: actionTypes.updateProjectSuccess, payload: response });
+        return await Promise.resolve(response);
+      } catch (error) {
+        dispatch({ type: actionTypes.updateProjectFailure, payload: error });
+        return await Promise.reject(error);
+      }
+    };
+    
+    const deleteProjectRequest = async (id) => {
+      dispatch({ type: actionTypes.deleteProjectRequest });
+  
+      try {
+        const response = await deleteProject(id);
+        dispatch({ type: actionTypes.deleteProjectSuccess, payload: id });
+        return await Promise.resolve(response);
+      } catch (error) {
+        dispatch({ type: actionTypes.deleteProjectFailure, payload: error });
+        return await Promise.reject(error);
+      }
+    };
+
   return {
     createReportRequest,
     deleteReportRequest,
     updateReportRequest,
+    createPartnerRequest,
+    deletePartnerRequest,
+    updatePartnerRequest,
+    createProjectRequest,
+    deleteProjectRequest,
+    updateProjectRequest,
   };
 };
 

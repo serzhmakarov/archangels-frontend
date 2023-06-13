@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 
@@ -21,6 +22,9 @@ const Footer = () => {
               <h4>{t('home.charitable_name')}</h4>
               <SocialNetworks />
               <div className="policy-information">
+                <NavLink to="/documents">
+                  {t('home.header.documents')}
+                </NavLink>
                 <a 
                   target="_blank" 
                   href="/terms"

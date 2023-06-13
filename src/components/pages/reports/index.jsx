@@ -1,50 +1,24 @@
-import React, { useEffect, useCallback } from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 import ReportsList from './reports';
-import useApi from './useApi';
+import useApi from '../../../hooks/useApi';
 import Placeholder from '../../globals/placeholder';
+import { getReports } from '../../../api';
 
 const Reports = () => {
-  const { 
-    fetchItems,
+  const {  
     loading, 
     isLoaded, 
-    reports: {
-      data,
-      meta
-    },
-  } = useApi();
-
-  useEffect(() => {
-    fetchItems();
-  }, []); /* eslint-disable-line react-hooks/exhaustive-deps */
-
-  const handleScroll = useCallback((event) => {
-    const elementRef = event.target.documentElement;
-    const disabled = loading || meta.total_count === data.length;
-    const shouldLoadData = elementRef.scrollTop + elementRef.clientHeight > elementRef.scrollHeight - 300
-
-    if (shouldLoadData && !disabled) {
-      fetchItems();
-    }
-  }, [loading, fetchItems, data.length, meta.total_count]);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    }
-  }, [handleScroll]);
-
-  const isDataEmpty = isLoaded && !data.length
+    response,
+    isDataEmpty
+  } = useApi({ callback: getReports });
 
   return (
     <Container className="news-page">
       <Row className="about-page__title-block">
-        <h1>Звіти</h1>
+        <h1 className="title-block-text">Звіти</h1>
       </Row>
     
       <Row className="content-wrapper">
@@ -55,7 +29,7 @@ const Reports = () => {
         <ReportsList 
           loading={loading}
           isLoaded={isLoaded}
-          reports={data}
+          reports={response.data}
         />
       </Row>
     </Container>

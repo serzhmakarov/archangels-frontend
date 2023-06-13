@@ -5,7 +5,9 @@ const endpoints = {
   reports: '/posts/',
   sendForm: '/contacts/',
   login: '/login/',
-  payment: '/payments/create_checkout_url'
+  partners: '/partners/',
+  projects: '/projects/',
+  payment: '/payments/create_checkout_url',
 }
 
 async function request({ method, endpoint, data }) {
@@ -87,3 +89,22 @@ export const createReport = (data) => request({ method: 'post', endpoint: endpoi
 export const updateReport = ({ id, data }) => request({ method: 'put', endpoint: endpoints.reports + id, data });
 
 export const deleteReport = (id) => request({ method: 'delete', endpoint: endpoints.reports + id });
+
+
+// GET, CREATE, UPDATE, DELETE requests for Partners
+export const getPartners = ({ id = '', query = '/' }) => request({ method: 'get', endpoint: endpoints.partners + id + query }); 
+
+export const createPartner = (data) => request({ method: 'post', endpoint: endpoints.partners, data });
+
+export const updatePartner = ({ id, data }) => request({ method: 'put', endpoint: endpoints.partners + id, data });
+
+export const deletePartner = (id) => request({ method: 'delete', endpoint: endpoints.partners + id });
+
+// GET, CREATE, UPDATE, DELETE requests for Projects
+export const getProjects = ({ id = '', query = '/' }) => request({ method: 'get', endpoint: endpoints.projects + id + query }); 
+
+export const createProject = (data) => request({ method: 'post', endpoint: endpoints.projects, data });
+
+export const updateProject = ({ id, data }) => request({ method: 'put', endpoint: endpoints.projects + id, data });
+
+export const deleteProject = (id) => request({ method: 'delete', endpoint: endpoints.projects + id });

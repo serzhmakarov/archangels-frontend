@@ -1,24 +1,20 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import styled from 'styled-components';
-import useImageLoad from '../../../hooks/useImageLoad';
+import LazyBackground from '../../../_helpers/LazyBackground';
 
-const FounderCard = ({ name, text, image, link }) => {
-  const { loaded, handleImageLoaded, PlaceholderImage } = useImageLoad();
-  return (
-    <StyledCard className="founder-card" link={link}>
-      <Card.Img 
-        variant="top" 
-        src={loaded ? image : PlaceholderImage} 
-        onLoad={handleImageLoaded}
-      />
-      <Card.Body>
-        <Card.Title>{name}</Card.Title>
-        {text && (<Card.Text>{text}</Card.Text>)}
-      </Card.Body>
-    </StyledCard>
-  );
-};
+const FounderCard = ({ name, text, image, link }) => (
+  <StyledCard className="founder-card" link={link}>
+    <LazyBackground 
+      src={image}
+      className="card-image"
+    />
+    <Card.Body>
+      <Card.Title>{name}</Card.Title>
+      {text && (<Card.Text>{text}</Card.Text>)}
+    </Card.Body>
+  </StyledCard>
+);
 
 const StyledCard = styled(Card)`
   cursor: ${props => props.link ? 'pointer' : 'inherit'};

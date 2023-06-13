@@ -35,16 +35,12 @@ const navLinks = [
     label: 'home.header.about',
   },
   {
-    link: '/help',
-    label: 'home.header.help',
-  },
-  {
     link: '/reports',
     label: 'home.header.reports',
   },
   {
-    link: '/documents',
-    label: 'home.header.documents',
+    link: '/partners',
+    label: 'home.header.partners',
   },
 ];
 
@@ -122,9 +118,15 @@ const founders = [
 
 const teamList = [
   {
-    name: 'Яна',
-    text: 'Яна - найкрутіший куратор проектів. Піклується про операційну работу фонду. Чудова мама, дружина та волонтер',
-    image: YanaPhotoJpg,
+    name: 'Сергiй Макаров',
+    text: 'Голова правління та співзасновник благодійного фонду, IT Web Engineer, консультант міжнародних веб проектів',
+    image: SergeyPhotoJpg,
+    onHoverImage: '',
+  },
+  {
+    name: 'Кирило Курiнов',
+    text: 'Президент та співзасновник благодійного фонду, IT web спеціаліст',
+    image: KyrylPhotoJpg,
     onHoverImage: '',
   },
   {
@@ -146,11 +148,18 @@ const teamList = [
     onHoverImage: '',
   },
   {
+    name: 'Яна',
+    text: 'Яна - найкрутіший куратор проектів. Піклується про операційну работу фонду. Чудова мама, дружина та волонтер',
+    image: YanaPhotoJpg,
+    onHoverImage: '',
+  },
+  {
     name: 'Марина',
     text: 'Марина - член команди закупівельників, яка збирає військове спорядження та займається соціальною роботою.',
     image: MarynaPhotoJpg,
     onHoverImage: '',
   },
+
 ];
 
 const partnersList = [
@@ -225,6 +234,8 @@ const routesPath = {
   terms: '/terms',
   policy: '/policy',
   refund: '/refund-policy',
+  partners: '/partners',
+  partner: '/partners/:id',
 };
 
 const contacts = [

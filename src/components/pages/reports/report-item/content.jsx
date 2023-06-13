@@ -3,8 +3,8 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import { t } from 'i18next';
 
-import normalizeDate from '../../../_helpers/normalizeDate';
-import withLoading from '../../../hooks/useLoading';
+import normalizeDate from '../../../../_helpers/normalizeDate';
+import withLoading from '../../../../hooks/useLoading';
 
 const Content = ({ data }) => {
   const {

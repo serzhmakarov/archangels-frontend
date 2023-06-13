@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import { getReports } from '../../../api';
-import useFetchData from '../../../hooks/useFetchData';
+import { getReports } from '../../../../api';
+import useFetchData from '../../../../hooks/useFetchData';
 import Content from './content';
 
 const Report = () => {

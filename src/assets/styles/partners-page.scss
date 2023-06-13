@@ -1,0 +1,44 @@
+.partners-page {
+  padding-top: 64px;
+  text-align: left;
+
+	.partners-list {
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+
+		.partners-list-item {
+			margin: 8px;
+			width: calc(33% - 32px);
+			border: 1px solid #111;
+			padding: 8px 12px;
+
+      @media screen and (max-width: 1199px) {
+        width: calc(50% - 32px);
+      }
+
+      @media screen and (max-width: 991px) {
+        width: 100%;
+      }
+
+      .card-text {
+        letter-spacing: .6px;
+        line-height: 1.25;
+        &:last-child {
+          margin-bottom: 16px;
+        }
+      }
+
+      .card-projects {
+        letter-spacing: normal;
+        font-size: 16px;
+      }
+
+			.partners-name {
+				font-size: 20px;
+				line-height: 28px;
+				padding: 8px 0 16px 0;
+			}
+		}
+	}
+}

@@ -5,34 +5,33 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 
-import DefaultPostImage from '../../../assets/images/post_image_default.jpg'
-import NormalizedDate from '../../globals/NormalizedDate';
+import DefaultPartnerImage from '../../../assets/images/boxes-placeholer.jpeg';
+import LazyBackground from '../../../_helpers/LazyBackground';
 
-const ReportCard = ({ id, date, short_description, photo, name }) => (
-  <Card className="news-list-item">
+const PartnerCard = ({ id, short_description, photo, name, projects_count }) => (
+  <Card className="partners-list-item">
     <Row>
       <Col xs={12}>
-        <div 
-          className="card-image" 
-          style={{ backgroundImage: `url(${photo || DefaultPostImage})` }}
+        <LazyBackground 
+          className="card-image"
+          src={photo || DefaultPartnerImage}
         />
-        {/* <Card.Img variant="top" src={photo || DefaultPostImage} /> */}
       </Col>
 
       <Col xs={12}>
         <Card.Body>
           <div className="card-info">
             <Card.Title>{name}</Card.Title>
-            <NormalizedDate date={date}/>
+            <Card.Text className="card-projects">Кількість спільних проектів: {projects_count}</Card.Text>
             <Card.Text>{short_description}</Card.Text>
           </div>
           <Button 
             variant="outline-danger" 
             className="archangels-btn"
             as="a"
-            href={`/reports/${id}`}
+            href={`/partners/${id}`}
           >
-            Читати
+            Проекти
           </Button>
         </Card.Body>
       </Col>
@@ -40,12 +39,12 @@ const ReportCard = ({ id, date, short_description, photo, name }) => (
   </Card>
 );
 
-ReportCard.propTypes = {
+PartnerCard.propTypes = {
   id: PropTypes.number.isRequired,
+  projects_count: PropTypes.number.isRequired,
   short_description: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
   photo: PropTypes.string,
 };
 
-export default ReportCard;
+export default PartnerCard;

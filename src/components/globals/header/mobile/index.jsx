@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Hamburger from 'hamburger-react';
 
-import useScrollDirection from '../../../hooks/useScrollDirection';
-import { HeaderMobileContainer } from '../styles';
-import Logo from '../logo';
+import useScrollDirection from '../../../../hooks/useScrollDirection';
+import { HeaderMobileContainer } from '../../styles';
+import Logo from '../../logo';
 import Menu from './menu';
 
 const MobileHeader = () => {
@@ -21,6 +21,7 @@ const MobileHeader = () => {
 
   return (
     <HeaderMobileContainer 
+      className="header-mobile-container"
       scrollDirection={scrollDirection} 
       isMenuOpen={isMenuOpen}
     >
