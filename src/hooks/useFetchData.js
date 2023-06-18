@@ -23,7 +23,7 @@ export default function useFetchData(callback, params = {}) {
 				setLoading(false);
 				setIsLoaded(true);
 			})
-  }, []);
+  }, [params.id]);
 
 	return { data, error, isLoaded, loading };
 }

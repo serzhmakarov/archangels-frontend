@@ -3,8 +3,8 @@ import { Tabs, Tab, Container, Row } from 'react-bootstrap';
 
 import withAuthorization from '../../../HOC/withAuthorization';
 import Layout from '../../globals/layout';
-import Reports from './reports';
-import Partners from './partners';
+import Reports from './pages/reports';
+import Partners from './pages/partners';
 
 const tabs = {
   reports: { key: 'reports', label: 'Звіти'},

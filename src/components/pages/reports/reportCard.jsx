@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 import DefaultPostImage from '../../../assets/images/post_image_default.jpg'
 import NormalizedDate from '../../globals/NormalizedDate';
@@ -16,7 +17,6 @@ const ReportCard = ({ id, date, short_description, photo, name }) => (
           className="card-image" 
           style={{ backgroundImage: `url(${photo || DefaultPostImage})` }}
         />
-        {/* <Card.Img variant="top" src={photo || DefaultPostImage} /> */}
       </Col>
 
       <Col xs={12}>
@@ -29,8 +29,11 @@ const ReportCard = ({ id, date, short_description, photo, name }) => (
           <Button 
             variant="outline-danger" 
             className="archangels-btn"
-            as="a"
-            href={`/reports/${id}`}
+            as={NavLink}
+            to={{ 
+              pathname: `/reports/${id}`, 
+              state: { message: name } 
+            }}
           >
             Читати
           </Button>

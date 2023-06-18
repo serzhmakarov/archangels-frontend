@@ -16,6 +16,7 @@ function LazyBackground({ src, placeholder = PlaceholderImage, ...props }) {
   return (
     <div 
       {...props} 
+      className="background-image-container"
       style={{ backgroundImage: `url(${imageSrc || placeholder})` }} 
     />
   );

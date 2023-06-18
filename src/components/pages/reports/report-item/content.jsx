@@ -1,43 +1,86 @@
-import React from 'react';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import { t } from 'i18next';
+import React, { useState } from 'react';
+import { Tabs, Tab, Container, Col, Row } from 'react-bootstrap';
 
-import normalizeDate from '../../../../_helpers/normalizeDate';
+import NormalizedDate from '../../../globals/NormalizedDate';
 import withLoading from '../../../../hooks/useLoading';
+import LazyBackground from '../../../../_helpers/LazyBackground';
+import ReportSocialNetworks from './ReportSocialNetworks';
+import ReportCard from '../reportCard';
+
+const tabs = {
+  reports: { key: 'reports', label: 'Про Проєкт'},
+  partners: { key: 'partners', label: 'Партнери'},
+}
 
 const Content = ({ data }) => {
+  const [activeTab, setActiveTab] = useState(tabs.reports.key);
+
+  const handleTabChange = (tab) => setActiveTab(tab)
+
   const {
-    name,
-    short_description,
-    long_description,
-    photo_url,
-    date,
-    feedback,
+    nearby_posts,
+    post: {
+      name,
+      short_description,
+      long_description,
+      photo_url,
+      date,
+      social_networks,
+    }, 
   } = data;
 
   return (
-    <Container>
-      <Row className="post-item-page__title-block">
-        <h1 className="post-name">{name}</h1>
-        <p className="post-date">{t('home.date')}: {normalizeDate(date)}</p>
-        <p className="post-description">{short_description}</p>
+    <Container className="reports-item-page" lg={12}>
+      <Col className="content-wrapper" lg={12}>
+        <h1 className="title-block-text">
+          {name}
+          <NormalizedDate date={date}/>
+          <ReportSocialNetworks socialNetworks={social_networks}/>
+        </h1>
+      </Col>
 
-        <div>
-          <img src={photo_url} alt="post_img" />
-          <div className="post-feedback">
-          <p className="feedback-text">{feedback}</p>
-          <span className="feedback-title">Відгук</span>
-        </div>
-        </div>
-        <p className="post-description">{long_description}</p>
+      <Row lg={12}>
+        <Col lg={8}>
+          <LazyBackground src={photo_url} />
+        </Col>
       </Row>
+
+      <Col lg={12} className="reports-item-page__description-block">
+        <Tabs 
+          className="reports-item-page__description-block"
+          defaultActiveKey="reports" 
+          id="tabs" 
+          onSelect={handleTabChange}
+        >
+          <Tab 
+            title="Про Проєкт" 
+            className="tab-title"
+            eventKey="reports"
+          >
+            <div className="description-wrapper">
+              <p>
+                <b>{short_description}</b>
+              </p>
+              <p>{long_description}</p>
+            </div>
+          </Tab>
+        </Tabs>
+      </Col>
+
+      <Col lg={12} className="reports-item-page__reports-block">
+        <h1 className="nearby_reports-title">ІНШІ ЗВІТИ</h1>
+        <hr />
+        <div className="reports-item-page__reports-block-cards">
+          {nearby_posts.map((postData) => (
+            <ReportCard 
+              {...postData} 
+              key={postData.id}
+            />
+          ))}
+        </div>
+      </Col>
     </Container>
   );
-};
-
-Content.defaultProps = {
-  data: {},
 };
 
 const ContentWithLoading = withLoading(Content);

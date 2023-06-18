@@ -2,20 +2,25 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 
-import { actionTypes } from '../../../../constants/actionTypes';
-
-export default function useFetchAdminData({ dispatch, currentPage, callback }) {
+export default function useFetchAdminData({ 
+	currentPage, 
+	callback,
+	dispatch,
+	getActionRequest,
+	getActionSuccess,
+	getActionFailure 
+}) {
   useEffect(() => {
-		dispatch({ type: actionTypes.getReportsRequest });
+		dispatch({ type: getActionRequest });
 
     callback({ query: `?page=${currentPage}` })
-			.then((reports) => {
-				dispatch({ type: actionTypes.getReportsSuccess, payload: reports });
+			.then((payload) => {
+				dispatch({ type: getActionSuccess, payload });
 
-				return Promise.resolve(reports);
+				return Promise.resolve(payload);
 			})
 			.catch((error) => {
-				dispatch({ type: actionTypes.getReportsFailure, payload: error });
+				dispatch({ type: getActionFailure, payload: error });
 
 				return Promise.reject(error);
 			})

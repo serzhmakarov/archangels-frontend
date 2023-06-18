@@ -1,0 +1,204 @@
+.reports-item-page {
+  // font-family: 'KyivType';
+
+  .title-block-text {
+    margin-bottom: 16px;
+  }
+
+  &__description-block {
+    text-align: left;
+
+    .description-wrapper {
+      margin-bottom: 32px;
+    }
+
+    p {
+      white-space: break-spaces;
+      font-weight: 500;
+      line-height: 22px;
+      padding: 8px 0;
+      margin: 0;
+
+      &:first-of-type {
+        margin-top: 16px;
+      }
+    }
+
+    h1 {
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .nav-tabs {
+      margin-top: 32px;
+      .nav-item {
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      button {
+        font-family: 'KharkivTone';
+        text-transform: uppercase;
+        font-weight: 600;
+        border: 0;
+        padding: 7px 0;
+
+        &.active {
+          border-bottom: 3px solid $red;
+        }
+      }
+    }
+  }
+
+  &__reports-block {
+    text-align: left;
+
+    .nearby_reports-title {
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 0;
+      padding: 7px 0;
+      font-size: 28px;
+    }
+
+    .news-list-item {
+      margin: 16px 8px;
+
+      .card-title {
+        font-weight: bold;
+      }
+
+      .card-date {
+        font-size: 12px;
+      }
+
+      .card-text {
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: .4px;
+        white-space: pre-wrap;
+      }
+
+      .card-image {
+        height: 300px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+      }
+
+      .archangels-btn {
+        margin-top: 12px;
+      }
+    }
+  }
+
+  &__reports-block-cards {
+    display: flex;
+    flex-wrap: wrap;
+    
+    .news-list-item {
+      width: calc(25% - 16px);
+
+      @media screen and (max-width: 1199px) {
+        width: calc(33% - 16px);
+      }
+
+      @media screen and (max-width: 991px) {
+        width: calc(50% - 16px);
+      }
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
+      }
+    }
+  }
+
+  .content-wrapper {
+    padding: 0;
+  }
+  
+  .title-block-text {
+    margin-top: 16px;
+    line-height: 30px;
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  .card-date {
+    font-size: 10px;
+  }
+
+  .background-image-container {
+    height: 500px;
+    background-color: #ececec;
+    background-blend-mode: multiply;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .report-social-networks {
+    display: flex;
+    align-items: center;
+    
+    a {
+      &:first-of-type {
+        margin-left: 0;
+      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      width: 27px;
+      height: 27px;
+      padding: 4px;
+      margin: 0 8px;
+      background-color: transparent;
+      border: 1px solid #959595;
+      color: #959595;
+      font-size: 12px;
+      text-decoration: none;
+
+      path {
+        fill: #959595;
+      }
+    }
+
+    .telegram-link,
+    .facebook-link,
+    .instagram-link {
+      &:hover {
+        box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+
+        path {
+          fill: #fff;
+        }
+      }
+    }
+
+    .telegram-link {
+      &:hover {
+        background: #08c;
+        border-color: #08c;
+      }
+    }
+
+    .facebook-link {
+      &:hover {
+        background: #3b5998;
+        border-color: #3b5998;
+      }
+    }
+
+    .instagram-link {
+      &:hover {
+        color: #fff;
+        vertical-align: middle;
+        background: #d6249f;
+        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+        box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+        border-color: #d6249f;
+      }
+    }
+  }
+}

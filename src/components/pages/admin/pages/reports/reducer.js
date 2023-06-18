@@ -1,5 +1,5 @@
 import { find } from 'lodash-es';
-import { actionTypes } from '../../../../constants/actionTypes';
+import { actionTypes } from '../../../../../constants/actionTypes';
 
 const initialState = {
   error: null,
@@ -8,7 +8,7 @@ const initialState = {
   isCreationModalOpen: false,
   successMessage: '',
   itemForUpdate: null,
-  partners: {
+  reports: {
     isLoaded: false,
     data: [],
   },
@@ -32,85 +32,85 @@ function reducer(state, action) {
   const { type, payload } = action;
 
   switch (type) {
-    // GET PARTNERS ACTIONS
+    // GET ACTIONS
     case actionTypes.updateState:
       return { ...state, ...payload };
 
-    case actionTypes.getPartnersRequest:
+    case actionTypes.getReportsRequest:
       return { ...state, loading: true };
 
-    case actionTypes.getPartnersSuccess:
+    case actionTypes.getReportsSuccess:
       return { 
         ...state,
         loading: false,
-        partners:  {
+        reports:  {
           ...payload, 
           isLoaded: true,
         }
       };
-    case actionTypes.getPartnersFailure:
+    case actionTypes.getReportsFailure:
       return { ...state, loading: false, error: payload };
 
-    // DELETE PARTNERS ACTIONS
-    case actionTypes.deletePartnerRequest:
+    // DELETE ACTIONS
+    case actionTypes.deleteReportRequest:
       return { ...state, loading: true, error: null };
 
-    case actionTypes.deletePartnerSuccess:
+    case actionTypes.deleteReportSuccess:
       return { 
         ...state, 
         loading: false,
-        partners: { 
-          ...state.partners,
-          data: remove(state.partners.data, payload),
+        reports: { 
+          ...state.reports,
+          data: remove(state.reports.data, payload),
          }
       };
     
-    case actionTypes.deletePartnerFailure:
+    case actionTypes.deleteReportFailure:
       return { ...state, loading: false, error: action.payload };
 
-    // CREATE PPARTNERS ACTIONS
+    // CREATE ACTIONS
 
-    case actionTypes.createPartnerRequest:
+    case actionTypes.createReportRequest:
       return { ...state, loading: true, error: null };
 
-    case actionTypes.createPartnerSuccess:
+    case actionTypes.createReportSuccess:
       return { 
         ...state, 
         loading: false,
-        partners: {
-          ...state.partners,
+        reports: {
+          ...state.reports,
           isLoaded: true,
-          data: [action.payload, ...state.partners.data],
+          data: [action.payload, ...state.reports.data],
         },
       };
 
-    case actionTypes.createPartnerFailure:
+    case actionTypes.createReportFailure:
       return { ...state, loading: false, error: action.payload };
 
-    // UPDATE PARTNERS ACTIONS
+    // UPDATE ACTIONS
 
     case actionTypes.onUpdateButtonClick: 
       return {
         ...state,
         isCreationModalOpen: true,
-        itemForUpdate: find(state.partners.data, ['id', action.payload.id]) 
+        itemForUpdate: find(state.reports.data, ['id', action.payload.id]) 
       }
     
-    case actionTypes.updatePartnerRequest:
+    case actionTypes.updateReportRequest:
       return { ...state, loading: true, error: null };
 
-    case actionTypes.updatePartnerSuccess:
+    case actionTypes.updateReportSuccess:
       return { 
         ...state, 
         loading: false,
-        partners: {
-          ...state.partners,
+        reports: {
+          ...state.reports,
           isLoaded: true,
-          data: replaceObjectInArray(state.partners.data, action.payload),
+          data: replaceObjectInArray(state.reports.data, action.payload),
         },
       };
 
-    case actionTypes.updatePartnerFailure:
+    case actionTypes.updateReportFailure:
       return { ...state, loading: false, error: action.payload };
 
     // MODAL ACTIONS

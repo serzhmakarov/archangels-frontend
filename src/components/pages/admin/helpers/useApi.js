@@ -14,9 +14,23 @@ import {
 const generateFormData = (data, objectKey) => {
   const formData = new FormData();
 
-  Object.keys(data).forEach((key) => {
-    formData.append(`${objectKey}[${key}]`, data[key]);
-  });
+  const appendData = (key, value, parentKey = null) => {
+    const formattedKey = parentKey ? `${parentKey}[${key}]` : key;
+
+    if (value instanceof File) {
+      formData.append(formattedKey, value);
+    } else if (typeof value !== 'object') {
+      formData.append(formattedKey, value);
+    } else {
+      for (let subKey in value) {
+        appendData(subKey, value[subKey], formattedKey);
+      }
+    }
+  };
+
+  for (let key in data) {
+    appendData(key, data[key], objectKey);
+  }
 
   return formData;
 };
@@ -42,9 +56,11 @@ export default function useApi({ dispatch }) {
   const updateReportRequest = async (formData, id) => {
     const data = generateFormData(formData, 'post');
 
-    if (typeof data.photo === 'string') {
-      data.delete('post[photo]');
-    }
+    console.log('formData', formData);
+    console.log('data', data);
+    // if (!formData.photo) {
+      // data.delete('post[photo]');
+    // }
 
     dispatch({ type: actionTypes.updateReportRequest });
 
@@ -76,7 +92,7 @@ export default function useApi({ dispatch }) {
     const createPartnerRequest = async (data) => {
       const formData = generateFormData(data, 'partner');
   
-      dispatch({ type: actionTypes.createReportRequest });
+      dispatch({ type: actionTypes.createPartnerRequest });
   
       try {
         const response = await createPartner(formData);

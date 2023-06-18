@@ -5,10 +5,6 @@ import AndrewlPhotoJpg from '../assets/images/team/andrew.jpg';
 import LanaPhotoJpg from '../assets/images/team/lana.jpg';
 import MarynaPhotoJpg from '../assets/images/team/maryna.jpg';
 import VadymPhotoJpg from '../assets/images/team/vadym.jpg';
-import YanaPhotoJpg from '../assets/images/team/yana.jpg';
-
-import AllaFondJpg from '../assets/images/team/partner_alla.jpg';
-import DreamFondJpg from '../assets/images/team/partner_dream.jpg';
 
 import { 
   InstagramIcon,
@@ -101,76 +97,38 @@ const socialNetworks = [
   },
 ];
 
-const founders = [
-  {
-    name: 'Сергiй Макаров',
-    text: 'Голова правління та співзасновник благодійного фонду, IT Web Engineer, консультант міжнародних веб проектів',
-    image: SergeyPhotoJpg,
-    onHoverImage: '',
-  },
-  {
-    name: 'Кирило Курiнов',
-    text: 'Президент та співзасновник благодійного фонду, IT web спеціаліст',
-    image: KyrylPhotoJpg,
-    onHoverImage: '',
-  },
-];
-
 const teamList = [
   {
     name: 'Сергiй Макаров',
     text: 'Голова правління та співзасновник благодійного фонду, IT Web Engineer, консультант міжнародних веб проектів',
     image: SergeyPhotoJpg,
-    onHoverImage: '',
   },
   {
     name: 'Кирило Курiнов',
     text: 'Президент та співзасновник благодійного фонду, IT web спеціаліст',
     image: KyrylPhotoJpg,
-    onHoverImage: '',
   },
   {
     name: 'Вадим',
     text: 'Вадим -  Професійний комірник з 25-річним досвідом роботи. Наймудріший з Архангельєрів😉 Самі він відповідає за роботу складу.',
     image: VadymPhotoJpg,
-    onHoverImage: '',
   },
   {
     name: 'Руслана',
     text: 'Руслана - член команди закупівельників, яка збирає військове спорядження та займається соціальною роботою.',
     image: LanaPhotoJpg,
-    onHoverImage: '',
   },
   {
     name: 'Андрій',
     text: 'Андрій - відданий своїй справі і надає пріоритет обробці заявок та організації роботи складу.',
     image: AndrewlPhotoJpg,
-    onHoverImage: '',
-  },
-  {
-    name: 'Яна',
-    text: 'Яна - найкрутіший куратор проектів. Піклується про операційну работу фонду. Чудова мама, дружина та волонтер',
-    image: YanaPhotoJpg,
-    onHoverImage: '',
   },
   {
     name: 'Марина',
     text: 'Марина - член команди закупівельників, яка збирає військове спорядження та займається соціальною роботою.',
     image: MarynaPhotoJpg,
-    onHoverImage: '',
   },
 
-];
-
-const partnersList = [
-  {
-    image: AllaFondJpg,
-    link: 'https://www.maibutnie.org/',
-  },
-  {
-    image: DreamFondJpg,
-    link: 'https://www.dreamua.win/',
-  },
 ];
 
 const currencyAccounts = [
@@ -192,7 +150,34 @@ const currencyAccounts = [
   },
 ];
 
-const adminTableFields = [
+const adminTableReportsFields = [
+  {
+    name: 'id',
+    label: 'ID',
+  },
+  {
+    name: 'photo_url',
+    label: 'Фото',
+  },
+  {
+    key: 'name',
+    label: 'Назва',
+  },
+  {
+    key: 'short_description',
+    label: 'Короткий опис',
+  },
+  {
+    key: 'long_description',
+    label: 'Довгий опис',
+  },
+  {
+    key: 'date',
+    label: 'Дата (звiту)',
+  }
+];
+
+const adminTableProjectsFields = [
   {
     name: 'id',
     label: 'ID',
@@ -222,6 +207,33 @@ const adminTableFields = [
     label: 'Створено',
   }
 ];
+
+const adminTablePartnersFields = [
+  {
+    name: 'id',
+    label: 'ID',
+  },
+  {
+    name: 'photo_url',
+    label: 'Фото',
+  },
+  {
+    key: 'name',
+    label: 'Назва',
+  },
+  {
+    key: 'short_description',
+    label: 'Короткий опис',
+  },
+  {
+    key: 'long_description',
+    label: 'Довгий опис',
+  },
+  {
+    key: 'projects',
+    label: 'Кількість проектів',
+  },
+]
 
 const routesPath = {
   root: '/',
@@ -263,11 +275,11 @@ export {
   contactFormFields,
   navLinks,
   socialNetworks,
-  founders,
   teamList,
-  partnersList,
   currencyAccounts,
-  adminTableFields,
+  adminTableReportsFields,
+  adminTablePartnersFields,
+  adminTableProjectsFields,
   routesPath,
   contacts,
   achieves

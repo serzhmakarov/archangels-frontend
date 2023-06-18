@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { isEmpty } from 'lodash-es';
 
-import TableRow from '../nested/TableRow';
-import { actionTypes } from '../../../../constants/actionTypes';
-import { adminTableFields } from '../../../../constants';
+import TableRow from './TableRow';
+import { actionTypes } from '../../../../../constants/actionTypes';
+import { adminTableReportsFields } from '../../../../../constants';
 
 const ReportsTable = ({ activeTab, data, handleShowModal, onUpdateButtonClick, dispatch }) => {  
   const handleOpenRecordCreation = () => {
@@ -16,13 +16,18 @@ const ReportsTable = ({ activeTab, data, handleShowModal, onUpdateButtonClick, d
 
   return (
     <>
-      <Table striped bordered hover>
+      <Table 
+        responsive="lg"
+        striped 
+        bordered 
+        hover
+      >
         <thead>
           <tr>
-            {adminTableFields.map(({ key, label }) => (
+            {adminTableReportsFields.map(({ key, label }) => (
               <th key={key}>{label}</th>
             ))}
-            <th colSpan={2}>
+            <th colSpan={3}>
               <Button 
                 variant="outline-success" 
                 onClick={handleOpenRecordCreation}

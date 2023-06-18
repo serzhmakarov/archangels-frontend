@@ -1,29 +1,22 @@
-import React, { useRef, useEffect, useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { PaginationControl } from 'react-bootstrap-pagination-control';
 
-import PaginationComponent from '../nested/Pagination';
 import ReportsTable from './ReportsTable';
-import ModalCreateItem from './ModalCreateItem';
+import ModalCreateItem from './ModalCreateForm/ModalCreateItem';
 import ConfirmationModal from './ConfirmationModal'
 
-import useFetchAdminData from '../helpers/useFetchAdminData';
-import useApi from '../helpers/useApi';
+import useApi from '../../helpers/useApi';
 import { reducer, initialState } from './reducer';
 
-import { getReports } from '../../../../api';
-import { actionTypes } from '../../../../constants/actionTypes';
+import { getReports } from '../../../../../api';
+import { actionTypes } from '../../../../../constants/actionTypes';
+import useAdminTable from '../../helpers/useAdminTable';
+
+const PAGE_LIMIT = 15;
 
 const ReportsTab = ({ activeTab }) => {
-  const tableRef = useRef();
   const [adminState, dispatch] = useReducer(reducer, initialState);
-  const [rowDeleteId, setRowDeleteId] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-
-  useFetchAdminData({ 
-    dispatch, 
-    currentPage, 
-    callback: getReports 
-  })
 
   const {
     deleteReportRequest, 
@@ -39,23 +32,21 @@ const ReportsTab = ({ activeTab }) => {
     itemForUpdate,
    } = adminState;
 
-  useEffect(() => {
-    tableRef.current.style.opacity = loading ? 0.6 : 1
-  }, [loading]);
-
-  const handleShowModal = (id) => {
-    dispatch({ type: actionTypes.openConfirmationModal });
-    setRowDeleteId(id);
-  };
-
-  const handleCloseConfirmationModal = () => {
-    setRowDeleteId(null);
-  };
-
-  const handleDelete = () => {
-    deleteReportRequest(rowDeleteId)
-      .then(() => dispatch({ type: actionTypes.closeConfirmationModal }));
-  };
+  const {
+    tableRef,
+    handlePageChange,
+    handleCloseConfirmationModal,
+    handleDeleteShowModal,
+    handleDeleteRequest,
+   } = useAdminTable({
+    dispatch,
+    loading,
+    getRequest: getReports,
+    deleteRequest: deleteReportRequest,
+    getActionRequest: actionTypes.getReportsRequest,
+    getActionSuccess: actionTypes.getReportsSuccess,
+    getActionFailure: actionTypes.getReportsFailure,
+  });
 
   const onUpdateButtonClick = (id) => {
     dispatch({ 
@@ -70,14 +61,12 @@ const ReportsTab = ({ activeTab }) => {
     return callback(formData, itemForUpdate?.id)
   };
 
-  const handlePageChange = (page) => setCurrentPage(page);
-
   return (
     <Row lg={12}>
       <ConfirmationModal 
         loading={loading}
         showModal={isConfirmationModalOpen}
-        handleDelete={handleDelete}
+        handleDelete={handleDeleteRequest}
         handleCloseModal={handleCloseConfirmationModal}
       />
       <ModalCreateItem 
@@ -92,15 +81,18 @@ const ReportsTab = ({ activeTab }) => {
           dispatch={dispatch}
           onUpdateButtonClick={onUpdateButtonClick}
           activeTab={activeTab}
-          handleShowModal={handleShowModal}
+          handleShowModal={handleDeleteShowModal}
           data={reports.data}
         />
       </Col>
       <Col lg={12} className="admin-page__pagination">
-        <PaginationComponent 
-          currentPage={currentPage}
-          handlePageChange={handlePageChange}
-          totalPages={reports.meta?.total_pages}
+        <PaginationControl 
+          page={reports.meta?.current_page}
+          total={reports.meta?.total_count}
+          limit={PAGE_LIMIT}
+          changePage={handlePageChange}
+          between={4}
+          ellipsis={1}
         />
       </Col>
     </Row>
