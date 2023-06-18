@@ -1,5 +1,6 @@
 {
   "home": {
+    "webpage_name": "Archangels of Kyiv",
     "charitable_name": "CHARITABLE FOUNDATION \"ARCHANGELS OF KYIV\"",
     "reports": "financial reports",
     "acknowledgments": "Acknowledgments",
@@ -21,7 +22,10 @@
       "charity_text": "We are where we are needed",
       "work_text": "We take care of our boys and girls on the front line, help children, the elderly, hospitals and orphanages",
       "help_button": "Support us",
-      "join_button": "Join to the team"
+      "join_button": "Join to the team",
+      "policy": "Policy and privacy",
+      "refund": "Refund policy",
+      "terms": "Terms and conditions"
     },
     "specialization": {
       "title": {

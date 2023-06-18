@@ -29,6 +29,8 @@ const Content = ({ data, containerRef }) => {
     }, 
   } = data;
 
+  console.log(activeTab);
+
   return (
     <Container 
       className="reports-item-page" 
