@@ -7,10 +7,6 @@ import Content from './content';
 
 const Report = () => {
   const { id } = useParams();
-  
-  useEffect(() => {
-    console.log('id', id);
-  }, [id]);
 
   const { loading, isLoaded, data } = useFetchData(getReports, { id });
 

@@ -74,6 +74,7 @@ const Content = ({ data }) => {
           {nearby_posts.map((postData) => (
             <ReportCard 
               {...postData} 
+              photo={postData.photo_url}
               key={postData.id}
             />
           ))}

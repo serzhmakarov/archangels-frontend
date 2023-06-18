@@ -27,7 +27,7 @@ const Partners = () => {
         <PartnersList 
           loading={loading}
           isLoaded={isLoaded}
-          partners={response.data}
+          partners={response.data.slice(0, 1)}
         />
       </Row>
     </Container>
