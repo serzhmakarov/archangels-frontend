@@ -1,7 +1,7 @@
 .partners-page {
   padding-top: 64px;
   text-align: left;
-  height: calc(100vh - (362px + 96px)); // 100vh - (Footer + header)) heights
+  min-height: calc(100vh - (362px + 96px)); // 100vh - (Footer + header)) heights
 
 	.partners-list {
 		padding: 0;

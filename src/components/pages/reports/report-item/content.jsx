@@ -12,7 +12,7 @@ const tabs = {
   partners: { key: 'partners', label: 'Партнери'},
 }
 
-const Content = ({ data }) => {
+const Content = ({ data, containerRef }) => {
   const [activeTab, setActiveTab] = useState(tabs.reports.key);
 
   const handleTabChange = (tab) => setActiveTab(tab)
@@ -30,7 +30,11 @@ const Content = ({ data }) => {
   } = data;
 
   return (
-    <Container className="reports-item-page" lg={12}>
+    <Container 
+      className="reports-item-page" 
+      ref={containerRef}
+      lg={12} 
+    >
       <Col className="content-wrapper" lg={12}>
         <h1 className="title-block-text">
           {name}
