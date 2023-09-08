@@ -8,14 +8,14 @@ import ReportSocialNetworks from './ReportSocialNetworks';
 import ReportCard from '../reportCard';
 
 const tabs = {
-  reports: { key: 'reports', label: 'Про Проєкт'},
-  partners: { key: 'partners', label: 'Партнери'},
-}
+  reports: { key: 'reports', label: 'Про Проєкт' },
+  partners: { key: 'partners', label: 'Партнери' },
+};
 
 const Content = ({ data, containerRef }) => {
   const [activeTab, setActiveTab] = useState(tabs.reports.key);
 
-  const handleTabChange = (tab) => setActiveTab(tab)
+  const handleTabChange = (tab) => setActiveTab(tab);
 
   const {
     nearby_posts,
@@ -26,22 +26,18 @@ const Content = ({ data, containerRef }) => {
       photo_url,
       date,
       social_networks,
-    }, 
+    },
   } = data;
 
   console.log(activeTab);
 
   return (
-    <Container 
-      className="reports-item-page" 
-      ref={containerRef}
-      lg={12} 
-    >
+    <Container className="reports-item-page" ref={containerRef} lg={12}>
       <Col className="content-wrapper" lg={12}>
         <h1 className="title-block-text">
           {name}
-          <NormalizedDate date={date}/>
-          <ReportSocialNetworks socialNetworks={social_networks}/>
+          <NormalizedDate date={date} />
+          <ReportSocialNetworks socialNetworks={social_networks} />
         </h1>
       </Col>
 
@@ -52,17 +48,13 @@ const Content = ({ data, containerRef }) => {
       </Row>
 
       <Col lg={12} className="reports-item-page__description-block">
-        <Tabs 
+        <Tabs
           className="reports-item-page__description-block"
-          defaultActiveKey="reports" 
-          id="tabs" 
+          defaultActiveKey="reports"
+          id="tabs"
           onSelect={handleTabChange}
         >
-          <Tab 
-            title="Про Проєкт" 
-            className="tab-title"
-            eventKey="reports"
-          >
+          <Tab title="Про Проєкт" className="tab-title" eventKey="reports">
             <div className="description-wrapper">
               <p>
                 <b>{short_description}</b>
@@ -78,8 +70,8 @@ const Content = ({ data, containerRef }) => {
         <hr />
         <div className="reports-item-page__reports-block-cards">
           {nearby_posts.map((postData) => (
-            <ReportCard 
-              {...postData} 
+            <ReportCard
+              {...postData}
               photo={postData.photo_url}
               key={postData.id}
             />

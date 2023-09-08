@@ -15,23 +15,27 @@ const Home = () => {
     <Container className="home-page">
       <Row className="home-page__title-block content-wrapper">
         <div className="home-page__title-block-left-side">
-          <h1>{t('home.head.archangels')} <br/> {t('home.head.kyiv')}</h1>
-          <h4>{t('home.head.charity')} <br/> {t('home.head.charity_text')}</h4>
+          <h1>
+            {t('home.head.archangels')} <br /> {t('home.head.kyiv')}
+          </h1>
+          <h4>
+            {t('home.head.charity')} <br /> {t('home.head.charity_text')}
+          </h4>
           <p>{t('home.head.work_text')}</p>
           <div className="home-page__title-block-left-side-action-buttons">
-            <Button 
-              variant="outline-danger" 
+            <Button
+              variant="outline-danger"
               className="archangels-btn"
               as={NavLink}
               to="/help"
             >
               {t('home.head.help_button')}
             </Button>
-            <Button 
-              variant="outline-danger" 
+            <Button
+              variant="outline-danger"
               className="archangels-btn"
               as="a"
-              href='https://bit.ly/36MNTm0'
+              href="https://bit.ly/36MNTm0"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -46,9 +50,8 @@ const Home = () => {
       </Row>
       <Row className="home-page__responsibility-wrapper content-wrapper">
         <div className="home-page__responsibility">
-
           <h1 className="title-block-text">
-            {t('home.specialization.title.our')} <br /> 
+            {t('home.specialization.title.our')} <br />
             {t('home.specialization.title.specialization')}
           </h1>
 
@@ -71,23 +74,23 @@ const Home = () => {
       <Row className="home-page__help-content-container content-wrapper">
         <Col xs={4}>
           <h1 className="title-block-text">
-            {t('home.help.title.first_part')} <br /> 
+            {t('home.help.title.first_part')} <br />
             {t('home.help.title.second_part')}
           </h1>
         </Col>
-       <Col xs={8}>
-        <div>
+        <Col xs={8}>
+          <div>
             <p>{t('home.help.donate_text')}</p>
             <p>
               {t('home.help.report_text_first')}
-              <NavLink to="/reports" className="home-page__hyperlink"> 
+              <NavLink to="/reports" className="home-page__hyperlink">
                 {t('home.reports')}.
               </NavLink>
               {t('home.help.report_text_second')}
             </p>
             <p>{t('home.help.join_text')}</p>
           </div>
-       </Col>
+        </Col>
       </Row>
       <ContactForm />
     </Container>

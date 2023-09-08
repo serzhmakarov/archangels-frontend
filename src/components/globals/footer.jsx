@@ -22,43 +22,33 @@ const Footer = () => {
               <h4>{t('home.charitable_name')}</h4>
               <SocialNetworks />
               <div className="policy-information">
-                <NavLink to="/documents">
-                  {t('home.header.documents')}
-                </NavLink>
-                <a 
-                  target="_blank" 
-                  href="/terms"
-                  rel="noopener noreferrer"
-                >
+                <NavLink to="/documents">{t('home.header.documents')}</NavLink>
+                <a target="_blank" href="/terms" rel="noopener noreferrer">
                   {t('home.footer.terms')}
                 </a>
-                <a 
-                  target="_blank" 
-                  href="/policy"
-                  rel="noopener noreferrer"
-                >
+                <a target="_blank" href="/policy" rel="noopener noreferrer">
                   {t('home.footer.policy')}
                 </a>
-                <a 
-                  target="_blank" 
+                <a
+                  target="_blank"
                   href="/refund-policy"
                   rel="noopener noreferrer"
                 >
                   {t('home.footer.refund')}
                 </a>
               </div>
-              
+
               <p className="footer-contacts-hint">
                 &copy; 2023 {t('home.footer.copyright')}
               </p>
             </div>
             <div className="footer-button-up">
-              <Button 
-                variant="outline-primary" 
+              <Button
+                variant="outline-primary"
                 className="button-up"
                 onClick={onMoveTop}
               >
-               &#x2191; {t('home.footer.up_button')}
+                &#x2191; {t('home.footer.up_button')}
               </Button>
             </div>
           </div>

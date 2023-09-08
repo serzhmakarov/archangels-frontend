@@ -18,17 +18,17 @@ const PAGE_LIMIT = 15;
 const PartnersTab = ({ activeTab }) => {
   const [adminState, dispatch] = useReducer(reducer, initialState);
 
-  const { 
+  const {
     loading,
     partners,
     isCreationModalOpen,
     isConfirmationModalOpen,
     itemForUpdate,
-   } = adminState;
+  } = adminState;
 
   const {
     deletePartnerRequest,
-    deleteProjectRequest, 
+    deleteProjectRequest,
     createPartnerRequest,
     createProjectRequest,
     updateProjectRequest,
@@ -42,7 +42,7 @@ const PartnersTab = ({ activeTab }) => {
     handleDeleteShowModal,
     handleDeleteRequest: handleDeletePartner,
     onUpdateButtonClick,
-   } = useAdminTable({
+  } = useAdminTable({
     activeTab,
     deleteRequest: deletePartnerRequest,
     dispatch,
@@ -53,19 +53,19 @@ const PartnersTab = ({ activeTab }) => {
     loading,
   });
 
-  const handleUpdatePartner = (formData) => {    
-    return updatePartnerRequest(formData, itemForUpdate?.id)
+  const handleUpdatePartner = (formData) => {
+    return updatePartnerRequest(formData, itemForUpdate?.id);
   };
 
   return (
     <Row className="partners-table" lg={12}>
-      <ConfirmationModal 
+      <ConfirmationModal
         loading={loading}
         showModal={isConfirmationModalOpen}
         handleDelete={handleDeletePartner}
         handleCloseModal={handleCloseConfirmationModal}
       />
-      <PartnersForm 
+      <PartnersForm
         itemForUpdate={itemForUpdate}
         isModalShow={isCreationModalOpen}
         handleUpdatePartner={handleUpdatePartner}
@@ -90,7 +90,7 @@ const PartnersTab = ({ activeTab }) => {
         />
       </Col>
       <Col lg={12} className="admin-page__pagination">
-        <PaginationControl 
+        <PaginationControl
           page={partners.meta?.current_page}
           total={partners.meta?.total_count}
           limit={PAGE_LIMIT}
@@ -100,7 +100,7 @@ const PartnersTab = ({ activeTab }) => {
         />
       </Col>
     </Row>
-  )
+  );
 };
 
 export default PartnersTab;

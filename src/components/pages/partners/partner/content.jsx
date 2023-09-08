@@ -6,16 +6,14 @@ import withLoading from '../../../../hooks/useLoading';
 import DefaultPartnerImage from '../../../../assets/images/nova-poshta.jpeg';
 
 const Content = ({ data }) => {
-  const {
-    name,
-    short_description,
-    photo_url,
-    projects,
-  } = data;
+  const { name, short_description, photo_url, projects } = data;
 
   return (
     <Container xs={12}>
-      <Row className="partner-item-page__title-block partner-title-desktop" lg={12}>
+      <Row
+        className="partner-item-page__title-block partner-title-desktop"
+        lg={12}
+      >
         <Col className="content-wrapper" lg={7}>
           <h1 className="title-block-text">{name}</h1>
           <p className="partner-description">{short_description}</p>
@@ -28,7 +26,7 @@ const Content = ({ data }) => {
       <Row className="content-wrapper">
         <h1 className="title-block-text">Спільні проекти</h1>
       </Row>
-      <ProjectsList projects={projects}/>
+      <ProjectsList projects={projects} />
     </Container>
   );
 };

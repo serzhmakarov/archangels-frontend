@@ -32,7 +32,7 @@ const routes = [
     path: routesPath.reports,
     element: withLayout(Reports),
   },
-  { 
+  {
     path: routesPath.report,
     element: withLayout(ReportItem),
   },

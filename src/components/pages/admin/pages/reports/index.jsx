@@ -4,7 +4,7 @@ import { PaginationControl } from 'react-bootstrap-pagination-control';
 
 import ReportsTable from './ReportsTable';
 import ModalCreateItem from './ModalCreateForm/ModalCreateItem';
-import ConfirmationModal from './ConfirmationModal'
+import ConfirmationModal from './ConfirmationModal';
 
 import useApi from '../../helpers/useApi';
 import { reducer, initialState } from './reducer';
@@ -18,19 +18,16 @@ const PAGE_LIMIT = 15;
 const ReportsTab = ({ activeTab }) => {
   const [adminState, dispatch] = useReducer(reducer, initialState);
 
-  const {
-    deleteReportRequest, 
-    createReportRequest,
-    updateReportRequest,
-  } = useApi({ dispatch });
+  const { deleteReportRequest, createReportRequest, updateReportRequest } =
+    useApi({ dispatch });
 
-  const { 
+  const {
     loading,
     reports,
     isCreationModalOpen,
     isConfirmationModalOpen,
     itemForUpdate,
-   } = adminState;
+  } = adminState;
 
   const {
     tableRef,
@@ -38,7 +35,7 @@ const ReportsTab = ({ activeTab }) => {
     handleCloseConfirmationModal,
     handleDeleteShowModal,
     handleDeleteRequest,
-   } = useAdminTable({
+  } = useAdminTable({
     dispatch,
     loading,
     getRequest: getReports,
@@ -49,27 +46,27 @@ const ReportsTab = ({ activeTab }) => {
   });
 
   const onUpdateButtonClick = (id) => {
-    dispatch({ 
+    dispatch({
       type: actionTypes.onUpdateButtonClick,
       payload: { id, targetName: activeTab },
-    })
+    });
   };
 
   const handleCreateClick = (formData) => {
     const callback = itemForUpdate ? updateReportRequest : createReportRequest;
-    
-    return callback(formData, itemForUpdate?.id)
+
+    return callback(formData, itemForUpdate?.id);
   };
 
   return (
     <Row lg={12}>
-      <ConfirmationModal 
+      <ConfirmationModal
         loading={loading}
         showModal={isConfirmationModalOpen}
         handleDelete={handleDeleteRequest}
         handleCloseModal={handleCloseConfirmationModal}
       />
-      <ModalCreateItem 
+      <ModalCreateItem
         itemForUpdate={itemForUpdate}
         isModalShow={isCreationModalOpen}
         handleCreateClick={handleCreateClick}
@@ -86,7 +83,7 @@ const ReportsTab = ({ activeTab }) => {
         />
       </Col>
       <Col lg={12} className="admin-page__pagination">
-        <PaginationControl 
+        <PaginationControl
           page={reports.meta?.current_page}
           total={reports.meta?.total_count}
           limit={PAGE_LIMIT}
@@ -97,6 +94,6 @@ const ReportsTab = ({ activeTab }) => {
       </Col>
     </Row>
   );
-}
+};
 
 export default ReportsTab;

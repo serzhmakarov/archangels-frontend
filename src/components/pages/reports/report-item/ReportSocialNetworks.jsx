@@ -1,38 +1,39 @@
 import React from 'react';
 import { NavLink } from 'react-bootstrap';
-import { 
+import {
   InstagramIcon,
   TelegramIcon,
   FacebookIcon,
 } from '../../../../assets/icons';
 
-const ReportSocialNetworks = ({ socialNetworks }) => socialNetworks && (
-  <div className="report-social-networks">
-    <NavLink
-      target='_blank' 
-      className="instagram-link"
-      href={`${socialNetworks?.instagram}`}
-    >
-      <InstagramIcon />
-    </NavLink>
-    <NavLink
-      target='_blank' 
-      className="telegram-link"
-      href={socialNetworks.telegram}
-    >
-      <TelegramIcon />
-    </NavLink>
-
-    {socialNetworks.facebook && (
+const ReportSocialNetworks = ({ socialNetworks }) =>
+  socialNetworks && (
+    <div className="report-social-networks">
       <NavLink
-        target='_blank' 
-        className="ƒacebook-link"
-        href={socialNetworks.facebook}
+        target="_blank"
+        className="instagram-link"
+        href={`${socialNetworks?.instagram}`}
       >
-        <FacebookIcon />
+        <InstagramIcon />
       </NavLink>
-    )}
-  </div>
-);
+      <NavLink
+        target="_blank"
+        className="telegram-link"
+        href={socialNetworks.telegram}
+      >
+        <TelegramIcon />
+      </NavLink>
+
+      {socialNetworks.facebook && (
+        <NavLink
+          target="_blank"
+          className="ƒacebook-link"
+          href={socialNetworks.facebook}
+        >
+          <FacebookIcon />
+        </NavLink>
+      )}
+    </div>
+  );
 
 export default ReportSocialNetworks;

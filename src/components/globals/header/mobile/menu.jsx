@@ -10,10 +10,7 @@ const Menu = ({ isMenuOpen, onCloseMenu }) => {
   const { t } = useTranslation();
 
   return (
-    <StyledMenu 
-      className="toggle-menu"
-      isMenuOpen={isMenuOpen}
-    >
+    <StyledMenu className="toggle-menu" isMenuOpen={isMenuOpen}>
       <div>
         {navLinks.map(({ link, label }) => (
           <NavLink
@@ -21,19 +18,19 @@ const Menu = ({ isMenuOpen, onCloseMenu }) => {
             key={link}
             to={link}
             className={({ isActive, isPending }) =>
-             isPending ? "pending" : isActive ? "active" : ""
+              isPending ? 'pending' : isActive ? 'active' : ''
             }
           >
             {t(label)}
-          </NavLink>  
+          </NavLink>
         ))}
-        <NavLink 
+        <NavLink
           onClick={onCloseMenu}
-          as={HashLink} 
+          as={HashLink}
           to="/#contacts"
           className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""
-         }
+            isPending ? 'pending' : isActive ? 'active' : ''
+          }
         >
           {t('home.header.contacts')}
         </NavLink>

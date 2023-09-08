@@ -6,12 +6,7 @@ export default function RenderRoutes() {
   return (
     <Routes>
       {routes.map(({ exact = false, path, element: Element }) => (
-        <Route
-          exact={exact}
-          key={path} 
-          path={path} 
-          element={<Element />} 
-        />
+        <Route exact={exact} key={path} path={path} element={<Element />} />
       ))}
     </Routes>
   );

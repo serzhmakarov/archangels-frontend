@@ -12,11 +12,7 @@ const Partner = () => {
 
   return (
     <div className="partner-item-page">
-      <Content 
-        loading={loading} 
-        isLoaded={isLoaded} 
-        data={data} 
-      />
+      <Content loading={loading} isLoaded={isLoaded} data={data} />
     </div>
   );
 };

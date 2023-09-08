@@ -8,19 +8,16 @@ import Content from './content';
 const Report = () => {
   const { id } = useParams();
 
-  const { 
-    loading, 
-    isLoaded, 
-    data,
-    containerRef,
-  } = useFetchData(getReports, { id });
+  const { loading, isLoaded, data, containerRef } = useFetchData(getReports, {
+    id,
+  });
 
   return (
-    <Content 
+    <Content
       containerRef={containerRef}
-      loading={loading} 
-      isLoaded={isLoaded} 
-      data={data} 
+      loading={loading}
+      isLoaded={isLoaded}
+      data={data}
     />
   );
 };

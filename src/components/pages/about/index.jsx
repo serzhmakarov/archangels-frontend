@@ -15,12 +15,15 @@ const About = () => {
       <Row className="about-page__title-block">
         <Col xl={6}>
           <h1>ПРО НАС</h1>
-          <p>Привіт! Давай трохи розповимо про нашу не велику, але результативну команду</p>
-          <Button    
-            variant="outline-danger" 
+          <p>
+            Привіт! Давай трохи розповимо про нашу не велику, але результативну
+            команду
+          </p>
+          <Button
+            variant="outline-danger"
             className="archangels-btn"
             as="a"
-            href='https://bit.ly/36MNTm0'
+            href="https://bit.ly/36MNTm0"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -29,10 +32,7 @@ const About = () => {
         </Col>
       </Row>
 
-      <TeamMemberCards 
-        list={teamList}
-        text="Команда"
-      />
+      <TeamMemberCards list={teamList} text="Команда" />
 
       <Acknowledgments t={t} />
     </Container>

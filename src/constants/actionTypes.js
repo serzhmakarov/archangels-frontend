@@ -39,7 +39,7 @@ const actionTypes = {
   updatePartnerRequest: 'UPDATE_PARTNERS_REQUEST',
   updatePartnerSuccess: 'UPDATE_PARTNERS_SUCCESS',
   updatePartnerFailure: 'UPDATE_PARTNERS_FAILURE',
-  
+
   deletePartnerRequest: 'DELETE_PARTNER_REQUEST',
   deletePartnerSuccess: 'DELETE_PARTNER_SUCCESS',
   deletePartnerFailure: 'DELETE_PARTNER_FAILURE',
@@ -61,10 +61,10 @@ const actionTypes = {
   updateProjectsRequest: 'UPDATE_PROJECTS_REQUEST',
   updateProjectsSuccess: 'UPDATE_PROJECTS_SUCCESS',
   updateProjectsFailure: 'UPDATE_PROJECTS_FAILURE',
-  
+
   deleteProjectRequest: 'DELETE_RROJECT_REQUEST',
   deleteProjectSuccess: 'DELETE_RROJECT_SUCCESS',
   deleteProjectFailure: 'DELETE_RROJECT_FAILURE',
 };
 
-export { actionTypes }
+export { actionTypes };

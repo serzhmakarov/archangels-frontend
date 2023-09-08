@@ -8,7 +8,7 @@ const Breadcrumbs = () => {
   const pathnames = location.pathname.split('/').filter((x) => x);
 
   if (pathnames.length < 2) return null;
-  
+
   return (
     <div className="breadcrumbs-container-wrapper">
       <Container className="breadcrumbs-container" lg={12}>
@@ -18,17 +18,15 @@ const Breadcrumbs = () => {
               {t('home.header.main')}
             </Breadcrumb.Item>
           )}
-    
+
           {pathnames.map((value, index) => {
             const to = `/${pathnames.slice(0, index + 1).join('/')}`;
-            const breadcrumbLabel = isNaN(Number(value)) ? t(`home.header.${value}`) : value; 
+            const breadcrumbLabel = isNaN(Number(value))
+              ? t(`home.header.${value}`)
+              : value;
 
             return (
-              <Breadcrumb.Item
-                key={index}
-                linkAs={Link}
-                linkProps={{ to }}
-              >
+              <Breadcrumb.Item key={index} linkAs={Link} linkProps={{ to }}>
                 {breadcrumbLabel}
               </Breadcrumb.Item>
             );

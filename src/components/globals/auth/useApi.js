@@ -9,7 +9,7 @@ export default function useApi() {
   const onLogin = async (userData) => {
     setLoading(true);
     setError(null);
-    
+
     try {
       const res = await login(userData);
       setUsers(res.data);
@@ -24,4 +24,4 @@ export default function useApi() {
   };
 
   return { user, loading, error, onLogin };
-};
+}

@@ -26,35 +26,27 @@ const PartnersTable = ({
   };
 
   return (
-    <Table 
-      responsive="lg"
-      striped 
-      bordered 
-      hover
-    >
+    <Table responsive="lg" striped bordered hover>
       <thead>
         <tr>
           {adminTablePartnersFields.map(({ key, label }) => (
-            <th 
-              className="admin-table-headers"
-              key={key}
-            >
+            <th className="admin-table-headers" key={key}>
               {label}
             </th>
           ))}
           <th colSpan={3}>
-            <Button 
-              variant="outline-success" 
+            <Button
+              variant="outline-success"
               onClick={handleOpenRecordCreation}
             >
-              <FontAwesomeIcon icon={faPlus}/> Додати новий запис
+              <FontAwesomeIcon icon={faPlus} /> Додати новий запис
             </Button>
           </th>
         </tr>
       </thead>
       <tbody>
         {partners.map((props, index) => (
-          <PartnersRow 
+          <PartnersRow
             {...props}
             index={index}
             showDeletePartnerModal={showDeletePartnerModal}

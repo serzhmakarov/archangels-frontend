@@ -9,20 +9,20 @@ import PlaceholderImage from '../../../../../assets/images/post_image_default.jp
 function truncateString(str, maxLength) {
   return truncate(str, {
     length: maxLength,
-    omission: '...'
+    omission: '...',
   });
-};
+}
 
-const TableRow = ({ 
-  id, 
-  index, 
-  name, 
+const TableRow = ({
+  id,
+  index,
+  name,
   short_description,
-  long_description, 
-  date, 
+  long_description,
+  date,
   photo_url,
-  handleShowModal, 
-  onUpdateButtonClick 
+  handleShowModal,
+  onUpdateButtonClick,
 }) => {
   const handleUpdateClick = () => {
     onUpdateButtonClick(id);
@@ -36,7 +36,11 @@ const TableRow = ({
     <tr key={id}>
       <td>{index + 1}</td>
       <td>
-        <img className="admin-page__row-item-image" src={photo_url || PlaceholderImage} alt="" />
+        <img
+          className="admin-page__row-item-image"
+          src={photo_url || PlaceholderImage}
+          alt=""
+        />
       </td>
       <td title={name}>{truncateString(name, 50)}</td>
       <td title={short_description}>{truncateString(short_description, 50)}</td>
@@ -45,17 +49,25 @@ const TableRow = ({
         <NormalizedDate date={date} />
       </td>
       <td className="edit-button">
-        <Button title="Редагувати" variant="outline-secondary" onClick={handleUpdateClick}>
-          <FontAwesomeIcon icon={faPenToSquare} />        
+        <Button
+          title="Редагувати"
+          variant="outline-secondary"
+          onClick={handleUpdateClick}
+        >
+          <FontAwesomeIcon icon={faPenToSquare} />
         </Button>
       </td>
       <td className="delete-button">
-        <Button title="Видалити" variant="outline-danger" onClick={handleDeleteClick}>
+        <Button
+          title="Видалити"
+          variant="outline-danger"
+          onClick={handleDeleteClick}
+        >
           <FontAwesomeIcon icon={faTrash} />
         </Button>
       </td>
     </tr>
   );
-}
+};
 
 export default TableRow;

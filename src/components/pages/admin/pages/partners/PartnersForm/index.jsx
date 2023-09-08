@@ -5,15 +5,14 @@ import { actionTypes } from '../../../../../../constants/actionTypes';
 import { adminPartnersFields } from '../../../constants';
 import FormField from '../../../nested/FormField';
 
-const PartnersForm = ({ 
-  isModalShow, 
+const PartnersForm = ({
+  isModalShow,
   handleUpdatePartner,
   handleCreatePartner,
   loading,
   dispatch,
   itemForUpdate,
- }) => {
-
+}) => {
   const { register, handleSubmit, reset, watch, setValue } = useForm();
 
   useEffect(() => {
@@ -34,8 +33,7 @@ const PartnersForm = ({
     callback({
       ...data,
       photo: data.photo ? data.photo[0] : null,
-    })
-      .then(() => handleClose());
+    }).then(() => handleClose());
   }
 
   const actionTitleName = itemForUpdate ? 'Редагувати' : 'Cтворити';
@@ -43,46 +41,42 @@ const PartnersForm = ({
   const reportId = watch('id');
 
   return (
-    <Modal 
+    <Modal
       size="lg"
-      show={isModalShow} 
-      onHide={handleClose} 
+      show={isModalShow}
+      onHide={handleClose}
       className="admin-create-form-page__modal"
     >
-      <Form 
-        onSubmit={handleSubmit(onSubmit)} 
+      <Form
+        onSubmit={handleSubmit(onSubmit)}
         className="admin-create-form-page__form-wrapper"
       >
         <h1>
           {actionTitleName} запис {reportId || ''}
           {itemForUpdate?.photo_url && (
-          <img 
-            className="report-preview-image"
-            src={itemForUpdate.photo_url} 
-            alt="report_preview" 
-          />
-        )}
+            <img
+              className="report-preview-image"
+              src={itemForUpdate.photo_url}
+              alt="report_preview"
+            />
+          )}
         </h1>
-      
+
         {adminPartnersFields.map((props) => (
-          <FormField 
-            {...props}
-            key={props.name}
-            register={register}
-          />
+          <FormField {...props} key={props.name} register={register} />
         ))}
         <div className="admin-create-form-page__action-buttons">
-          <Button 
-            variant="secondary" 
-            type="button" 
+          <Button
+            variant="secondary"
+            type="button"
             className="submit-button"
             onClick={handleClose}
           >
             Скасувати
           </Button>
-          <Button 
-            variant="primary" 
-            type="submit" 
+          <Button
+            variant="primary"
+            type="submit"
             className="submit-button"
             disabled={loading}
           >

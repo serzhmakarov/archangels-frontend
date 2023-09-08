@@ -13,11 +13,15 @@ const HelpPage = () => {
       <Row className="about-page__title-block">
         <Col xl={6}>
           <h1>ДОПОМОГТИ</h1>
-          <p>Ти, як і ми, більше не можеш залишатися осторонь і хочеш допомагати у цій війні? Супер! Найшвидший спосіб допомогти нам, це задонатити за реквізитами нижче</p>
+          <p>
+            Ти, як і ми, більше не можеш залишатися осторонь і хочеш допомагати
+            у цій війні? Супер! Найшвидший спосіб допомогти нам, це задонатити
+            за реквізитами нижче
+          </p>
         </Col>
         <FondyPayment />
       </Row>
-    
+
       <Row className="content-wrapper">
         <h1 className="title-block-text">Реквізити</h1>
         <div className="currency-accounts-list">
@@ -33,13 +37,13 @@ const HelpPage = () => {
         <h1 className="title-block-text">
           ХОЧЕШ <br />
           ДОПОМАГАТИ <br />
-          БІЛЬШЕ? 
+          БІЛЬШЕ?
         </h1>
-        <Button 
-          variant="outline-danger" 
+        <Button
+          variant="outline-danger"
           className="archangels-btn"
           as="a"
-          href='https://bit.ly/36MNTm0'
+          href="https://bit.ly/36MNTm0"
           target="_blank"
           rel="noopener noreferrer"
         >

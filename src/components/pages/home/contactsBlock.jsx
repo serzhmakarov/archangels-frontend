@@ -4,7 +4,7 @@ import { contacts } from '../../../constants';
 
 const ContactsBlock = () => {
   const { t } = useTranslation();
-  
+
   return (
     <div className="contacts-info__block">
       {contacts.map(({ key, label, value, link }) => (
@@ -14,6 +14,6 @@ const ContactsBlock = () => {
       ))}
     </div>
   );
-}
+};
 
 export default ContactsBlock;

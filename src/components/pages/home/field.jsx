@@ -2,35 +2,31 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import { Controller } from 'react-hook-form';
 
-const Field = ({ 
+const Field = ({
   control,
-  label, 
-  key, 
-  type, 
-  as, 
-  hint, 
-  placeholder, 
+  label,
+  key,
+  type,
+  as,
+  hint,
+  placeholder,
   required,
   name,
   minLength,
   maxLength,
-  t
+  t,
 }) => {
   return (
-    <Form.Group 
-      key={key}
-      controlId={key}
-      className="mb-3" 
-    >
+    <Form.Group key={key} controlId={key} className="mb-3">
       <Form.Label>{t(label)}</Form.Label>
       <Controller
         name={name}
         control={control}
         render={({ field }) => (
-          <Form.Control 
+          <Form.Control
             {...field}
             as={as}
-            type={type} 
+            type={type}
             minLength={minLength}
             maxLength={maxLength}
             placeholder={t(placeholder)}
@@ -38,11 +34,7 @@ const Field = ({
           />
         )}
       />
-      {hint && (
-        <Form.Text className="text-muted">
-          {t(hint)}
-        </Form.Text>
-      )}
+      {hint && <Form.Text className="text-muted">{t(hint)}</Form.Text>}
     </Form.Group>
   );
 };

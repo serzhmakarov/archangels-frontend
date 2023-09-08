@@ -8,7 +8,7 @@ const endpoints = {
   partners: '/partners/',
   projects: '/projects/',
   payment: '/payments/create_checkout_url',
-}
+};
 
 async function request({ method, endpoint, data }) {
   const authToken = sessionStorage.getItem('authToken');
@@ -21,7 +21,7 @@ async function request({ method, endpoint, data }) {
   }
 
   if (sessionStorage.getItem('authToken')) {
-    headers['Authorization'] = authToken;
+    headers.Authorization = authToken;
   }
 
   const options = {
@@ -30,7 +30,7 @@ async function request({ method, endpoint, data }) {
     headers,
     body: isStringify ? JSON.stringify(data) : data,
     redirect: 'follow',
-  }
+  };
 
   return fetch(API_URL + endpoint, options)
     .then((response) => {
@@ -54,7 +54,6 @@ async function request({ method, endpoint, data }) {
       try {
         const { message } = await error.json();
         return Promise.reject(new Error(message));
-
       } catch {
         return Promise.reject(error);
       }
@@ -64,47 +63,60 @@ async function request({ method, endpoint, data }) {
 request.defaultProps = {
   data: [],
   method: 'get',
-  endpoint: '/'
-}
+  endpoint: '/',
+};
 
 // FONDY REQUEST
- 
-export const getFondyCheckoutURL = ({ amount, currency }) => 
-request({ 
-  method: 'get', 
-  endpoint: endpoints.payment + `?amount=${amount}&currency=${currency}` 
-});
+
+export const getFondyCheckoutURL = ({ amount, currency }) =>
+  request({
+    method: 'get',
+    endpoint: endpoints.payment + `?amount=${amount}&currency=${currency}`,
+  });
 
 // AUTH
-export const login = (data) => request({ method: 'post', endpoint: endpoints.login, data });
+export const login = (data) =>
+  request({ method: 'post', endpoint: endpoints.login, data });
 
-// SEND FORM TO SEND EMAIL 
-export const sendForm = (data) => request({ method: 'post', endpoint: endpoints.sendForm, data });
+// SEND FORM TO SEND EMAIL
+export const sendForm = (data) =>
+  request({ method: 'post', endpoint: endpoints.sendForm, data });
 
 // GET, CREATE, UPDATE, DELETE requests for Reports
-export const getReports = ({ id = '', query = '/' }) => request({ method: 'get', endpoint: endpoints.reports + id + query }); 
+export const getReports = ({ id = '', query = '/' }) =>
+  request({ method: 'get', endpoint: endpoints.reports + id + query });
 
-export const createReport = (data) => request({ method: 'post', endpoint: endpoints.reports, data });
+export const createReport = (data) =>
+  request({ method: 'post', endpoint: endpoints.reports, data });
 
-export const updateReport = ({ id, data }) => request({ method: 'put', endpoint: endpoints.reports + id, data });
+export const updateReport = ({ id, data }) =>
+  request({ method: 'put', endpoint: endpoints.reports + id, data });
 
-export const deleteReport = (id) => request({ method: 'delete', endpoint: endpoints.reports + id });
-
+export const deleteReport = (id) =>
+  request({ method: 'delete', endpoint: endpoints.reports + id });
 
 // GET, CREATE, UPDATE, DELETE requests for Partners
-export const getPartners = ({ id = '', query = '/' }) => request({ method: 'get', endpoint: endpoints.partners + id + query }); 
+export const getPartners = ({ id = '', query = '/' }) =>
+  request({ method: 'get', endpoint: endpoints.partners + id + query });
 
-export const createPartner = (data) => request({ method: 'post', endpoint: endpoints.partners, data });
+export const createPartner = (data) =>
+  request({ method: 'post', endpoint: endpoints.partners, data });
 
-export const updatePartner = ({ id, data }) => request({ method: 'put', endpoint: endpoints.partners + id, data });
+export const updatePartner = ({ id, data }) =>
+  request({ method: 'put', endpoint: endpoints.partners + id, data });
 
-export const deletePartner = (id) => request({ method: 'delete', endpoint: endpoints.partners + id });
+export const deletePartner = (id) =>
+  request({ method: 'delete', endpoint: endpoints.partners + id });
 
 // GET, CREATE, UPDATE, DELETE requests for Projects
-export const getProjects = ({ id = '', query = '/' }) => request({ method: 'get', endpoint: endpoints.projects + id + query }); 
+export const getProjects = ({ id = '', query = '/' }) =>
+  request({ method: 'get', endpoint: endpoints.projects + id + query });
 
-export const createProject = (data) => request({ method: 'post', endpoint: endpoints.projects, data });
+export const createProject = (data) =>
+  request({ method: 'post', endpoint: endpoints.projects, data });
 
-export const updateProject = ({ id, data }) => request({ method: 'put', endpoint: endpoints.projects + id, data });
+export const updateProject = ({ id, data }) =>
+  request({ method: 'put', endpoint: endpoints.projects + id, data });
 
-export const deleteProject = (id) => request({ method: 'delete', endpoint: endpoints.projects + id });
+export const deleteProject = (id) =>
+  request({ method: 'delete', endpoint: endpoints.projects + id });

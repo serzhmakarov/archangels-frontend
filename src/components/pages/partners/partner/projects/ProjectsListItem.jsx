@@ -8,11 +8,17 @@ import LazyBackground from '../../../../../_helpers/LazyBackground';
 import DefaultProjectImage from '../../../../../assets/images/boxes-placeholer.jpeg';
 import NormalizedDate from '../../../../globals/NormalizedDate';
 
-const ProjectsList = ({ date, fullDescription, name, photo, shortDescription }) => (
+const ProjectsList = ({
+  date,
+  fullDescription,
+  name,
+  photo,
+  shortDescription,
+}) => (
   <Card className="projects-list-item">
     <Row>
       <Col xs={12}>
-        <LazyBackground 
+        <LazyBackground
           className="card-image"
           src={photo || DefaultProjectImage}
         />
@@ -23,8 +29,12 @@ const ProjectsList = ({ date, fullDescription, name, photo, shortDescription }) 
           <div className="card-info">
             <Card.Title>{name}</Card.Title>
             <NormalizedDate date={date} />
-            <Card.Text className="card-description">{shortDescription}</Card.Text>
-            <Card.Text className="card-description">{fullDescription}</Card.Text>
+            <Card.Text className="card-description">
+              {shortDescription}
+            </Card.Text>
+            <Card.Text className="card-description">
+              {fullDescription}
+            </Card.Text>
           </div>
         </Card.Body>
       </Col>

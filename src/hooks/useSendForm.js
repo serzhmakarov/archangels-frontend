@@ -1,12 +1,11 @@
-
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { sendForm } from '../api';
 
 export default function useSendForm() {
   const { t } = useTranslation();
-	const [error, setError] = useState(null);
-	const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
   const callback = (data) => {
@@ -26,5 +25,5 @@ export default function useSendForm() {
       });
   };
 
-	return { callback, error, loading, message };
+  return { callback, error, loading, message };
 }

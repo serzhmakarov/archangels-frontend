@@ -162,10 +162,6 @@ const adminProjectsFields = [
     type: 'file',
     as: 'input',
   },
-]
+];
 
-export { 
-  adminTableFields,
-  adminPartnersFields,
-  adminProjectsFields,
-};
+export { adminTableFields, adminPartnersFields, adminProjectsFields };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import ThemeProvider from 'react-bootstrap/ThemeProvider'
+import ThemeProvider from 'react-bootstrap/ThemeProvider';
 
 import ScrollToTop from './_helpers/scrollToTop';
 import RenderRoutes from './routes';

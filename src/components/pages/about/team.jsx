@@ -8,7 +8,7 @@ const TeamMemberCards = ({ list, text }) => {
     <Row className="content-wrapper founders-block">
       <h1 className="title-block-text">{text}</h1>
       {list.map(({ name, text, image, link }) => (
-        <FounderCard 
+        <FounderCard
           link={link}
           key={name}
           name={name}

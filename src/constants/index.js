@@ -6,10 +6,7 @@ import LanaPhotoJpg from '../assets/images/team/lana.jpg';
 import MarynaPhotoJpg from '../assets/images/team/maryna.jpg';
 import VadymPhotoJpg from '../assets/images/team/vadym.jpg';
 
-import { 
-  InstagramIcon,
-  TelegramIcon 
-} from '../assets/icons';
+import { InstagramIcon, TelegramIcon } from '../assets/icons';
 
 const achieves = [
   { url: require('../assets/images/achieves/5_a.jpg') },
@@ -19,7 +16,7 @@ const achieves = [
   { url: require('../assets/images/achieves/1_a.jpg') },
   { url: require('../assets/images/achieves/8_a.jpg') },
   { url: require('../assets/images/achieves/4_a.jpg') },
-]
+];
 
 const navLinks = [
   {
@@ -80,7 +77,7 @@ const contactFormFields = [
     as: 'textarea',
     hint: '',
     placeholder: 'home.contacts.form.message_placeholder',
-    maxLength: 255
+    maxLength: 255,
   },
 ];
 
@@ -89,7 +86,7 @@ const socialNetworks = [
     name: 'instagram',
     link: 'https://www.instagram.com/archangelsofkyiv',
     IconComponent: InstagramIcon,
-  },  
+  },
   {
     name: 'telegram',
     link: 'https://t.me/Solomka_Help',
@@ -128,7 +125,6 @@ const teamList = [
     text: 'Марина - член команди закупівельників, яка збирає військове спорядження та займається соціальною роботою.',
     image: MarynaPhotoJpg,
   },
-
 ];
 
 const currencyAccounts = [
@@ -174,7 +170,7 @@ const adminTableReportsFields = [
   {
     key: 'date',
     label: 'Дата (звiту)',
-  }
+  },
 ];
 
 const adminTableProjectsFields = [
@@ -205,7 +201,7 @@ const adminTableProjectsFields = [
   {
     key: 'created_at',
     label: 'Створено',
-  }
+  },
 ];
 
 const adminTablePartnersFields = [
@@ -233,7 +229,7 @@ const adminTablePartnersFields = [
     key: 'projects',
     label: 'Кількість проектів',
   },
-]
+];
 
 const routesPath = {
   root: '/',
@@ -269,7 +265,7 @@ const contacts = [
     value: '+380 (97) 815 0273',
     link: 'tel:+380978150273',
   },
-]
+];
 
 export {
   contactFormFields,
@@ -282,5 +278,5 @@ export {
   adminTableProjectsFields,
   routesPath,
   contacts,
-  achieves
-}
+  achieves,
+};

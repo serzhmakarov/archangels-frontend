@@ -1,6 +1,11 @@
 import { Button, Modal } from 'react-bootstrap';
 
-const ConfirmationModal = ({ showModal, handleDelete, handleCloseModal, loading }) => (
+const ConfirmationModal = ({
+  showModal,
+  handleDelete,
+  handleCloseModal,
+  loading,
+}) => (
   <Modal show={showModal} onHide={handleCloseModal}>
     <Modal.Header closeButton>
       <Modal.Title>Confirm Deletion</Modal.Title>

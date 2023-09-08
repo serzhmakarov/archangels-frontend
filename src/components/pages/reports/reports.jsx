@@ -7,13 +7,13 @@ function ReportsList({ reports }) {
   return (
     <div className="news-list">
       {reports.map(({ id, name, date, short_description, photo_url }) => (
-        <ReportCard 
+        <ReportCard
           key={id}
           id={id}
-          name={name} 
-          date={date} 
-          short_description={short_description} 
-          photo={photo_url} 
+          name={name}
+          date={date}
+          short_description={short_description}
+          photo={photo_url}
         />
       ))}
     </div>

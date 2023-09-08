@@ -8,11 +8,17 @@ import PropTypes from 'prop-types';
 import DefaultPartnerImage from '../../../assets/images/boxes-placeholer.jpeg';
 import LazyBackground from '../../../_helpers/LazyBackground';
 
-const PartnerCard = ({ id, short_description, photo, name, projects_count }) => (
+const PartnerCard = ({
+  id,
+  short_description,
+  photo,
+  name,
+  projects_count,
+}) => (
   <Card className="partners-list-item">
     <Row>
       <Col xs={12}>
-        <LazyBackground 
+        <LazyBackground
           className="card-image"
           src={photo || DefaultPartnerImage}
         />
@@ -22,11 +28,13 @@ const PartnerCard = ({ id, short_description, photo, name, projects_count }) => 
         <Card.Body>
           <div className="card-info">
             <Card.Title>{name}</Card.Title>
-            <Card.Text className="card-projects">Кількість спільних проектів: {projects_count}</Card.Text>
+            <Card.Text className="card-projects">
+              Кількість спільних проектів: {projects_count}
+            </Card.Text>
             <Card.Text>{short_description}</Card.Text>
           </div>
-          <Button 
-            variant="outline-danger" 
+          <Button
+            variant="outline-danger"
             className="archangels-btn"
             as="a"
             href={`/partners/${id}`}

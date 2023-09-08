@@ -17,16 +17,12 @@ const initialState = {
 function replaceObjectInArray(data, object) {
   const atIndex = data.findIndex(({ id }) => id === object.id);
 
-  return [
-    ...data.slice(0, atIndex),
-    object,
-    ...data.slice(atIndex + 1)
-  ]
-};
+  return [...data.slice(0, atIndex), object, ...data.slice(atIndex + 1)];
+}
 
 function remove(array, itemId) {
   return array.filter(({ id }) => id !== itemId);
-};
+}
 
 function reducer(state, action) {
   const { type, payload } = action;
@@ -40,13 +36,13 @@ function reducer(state, action) {
       return { ...state, loading: true };
 
     case actionTypes.getPartnersSuccess:
-      return { 
+      return {
         ...state,
         loading: false,
-        partners:  {
-          ...payload, 
+        partners: {
+          ...payload,
           isLoaded: true,
-        }
+        },
       };
     case actionTypes.getPartnersFailure:
       return { ...state, loading: false, error: payload };
@@ -56,15 +52,15 @@ function reducer(state, action) {
       return { ...state, loading: true, error: null };
 
     case actionTypes.deletePartnerSuccess:
-      return { 
-        ...state, 
+      return {
+        ...state,
         loading: false,
-        partners: { 
+        partners: {
           ...state.partners,
           data: remove(state.partners.data, payload),
-         }
+        },
       };
-    
+
     case actionTypes.deletePartnerFailure:
       return { ...state, loading: false, error: action.payload };
 
@@ -74,8 +70,8 @@ function reducer(state, action) {
       return { ...state, loading: true, error: null };
 
     case actionTypes.createPartnerSuccess:
-      return { 
-        ...state, 
+      return {
+        ...state,
         loading: false,
         partners: {
           ...state.partners,
@@ -89,19 +85,19 @@ function reducer(state, action) {
 
     // UPDATE PARTNERS ACTIONS
 
-    case actionTypes.onUpdateButtonClick: 
+    case actionTypes.onUpdateButtonClick:
       return {
         ...state,
         isCreationModalOpen: true,
-        itemForUpdate: find(state.partners.data, ['id', action.payload.id]) 
-      }
-    
+        itemForUpdate: find(state.partners.data, ['id', action.payload.id]),
+      };
+
     case actionTypes.updatePartnerRequest:
       return { ...state, loading: true, error: null };
 
     case actionTypes.updatePartnerSuccess:
-      return { 
-        ...state, 
+      return {
+        ...state,
         loading: false,
         partners: {
           ...state.partners,
@@ -117,19 +113,19 @@ function reducer(state, action) {
 
     case actionTypes.openConfirmationModal:
       return { ...state, isConfirmationModalOpen: true };
-    
-    case actionTypes.openCreationModal:
-      return { ...state, isCreationModalOpen: true };  
 
-      case actionTypes.closeCreationModal:
-        return { ...state, isCreationModalOpen: false, itemForUpdate: null };
-      
-      case actionTypes.closeConfirmationModal:
-        return { ...state, isConfirmationModalOpen: false };  
-        
-    default: 
+    case actionTypes.openCreationModal:
+      return { ...state, isCreationModalOpen: true };
+
+    case actionTypes.closeCreationModal:
+      return { ...state, isCreationModalOpen: false, itemForUpdate: null };
+
+    case actionTypes.closeConfirmationModal:
+      return { ...state, isConfirmationModalOpen: false };
+
+    default:
       return initialState;
   }
-};
+}
 
 export { initialState, reducer };

@@ -7,24 +7,21 @@ import useApi from '../../../hooks/useApi';
 import { getPartners } from '../../../api';
 
 const Partners = () => {
-  const {  
-    loading, 
-    isLoaded, 
-    response,
-    isDataEmpty
-  } = useApi({ callback: getPartners });
+  const { loading, isLoaded, response, isDataEmpty } = useApi({
+    callback: getPartners,
+  });
   return (
     <Container className="partners-page">
       <Row className="about-page__title-block">
         <h1 className="title-block-text">Партнери</h1>
       </Row>
-    
+
       <Row className="content-wrapper">
-        <Placeholder 
+        <Placeholder
           show={isDataEmpty}
           message="Незабаром тут буде сторінка із нашими партнерами."
         />
-        <PartnersList 
+        <PartnersList
           loading={loading}
           isLoaded={isLoaded}
           partners={response.data.slice(0, 1)}

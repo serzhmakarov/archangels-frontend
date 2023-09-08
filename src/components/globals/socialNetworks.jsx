@@ -4,12 +4,7 @@ import { socialNetworks } from '../../constants';
 const SocialNetworks = () => (
   <div className="footer-social-networks">
     {socialNetworks.map(({ IconComponent, name, link }) => (
-      <a 
-        key={name} 
-        href={link}
-        target="_blank"
-        rel="nooppener noreferrer"
-      >
+      <a key={name} href={link} target="_blank" rel="nooppener noreferrer">
         <IconComponent />
       </a>
     ))}

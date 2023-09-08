@@ -7,16 +7,16 @@ import NavigationMenu from './NavigationMenu';
 
 const DesktopHeader = () => {
   const scrollDirection = useScrollDirection();
-  
-	return (
-    <HeaderDesktopContainer 
-      className="desktop-header-container" 
+
+  return (
+    <HeaderDesktopContainer
+      className="desktop-header-container"
       scrollDirection={scrollDirection}
     >
       <Logo />
       <NavigationMenu />
     </HeaderDesktopContainer>
-	);
+  );
 };
 
 export default DesktopHeader;

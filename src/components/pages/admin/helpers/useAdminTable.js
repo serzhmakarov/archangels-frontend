@@ -2,11 +2,11 @@ import { useRef, useState, useEffect } from 'react';
 import useFetchAdminData from './useFetchAdminData';
 import { actionTypes } from '../../../../constants/actionTypes';
 
-const useAdminTable = ({ 
-  activeTab, 
-  getRequest, 
-  deleteRequest, 
-  dispatch, 
+const useAdminTable = ({
+  activeTab,
+  getRequest,
+  deleteRequest,
+  dispatch,
   loading,
   getActionRequest,
   getActionSuccess,
@@ -16,9 +16,9 @@ const useAdminTable = ({
   const [rowDeleteId, setRowDeleteId] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
-  useFetchAdminData({ 
-    dispatch, 
-    currentPage, 
+  useFetchAdminData({
+    dispatch,
+    currentPage,
     callback: getRequest,
     getActionRequest,
     getActionSuccess,
@@ -26,7 +26,7 @@ const useAdminTable = ({
   });
 
   useEffect(() => {
-    tableRef.current.style.opacity = loading ? 0.6 : 1
+    tableRef.current.style.opacity = loading ? 0.6 : 1;
   }, [loading]);
 
   const handlePageChange = (page) => setCurrentPage(page);
@@ -37,8 +37,9 @@ const useAdminTable = ({
   };
 
   const handleDeleteRequest = () => {
-    deleteRequest(rowDeleteId)
-      .then(() => dispatch({ type: actionTypes.closeConfirmationModal }));
+    deleteRequest(rowDeleteId).then(() =>
+      dispatch({ type: actionTypes.closeConfirmationModal }),
+    );
   };
 
   const handleCloseConfirmationModal = () => {
@@ -46,10 +47,10 @@ const useAdminTable = ({
   };
 
   const onUpdateButtonClick = (id) => {
-    dispatch({ 
+    dispatch({
       type: actionTypes.onUpdateButtonClick,
       payload: { id, targetName: activeTab },
-    })
+    });
   };
 
   return {
@@ -60,7 +61,7 @@ const useAdminTable = ({
     onUpdateButtonClick,
     rowDeleteId,
     tableRef,
-  }
+  };
 };
 
 export default useAdminTable;

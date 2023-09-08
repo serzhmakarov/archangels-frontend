@@ -8,25 +8,22 @@ import Placeholder from '../../globals/placeholder';
 import { getReports } from '../../../api';
 
 const Reports = () => {
-  const {  
-    loading, 
-    isLoaded, 
-    response,
-    isDataEmpty
-  } = useApi({ callback: getReports });
+  const { loading, isLoaded, response, isDataEmpty } = useApi({
+    callback: getReports,
+  });
 
   return (
     <Container className="news-page">
       <Row className="about-page__title-block">
         <h1 className="title-block-text">Звіти</h1>
       </Row>
-    
+
       <Row className="content-wrapper">
-        <Placeholder 
+        <Placeholder
           show={isDataEmpty}
           message="Незабаром тут з'являться всі новини нашого фонду від початку повномасштабного вторгнення."
         />
-        <ReportsList 
+        <ReportsList
           loading={loading}
           isLoaded={isLoaded}
           reports={response.data}

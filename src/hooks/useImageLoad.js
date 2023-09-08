@@ -8,9 +8,9 @@ export default function useImageLoad() {
     setLoaded(true);
   };
 
-  return {  
+  return {
     loaded,
     handleImageLoaded,
     PlaceholderImage,
-  }
-};
+  };
+}

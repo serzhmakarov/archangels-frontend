@@ -6,11 +6,12 @@ import { t } from 'i18next';
 import DefaultPicture from '../assets/images/post_image_default.jpg';
 import Layout from '../components/globals/layout';
 
-const keywords = 'charitable foundations, nonprofit organizations, philanthropy, charitable giving, social impact';
+const keywords =
+  'charitable foundations, nonprofit organizations, philanthropy, charitable giving, social impact';
 
 function getWebpageTitle(pathname) {
-  let replacedPathname = pathname.split('/').slice(1, 2).join() || 'main';
-  
+  const replacedPathname = pathname.split('/').slice(1, 2).join() || 'main';
+
   return `${t('home.webpage_name')} | ${t(`home.header.${replacedPathname}`)}`;
 }
 

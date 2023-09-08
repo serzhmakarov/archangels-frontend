@@ -9,37 +9,38 @@ import TableRow from './TableRow';
 import { actionTypes } from '../../../../../constants/actionTypes';
 import { adminTableReportsFields } from '../../../../../constants';
 
-const ReportsTable = ({ activeTab, data, handleShowModal, onUpdateButtonClick, dispatch }) => {  
+const ReportsTable = ({
+  activeTab,
+  data,
+  handleShowModal,
+  onUpdateButtonClick,
+  dispatch,
+}) => {
   const handleOpenRecordCreation = () => {
     dispatch({ type: actionTypes.openCreationModal });
   };
 
   return (
     <>
-      <Table 
-        responsive="lg"
-        striped 
-        bordered 
-        hover
-      >
+      <Table responsive="lg" striped bordered hover>
         <thead>
           <tr>
             {adminTableReportsFields.map(({ key, label }) => (
               <th key={key}>{label}</th>
             ))}
             <th colSpan={3}>
-              <Button 
-                variant="outline-success" 
+              <Button
+                variant="outline-success"
                 onClick={handleOpenRecordCreation}
               >
-                <FontAwesomeIcon icon={faPlus}/> Додати новий запис
+                <FontAwesomeIcon icon={faPlus} /> Додати новий запис
               </Button>
             </th>
           </tr>
         </thead>
         <tbody>
           {data.map((props, index) => (
-            <TableRow 
+            <TableRow
               {...props}
               key={props.id}
               index={index}

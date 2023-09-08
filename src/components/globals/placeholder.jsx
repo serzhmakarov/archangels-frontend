@@ -11,12 +11,12 @@ const Placeholder = ({ message, show }) => {
       </div>
       <p>{message}</p>
     </div>
-  )
+  );
 };
 
 Placeholder.defaultProps = {
   message: '',
   show: false,
-}
+};
 
 export default Placeholder;

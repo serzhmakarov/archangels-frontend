@@ -7,12 +7,12 @@ const Alert = ({ message, color }) => {
     <div className="alert-message" style={{ color }}>
       <p>{message}</p>
     </div>
-  )
+  );
 };
 
 Alert.defaultProps = {
   message: '',
-  color: 'green'
-}
+  color: 'green',
+};
 
 export default Alert;

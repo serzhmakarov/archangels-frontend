@@ -2,12 +2,12 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 
 const FormField = ({
-  resize, 
-  name, 
-  label, 
-  as, 
-  type, 
-  rows = 1, 
+  resize,
+  name,
+  label,
+  as,
+  type,
+  rows = 1,
   placeholder,
   required = false,
   register,
@@ -18,7 +18,7 @@ const FormField = ({
       className="admin-create-form-page__field-wrapper"
     >
       <Form.Label>
-        {label} {required && (<p className="required-star">*</p>)}
+        {label} {required && <p className="required-star">*</p>}
       </Form.Label>
       <Form.Control
         type={type}
@@ -27,7 +27,9 @@ const FormField = ({
         as={as}
         placeholder={placeholder || `Напиши ${label.toLowerCase()} сюди...`}
         rows={rows}
-        {...register(name, { required: required ? `Заповніть поле ${label.toLowerCase()}` : false })}
+        {...register(name, {
+          required: required ? `Заповніть поле ${label.toLowerCase()}` : false,
+        })}
       />
     </Form.Group>
   );

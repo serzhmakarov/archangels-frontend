@@ -9,20 +9,20 @@ import LazyBackground from '../../../../../_helpers/LazyBackground';
 function truncateString(str, maxLength) {
   return truncate(str, {
     length: maxLength,
-    omission: '...'
+    omission: '...',
   });
-};
+}
 
-const PartnersRow = ({ 
-  id, 
-  index, 
-  name, 
+const PartnersRow = ({
+  id,
+  index,
+  name,
   short_description,
   full_description,
-  projects, 
+  projects,
   photo_url,
-  handleShowModal, 
-  onUpdateButtonClick 
+  handleShowModal,
+  onUpdateButtonClick,
 }) => {
   const handleUpdateClick = () => {
     onUpdateButtonClick(id);
@@ -36,27 +36,32 @@ const PartnersRow = ({
     <tr key={id} className="admin-table__partners-row">
       <td>{index + 1}</td>
       <td>
-        <LazyBackground 
-          src={photo_url} 
-          placeholder={PlaceholderImage}
-        />
+        <LazyBackground src={photo_url} placeholder={PlaceholderImage} />
       </td>
       <td title={name}>{truncateString(name, 50)}</td>
       <td title={short_description}>{truncateString(short_description, 50)}</td>
       <td title={full_description}>{truncateString(full_description, 50)}</td>
       <td>{projects.length}</td>
       <td className="edit-button">
-        <Button title="Редагувати" variant="outline-secondary" onClick={handleUpdateClick}>
-          <FontAwesomeIcon icon={faPenToSquare} />        
+        <Button
+          title="Редагувати"
+          variant="outline-secondary"
+          onClick={handleUpdateClick}
+        >
+          <FontAwesomeIcon icon={faPenToSquare} />
         </Button>
       </td>
       <td className="delete-button">
-        <Button title="Видалити" variant="outline-danger" onClick={handleDeleteClick}>
+        <Button
+          title="Видалити"
+          variant="outline-danger"
+          onClick={handleDeleteClick}
+        >
           <FontAwesomeIcon icon={faTrash} />
         </Button>
       </td>
     </tr>
   );
-}
+};
 
 export default PartnersRow;
