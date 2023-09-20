@@ -1,9 +1,7 @@
 import PhoneInputMask from '../components/pages/home/phoneInput';
 import SergeyPhotoJpg from '../assets/images/team/serhii.jpg';
 import KyrylPhotoJpg from '../assets/images/team/kyrylo.jpg';
-import AndrewlPhotoJpg from '../assets/images/team/andrew.jpg';
 import LanaPhotoJpg from '../assets/images/team/lana.jpg';
-import MarynaPhotoJpg from '../assets/images/team/maryna.jpg';
 import VadymPhotoJpg from '../assets/images/team/vadym.jpg';
 
 import { InstagramIcon, TelegramIcon } from '../assets/icons';
@@ -30,10 +28,6 @@ const navLinks = [
   {
     link: '/reports',
     label: 'home.header.reports',
-  },
-  {
-    link: '/partners',
-    label: 'home.header.partners',
   },
 ];
 
@@ -96,14 +90,14 @@ const socialNetworks = [
 
 const teamList = [
   {
-    name: 'Сергiй Макаров',
-    text: 'Голова правління та співзасновник благодійного фонду, IT Web Engineer, консультант міжнародних веб проектів',
-    image: SergeyPhotoJpg,
+    name: 'Кирило Курiнов',
+    text: 'Директор та співзасновник благодійного фонду.',
+    image: KyrylPhotoJpg,
   },
   {
-    name: 'Кирило Курiнов',
-    text: 'Президент та співзасновник благодійного фонду, IT web спеціаліст',
-    image: KyrylPhotoJpg,
+    name: 'Сергiй Макаров',
+    text: 'Заступник директора та співзасновник благодійного фонду. IT Web Engineer',
+    image: SergeyPhotoJpg,
   },
   {
     name: 'Вадим',
@@ -114,16 +108,6 @@ const teamList = [
     name: 'Руслана',
     text: 'Руслана - член команди закупівельників, яка збирає військове спорядження та займається соціальною роботою.',
     image: LanaPhotoJpg,
-  },
-  {
-    name: 'Андрій',
-    text: 'Андрій - відданий своїй справі і надає пріоритет обробці заявок та організації роботи складу.',
-    image: AndrewlPhotoJpg,
-  },
-  {
-    name: 'Марина',
-    text: 'Марина - член команди закупівельників, яка збирає військове спорядження та займається соціальною роботою.',
-    image: MarynaPhotoJpg,
   },
 ];
 

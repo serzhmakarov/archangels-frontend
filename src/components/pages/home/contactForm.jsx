@@ -12,6 +12,8 @@ import Alert from '../../globals/alert';
 import useSendForm from '../../../hooks/useSendForm';
 import { contactFormFields } from '../../../constants';
 
+// TODO: Clear form fields after sending
+
 const ContactForm = () => {
   const { t } = useTranslation();
   const { callback, loading, message, error } = useSendForm();

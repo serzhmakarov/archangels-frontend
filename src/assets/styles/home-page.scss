@@ -1,9 +1,9 @@
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
 $black: #000000;
-$red: #B30000;
+$red: #b30000;
 
-.content-wrapper { 
+.content-wrapper {
   padding: 32px 0;
 }
 
@@ -20,7 +20,9 @@ $red: #B30000;
       width: 100%;
     }
 
-    h1, h4, p {
+    h1,
+    h4,
+    p {
       margin: 0;
     }
 
@@ -131,7 +133,8 @@ $red: #B30000;
           margin: 8px;
           width: 100%;
 
-          &:first-of-type, &:last-of-type {
+          &:first-of-type,
+          &:last-of-type {
             margin-left: 0;
             margin-right: 0;
           }
@@ -141,13 +144,14 @@ $red: #B30000;
   }
 
   &__title-block-image-mobile {
+    background: url('../images/last_project_photo.jpg') no-repeat;
+    background-position: bottom;
+    background-size: cover;
     display: none;
     height: 300px;
-    width: 100%;
     margin-top: 16px;
-    background: url('../images/main_page_mobile.png') no-repeat;
-    background-size: cover;
     order: 2;
+    width: 100%;
 
     @media screen and (max-width: 991px) {
       display: block;
@@ -164,9 +168,10 @@ $red: #B30000;
   }
 
   &__title-block-image {
+    background: url('../images/last_project_photo.jpg') no-repeat;
+    background-position: 50%;
+    background-size: contain;
     height: 100%;
-    background: url('../images/main_page.jpg') no-repeat;
-    background-size: cover;
   }
 
   &__responsibility-wrapper {
@@ -229,14 +234,15 @@ $red: #B30000;
 
     &:hover {
       color: $red;
-      opacity: .7;
+      opacity: 0.7;
     }
   }
 
   &__help-content-container {
     flex-direction: column;
 
-    .col-4, .col-8 {
+    .col-4,
+    .col-8 {
       width: 100%;
     }
 
@@ -250,12 +256,11 @@ $red: #B30000;
     }
   }
 
-  &__contact-form-wrapper  {
-
+  &__contact-form-wrapper {
     textarea {
       height: 200px;
     }
-  
+
     .react-tel-input {
       &.form-control {
         border: 0;
@@ -268,12 +273,13 @@ $red: #B30000;
       }
     }
 
-    input, textarea {
+    input,
+    textarea {
       resize: none;
 
       &:focus {
-       border: 1px solid black; 
-       box-shadow: 0 0 0 .25rem rgba(0, 0, 0, .1);
+        border: 1px solid black;
+        box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.1);
       }
     }
 
@@ -288,14 +294,16 @@ $red: #B30000;
   @media screen and (max-width: 991px) {
     display: flex;
     flex-direction: column;
-    
-    .col-sm-4, .col-sm-8 {
+
+    .col-sm-4,
+    .col-sm-8 {
       width: 100%;
     }
   }
 }
 
-.contacts-info, .contacts-info-mobile {
+.contacts-info,
+.contacts-info-mobile {
   font-size: 16px;
   line-height: 28px;
 
@@ -311,11 +319,11 @@ $red: #B30000;
       color: $red;
 
       &:hover {
-        opacity: .7;
+        opacity: 0.7;
       }
     }
   }
-  
+
   h3 {
     font-size: 16px;
     margin-bottom: 28px;
@@ -342,7 +350,7 @@ $red: #B30000;
   display: none;
   margin-bottom: 24px;
   line-height: 3;
-  
+
   @media screen and (max-width: 991px) {
     display: block;
   }
