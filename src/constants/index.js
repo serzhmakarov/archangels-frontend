@@ -130,94 +130,8 @@ const currencyAccounts = [
   },
 ];
 
-const adminTableReportsFields = [
-  {
-    name: 'id',
-    label: 'ID',
-  },
-  {
-    name: 'photo_url',
-    label: 'Фото',
-  },
-  {
-    key: 'name',
-    label: 'Назва',
-  },
-  {
-    key: 'short_description',
-    label: 'Короткий опис',
-  },
-  {
-    key: 'long_description',
-    label: 'Довгий опис',
-  },
-  {
-    key: 'date',
-    label: 'Дата (звiту)',
-  },
-];
-
-const adminTableProjectsFields = [
-  {
-    name: 'id',
-    label: 'ID',
-  },
-  {
-    name: 'photo_url',
-    label: 'Фото',
-  },
-  {
-    key: 'name',
-    label: 'Назва',
-  },
-  {
-    key: 'short_description',
-    label: 'Короткий опис',
-  },
-  {
-    key: 'long_description',
-    label: 'Довгий опис',
-  },
-  {
-    key: 'feeback',
-    label: 'Відгук',
-  },
-  {
-    key: 'created_at',
-    label: 'Створено',
-  },
-];
-
-const adminTablePartnersFields = [
-  {
-    name: 'id',
-    label: 'ID',
-  },
-  {
-    name: 'photo_url',
-    label: 'Фото',
-  },
-  {
-    key: 'name',
-    label: 'Назва',
-  },
-  {
-    key: 'short_description',
-    label: 'Короткий опис',
-  },
-  {
-    key: 'long_description',
-    label: 'Довгий опис',
-  },
-  {
-    key: 'projects',
-    label: 'Кількість проектів',
-  },
-];
-
 const routesPath = {
   root: '/',
-  admin: '/admin',
   about: '/about',
   help: '/help',
   reports: '/reports',
@@ -240,8 +154,8 @@ const contacts = [
   {
     key: 'telegram',
     label: 'home.contacts.form.telegram',
-    value: 't.me/Solomka_Help',
-    link: 'https://t.me/Solomka_Help',
+    value: 't.me/archangels_ua',
+    link: 'https://t.me/archangels_ua',
   },
   {
     key: 'phone',
@@ -257,9 +171,6 @@ export {
   socialNetworks,
   teamList,
   currencyAccounts,
-  adminTableReportsFields,
-  adminTablePartnersFields,
-  adminTableProjectsFields,
   routesPath,
   contacts,
   achieves,

@@ -1,22 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Tabs, Tab, Container, Col, Row } from 'react-bootstrap';
 
 import NormalizedDate from '../../../globals/NormalizedDate';
 import withLoading from '../../../../hooks/useLoading';
 import LazyBackground from '../../../../_helpers/LazyBackground';
 import ReportSocialNetworks from './ReportSocialNetworks';
-import ReportCard from '../reportCard';
-
-const tabs = {
-  reports: { key: 'reports', label: 'Про Проєкт' },
-  partners: { key: 'partners', label: 'Партнери' },
-};
+import NearbyPosts from './nearbyPosts';
 
 const Content = ({ data, containerRef }) => {
-  const [activeTab, setActiveTab] = useState(tabs.reports.key);
-
-  const handleTabChange = (tab) => setActiveTab(tab);
-
   const {
     nearby_posts,
     post: {
@@ -25,11 +16,9 @@ const Content = ({ data, containerRef }) => {
       long_description,
       photo_url,
       date,
-      social_networks,
+      social_links,
     },
   } = data;
-
-  console.log(activeTab);
 
   return (
     <Container className="reports-item-page" ref={containerRef} lg={12}>
@@ -37,7 +26,7 @@ const Content = ({ data, containerRef }) => {
         <h1 className="title-block-text">
           {name}
           <NormalizedDate date={date} />
-          <ReportSocialNetworks socialNetworks={social_networks} />
+          <ReportSocialNetworks socialNetworks={social_links} />
         </h1>
       </Col>
 
@@ -52,32 +41,19 @@ const Content = ({ data, containerRef }) => {
           className="reports-item-page__description-block"
           defaultActiveKey="reports"
           id="tabs"
-          onSelect={handleTabChange}
         >
           <Tab title="Про Проєкт" className="tab-title" eventKey="reports">
             <div className="description-wrapper">
               <p>
-                <b>{short_description}</b>
+                <b dangerouslySetInnerHTML={{ __html: short_description }} />
               </p>
-              <p>{long_description}</p>
+              <p dangerouslySetInnerHTML={{ __html: long_description }} />
             </div>
           </Tab>
         </Tabs>
       </Col>
 
-      <Col lg={12} className="reports-item-page__reports-block">
-        <h1 className="nearby_reports-title">ІНШІ ЗВІТИ</h1>
-        <hr />
-        <div className="reports-item-page__reports-block-cards">
-          {nearby_posts.map((postData) => (
-            <ReportCard
-              {...postData}
-              photo={postData.photo_url}
-              key={postData.id}
-            />
-          ))}
-        </div>
-      </Col>
+      <NearbyPosts posts={nearby_posts} />
     </Container>
   );
 };

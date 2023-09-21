@@ -2,7 +2,6 @@ import Home from '../components/pages/home';
 import About from '../components/pages/about';
 import HelpUs from '../components/pages/help';
 import Reports from '../components/pages/reports';
-import Admin from '../components/pages/admin';
 import ReportItem from '../components/pages/reports/report-item';
 import Documents from '../components/pages/documents';
 import Terms from '../components/pages/terms/ua';
@@ -16,10 +15,6 @@ import withLayout from '../HOC/withLayout';
 import { routesPath } from '../constants';
 
 const routes = [
-  {
-    path: routesPath.admin,
-    element: Admin,
-  },
   {
     path: routesPath.about,
     element: withLayout(About),
